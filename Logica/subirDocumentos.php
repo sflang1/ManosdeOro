@@ -6,7 +6,6 @@
 	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
 	$adao=new ArtesanoDao();
 	$id=$_POST["id"];
-	$idproducto=$_POST["idproducto"];
 	$artesano=new Artesano();
 	$artesano=$adao->getObject($conn,$id);
 	$dirrut=$_FILES["rut"]["tmp_name"];

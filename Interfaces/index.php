@@ -140,7 +140,7 @@
 			{
 				$j=count($noticias)+3-$i;
 				echo("<h2 id='titulos_noticias'>".$noticias[$j]->getTitulo()."</h2>");
-				echo("<h3 id='strings_editar' style='$noticias'>".$noticias[$j]->getContenido()."</h3>");
+				echo("<h3 id='strings_editar' style='noticias'>".$noticias[$j]->getContenido()."</h3>");
 				echo("<br>");
 				echo("<hr>");
 			}

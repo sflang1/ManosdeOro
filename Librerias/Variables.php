@@ -1,7 +1,7 @@
 <?php
 	$dbhost="localhost";
-	$dbName="dstecco_manosdeoro2";
-	$dbUser="root";
-	$dbPassword="";
+	$dbName="manosdeoro";
+	$dbUser="usermanos";
+	$dbPassword="abcdef";
 	$filelocation="../Archivos";
 ?>

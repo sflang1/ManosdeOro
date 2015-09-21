@@ -153,26 +153,26 @@
 					<h1 id="strings_editar_rojo">Llene el siguiente formulario para editar un Administrador</h1><br>
 					<form method="POST" action="../Logica/modificarArtesano.php">
 						<table>
-							<input type="hidden" name="idArtesano" value=<?php echo($artesano->getIdArtesano());?>>
+							<input type="hidden" name="idArtesano" value=<?php echo($artesano->getIdartesano());?>>
 							<tr>
 								<td>Nombre: </td>
-								<td><input type="text" name="nom" value=<?php echo(utf8_encode($artesano->getNombre()));?>></td>
+								<td><input type="text" name="nom" id="nomArt"></td>
 							</tr>
 							<tr>
 								<td>Dirección: </td>
-								<td><input type="text" name="direccion" value=<?php echo(utf8_encode($artesano->getDireccion()));?>></td>
+								<td><input type="text" name="direccion" id="dirArt"></td>
 							</tr>
 							<tr>
 								<td>Teléfono: </td>
-								<td><input type="text" name="telefono" value=<?php echo(utf8_encode($artesano->getTelefono()));?>></td>
+								<td><input type="text" name="telefono" id="telArt"></td>
 							</tr>
 							<tr>
 								<td>Celular: </td>
-								<td><input type="text" name="celular" value=<?php echo(utf8_encode($artesano->getCelular()));?>></td>
+								<td><input type="text" name="celular" id="celArt"></td>
 							</tr>
 							<tr>
 								<td>Email: </td>
-								<td><input type="email" name="email" value=<?php echo(utf8_encode($artesano->getEmail()));?>></td>
+								<td><input type="email" name="email" id="emailArt"></td>
 							</tr>
 							<tr>
 								<td colspan='2'>
@@ -181,6 +181,20 @@
 							</tr>
 						</table>
 					</form>
+					<script type="text/javascript">
+						var nArt=document.getElementById("nomArt");
+						var dirArt=document.getElementById("dirArt");
+						var telArt=document.getElementById("telArt");
+						var celArt=document.getElementById("celArt");
+						var elArt=document.getElementById("emailArt");
+						elArt.value="<?php echo($artesano->getEmail());?>";
+						nArt.value="<?php echo($artesano->getNombre());?>";
+						dirArt.value="<?php echo($artesano->getDireccion());?>";
+						telArt.value="<?php echo($artesano->getTelefono());?>";
+						celArt.value="<?php echo($artesano->getCelular());?>";
+						/*nArt.value=""+<?php ($artesano->getNombre());?>*/
+						
+					</script>
 				</center>
 			</section>
 			<footer>		

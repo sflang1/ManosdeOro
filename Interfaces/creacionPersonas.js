@@ -193,7 +193,7 @@ function eliminarArtesano(idArtesano)
 {
 	if(confirm("¿Realmente desea eliminar este artesano? Recuerde que al borrarlo eliminará del sistema también a los productos que ha registrado este artesano"));
 	{
-		$.getJSON("../Logica/eliminarArtesano.php?idArtesano="+idArtesano,
+		$.getJSON("../Logica/eliminarArtesanos.php?idArtesano="+idArtesano,
 					function (result)
 					{
 						if(result.exito==1)

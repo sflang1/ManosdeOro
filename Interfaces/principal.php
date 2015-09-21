@@ -116,7 +116,7 @@
 			<br>
 
 						<br>
-						<h1 id="titulos_noticias">En este menu podras ver el estado de tus productos y la fase de aprovacion en la que se encuentran<br></h1>
+						<h1 id="titulos_noticias">En este menú podrás ver el estado de tus productos y la fase de aprobación en la que se encuentran<br></h1>
 						
 						<div id="funcionesAdicionales">
 						<?php

@@ -193,10 +193,10 @@
 													$producto=$prodnoaceptados[$i];
 													$artesano=$artdao->getObject($conn,($producto->getIdartesano()));
 													echo("<tr>");
-													echo("<td id='strings_editar'>".($artesano->getNombre())."</td>");
+													echo("<td id='strings_editar'>".(utf8_encode($artesano->getNombre()))."</td>");
 													echo("<td id='strings_editar'>".($artesano->getDireccion())."</td>");
 													echo("<td id='strings_editar'>".($artesano->getTelefono())."</td>");
-													echo("<td id='strings_editar'>".($producto->getDescripcion())."</td>");
+													echo("<td id='strings_editar'>".(utf8_encode($producto->getDescripcion()))."</td>");
 													echo("<td id='strings_editar'>".$producto->getLink()."</td>");
 													echo("<td><input type='button' value='Aceptar producto' onclick='aceptarProducto(".$producto->getIdproducto().")'></td>");
 													echo("<td><input type='button' value='Rechazar producto' onclick='rechazarProducto(".$producto->getIdproducto().")'></td>");
