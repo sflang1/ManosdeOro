@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE daogen-metadata>
+
+<daogen-metadata>
+   <version>2.4.1</version>
+   <timestamp>21.04.2015</timestamp>
+
+   <tableName>solicitud</tableName>
+   <className>Solicitud</className>
+   <language>php</language>
+   <database>mysql</database>
+   <useCache>false</useCache>
+   <classPackage></classPackage>
+   <columns>
+      <dbColumn PK="true" colType="Int" colName="idSolicitud" varName="idSolicitud" 
+      automatic="false" valueSource="" indexed="true" colLength="10" orderLevel="1" orderType="ASC" />
+
+      <dbColumn PK="false" colType="Int" colName="idArtesano" varName="idArtesano" 
+      automatic="false" valueSource="" indexed="false" colLength="10" orderLevel="0" orderType="ASC" />
+
+      <dbColumn PK="false" colType="Int" colName="idStand" varName="idStand" 
+      automatic="false" valueSource="" indexed="false" colLength="10" orderLevel="0" orderType="ASC" />
+
+   </columns>
+</daogen-metadata>

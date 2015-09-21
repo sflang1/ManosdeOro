@@ -1,0 +1,3 @@
+- que aparezcan as ñ en las validaciones de php
+- no funciona eliminar y verificar el funcionamiento bueno en administrar personas en el sistema.
+- el error que sale cuando se sube un archivo de rut y la foto
