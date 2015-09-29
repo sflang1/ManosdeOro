@@ -162,24 +162,24 @@
 							if(count($prodnoaceptados)!=0)
 							{
 								?>
-									<table>
+									<table >
 										<tr>
-											<td >
-											<h1 id="strings_editar_rojo2">Nombre</h1>
+											<td  style="padding:5px">
+											<h1 id="strings_editar_rojo2">Nombre Artesano</h1>
 											</td>
-											<td>
+											<td style="padding:5px">
 											<h1 id="strings_editar_rojo2">Dirección</h1>
 											</td>
-											<td>
+											<td style="padding:5px">
 											<h1 id="strings_editar_rojo2">Teléfono</h1>
 											</td>
-											<td>
-												<h1 id="strings_editar_rojo2">Descripción</h1>
+											<td style="padding:5px">
+												<h1 id="strings_editar_rojo2">Nombre de Producto</h1>
 											</td>
-											<td >
+											<td  style="padding:5px">
 												<h1 id="strings_editar_rojo2">Link</h1>
 											</td>
-											<td>
+											<td style="padding:5px">
 											</td>
 										</tr>
 
@@ -193,13 +193,13 @@
 													$producto=$prodnoaceptados[$i];
 													$artesano=$artdao->getObject($conn,($producto->getIdartesano()));
 													echo("<tr>");
-													echo("<td id='strings_editar'>".(utf8_encode($artesano->getNombre()))."</td>");
-													echo("<td id='strings_editar'>".($artesano->getDireccion())."</td>");
-													echo("<td id='strings_editar'>".($artesano->getTelefono())."</td>");
-													echo("<td id='strings_editar'>".(utf8_encode($producto->getDescripcion()))."</td>");
-													echo("<td id='strings_editar'>".$producto->getLink()."</td>");
-													echo("<td><input type='button' value='Aceptar producto' onclick='aceptarProducto(".$producto->getIdproducto().")'></td>");
-													echo("<td><input type='button' value='Rechazar producto' onclick='rechazarProducto(".$producto->getIdproducto().")'></td>");
+													echo("<td  style='padding:5px' id='strings_editar'>".(utf8_encode($artesano->getNombre()))."</td>");
+													echo("<td  style='padding:5px' id='strings_editar'>".($artesano->getDireccion())."</td>");
+													echo("<td  style='padding:5px' id='strings_editar'>".($artesano->getTelefono())."</td>");
+													echo("<td  style='padding:5px' id='strings_editar'>".(utf8_encode($producto->getDescripcion()))."</td>");
+													echo("<td  style='padding:5px' id='strings_editar'>".$producto->getLink()."</td>");
+													echo("<td style='padding:5px' ><input type='button' value='Aceptar producto' onclick='aceptarProducto(".$producto->getIdproducto().")'></td>");
+													echo("<td style='padding:5px' ><input type='button' value='Rechazar producto' onclick='rechazarProducto(".$producto->getIdproducto().")'></td>");
 
 													echo("</tr>");
 												}

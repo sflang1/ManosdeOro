@@ -61,12 +61,13 @@
 		{
 			$list=($artesanoDao->searchMatching($conn,$artesano));
 			$artesano=$list[0];
+			$nombproducto=$_POST["nombproducto"];
 			$descripcion=$_POST["descripcion"];
 			$link=$_POST["link"];
 			$empresa=utf8_decode($_POST["empresa"]);
 			$nroenvio=$_POST["nroenvio"];
 			$producto=new Producto();
-			$producto->setAll(1,$descripcion,$link,$artesano->getIdArtesano(),0,$empresa,$nroenvio,0,0,0,0,0,$_POST["mostrar"]);
+			$producto->setAll(1,$nombproducto,$descripcion,$link,$artesano->getIdArtesano(),0,$empresa,$nroenvio,0,0,0,0,0,$_POST["mostrar"]);
 			if($pDao->create($conn,$producto))
 			{
 				$asunto="Notificación artesano  registrado: ".$artesano->getNombre();

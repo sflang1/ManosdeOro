@@ -105,3 +105,4 @@
 [05-May-2015 10:02:30 America/Bogota] PHP Parse error:  syntax error, unexpected 'entra' (T_STRING) in /home/dstecco/public_html/Final/manos/Logica/formulario_particular.php on line 12
 [05-May-2015 10:03:29 America/Bogota] PHP Parse error:  syntax error, unexpected 'entra' (T_STRING) in /home/dstecco/public_html/Final/manos/Logica/formulario_particular.php on line 13
 [05-May-2015 10:03:52 America/Bogota] PHP Parse error:  syntax error, unexpected 'entra' (T_STRING) in /home/dstecco/public_html/Final/manos/Logica/formulario_particular.php on line 13
+[22-Sep-2015 17:53:27 America/Bogota] PHP Fatal error:  Call to a member function getNombre() on a non-object in /home/dstecco/public_html/Manosdeoro/Logica/agregarCurso.php on line 39

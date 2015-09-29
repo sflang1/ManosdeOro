@@ -34,7 +34,7 @@
 						<img id="logo2" src="../imgs/logo2.png">
 					</center>
 				</div>
-<form method="POST" action="../Logica/formulario_artesano.php">
+<form method="POST" action="../Logica/agregarInscrito.php">
 				<div style="float: right; width: 60%;">
 			<h1 id="titulos_contacto">Regristro Cursos C.D.A</h1>
 			<h1 id="titulos_noti">Registro al curso: </h1>
@@ -43,11 +43,17 @@
 		
 			<center>
 			<table>
-			<tr><td> <input placeholder="Nombre Completo" id="input_txt" type='text' name='nombre' required></td></tr>
-			<tr><td> <input placeholder="Cedula" id="input_txt" type='tel' name='cedula' required></td></tr>
-			<tr><td> <input placeholder="email" id="input_txt" type='email' name='email' required></td></tr>
-			<tr><td> <input placeholder="Celular" id="input_txt" type='tel' name='mensaje' required></input></td></tr>
-			<tr><td> <input placeholder="Direccion" id="input_txt" type='text' name='direccion' required></input></td></tr>
+			<tr><td><h1 id="titulos_noticias">Nombre Completo</h1><td></tr>
+			<tr><td> <input value="<?php echo($_GET["nombre"]);?>" placeholder="Nombre Completo" id="input_txt" type='text' name='nombre' required></td></tr>
+			<tr><td><h1 id="titulos_noticias">Cedula</h1><td></tr>
+			<tr><td> <input value="<?php echo($_GET["cedula"]);?>" placeholder="Cedula" id="input_txt" type='tel' name='cedula' required></td></tr>
+			<tr><td><h1 id="titulos_noticias">Email</h1><td></tr>
+			<tr><td> <input value="<?php echo($_GET["email"]);?>" placeholder="email" id="input_txt" type='email' name='email' required></td></tr>
+			<tr><td><h1 id="titulos_noticias">Celular</h1><td></tr>
+			<tr><td> <input value="<?php echo($_GET["celular"]);?>" placeholder="Celular" id="input_txt" type='tel' name='mensaje' required></input></td></tr>
+			<tr><td><h1 id="titulos_noticias">Direccion</h1><td></tr>
+			<tr><td> <input value="<?php echo($_GET["direccion"]);?>" placeholder="Direccion" id="input_txt" type='text' name='direccion' required></input></td></tr>
+			<tr><td><h1 id="titulos_noticias">Ciudad</h1><td></tr>
 			<tr><td> <input placeholder="Ciudad" id="input_txt" type='text' name='ciudad' required></input></td></tr>
 			<tr><td colspan='2'></td></tr>
 			</table>

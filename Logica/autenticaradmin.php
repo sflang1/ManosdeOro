@@ -43,7 +43,7 @@
 				<script type="text/javascript">
 					alert("Autenticaci\u00F3n exitosa");
 				</script>
-				<Meta http-equiv="refresh" content="0,url=../Interfaces/admon.php">
+				<Meta http-equiv="refresh" content="0,url=../Interfaces/administracion.php">
 				<?php
 			}
 			else

@@ -35,6 +35,7 @@ class Producto {
      * mapped to the columns of database table.
      */
     var $idproducto;
+    var $nombproducto;
     var $descripcion;
     var $link;
     var $idartesano;
@@ -80,6 +81,14 @@ class Producto {
     function setIdproducto($idproductoIn) {
           $this->idproducto = $idproductoIn;
     }
+
+    function getNombproducto() {
+          return $this->nombproducto;
+    }
+    function setNombproducto($nombproducto) {
+          $this->nombproducto = $nombproducto;
+    }
+
 
     function getDescripcion() {
           return $this->descripcion;
@@ -176,6 +185,7 @@ class Producto {
      */
 
     function setAll($idproductoIn,
+          $nombproductoIn,
           $descripcionIn,
           $linkIn,
           $idartesanoIn,
@@ -189,6 +199,7 @@ class Producto {
           $precioIn,
           $mostrarIn) {
           $this->idproducto = $idproductoIn;
+          $this->nombproducto = $nombproductoIn;
           $this->descripcion = $descripcionIn;
           $this->link = $linkIn;
           $this->idartesano = $idartesanoIn;
@@ -214,6 +225,9 @@ class Producto {
     function hasEqualMapping($valueObject) {
 
           if ($valueObject->getIdproducto() != $this->idproducto) {
+                    return(false);
+          }
+          if ($valueObject->getNombproducto() != $this->nombproducto) {
                     return(false);
           }
           if ($valueObject->getDescripcion() != $this->descripcion) {
@@ -268,6 +282,7 @@ class Producto {
         $out = $out."\nclass Producto, mapping to table producto\n";
         $out = $out."Persistent attributes: \n"; 
         $out = $out."idproducto = ".$this->idproducto."\n"; 
+        $out = $out."nombproducto = ".$this->nombproducto."\n"; 
         $out = $out."descripcion = ".$this->descripcion."\n"; 
         $out = $out."link = ".$this->link."\n"; 
         $out = $out."idartesano = ".$this->idartesano."\n"; 
@@ -294,6 +309,7 @@ class Producto {
         $cloned = new Producto();
 
         $cloned->setIdproducto($this->idproducto); 
+        $cloned->setNombproducto($this->nombproducto); 
         $cloned->setDescripcion($this->descripcion); 
         $cloned->setLink($this->link); 
         $cloned->setIdartesano($this->idartesano); 

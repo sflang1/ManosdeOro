@@ -61,13 +61,14 @@
 				echo("<img src='../Archivos/fotoProducto".($producto->getIdproducto()).".png' width='".$anchofoto."' height='".$altofoto."'");	
 			}
 		?>
-		<br><h1 id="titulos_acerca">Detalles del producto</h1><br> <?php echo($producto->getDescripcion());?>:<br>
+		<br><h1 id="titulos_noticias">Nombre del producto</h1><br> <?php echo($producto->getDescripcion());?><br>
+		<br><h1 id="titulos_noticias">Detalles del producto</h1><br> <?php echo(utf8_encode("<textarea style='width:250px; height:80px; resize:none; border:transparent;'>".$producto->getNombproducto()."</textarea>"));?><br>
 		<?php
 			
 			if(strlen($producto->getLink())!=0)
 			{
 				
-				echo("Link con información adicional: <a href='".$producto->getLink()."'>aquí</a><br>");
+				echo("Link con información adicional: <a href='".$producto->getLink()."'>aquí</a>");
 			}
 		?>
 					</center>

@@ -76,6 +76,14 @@
 				
 			<section id="sec4">
 				<h1 id="titulos_inicio_sesion">Creación de la cuenta de usuario</h1>
+				<br>
+				<hr>
+		<h1 id="strings_editar_rojo">Descargue su Formulario en (PDF)</h1><a href="../formulario/formulario.pdf">Aqui</a>
+		<br>
+		<br>
+		<Hr>
+		<br>
+
 		<h1 id="titulos_noti">Por favor, llene el siguiente formulario. Los campos con * son obligatorios</h1>
 		<form method="POST" action="../Logica/registrarArtesano.php" onsubmit="return validacionForm()">
 			<table>
@@ -244,22 +252,23 @@
 						<input type="text" name="nroenvio" id="nroenvio" required>
 					</td>
 				</tr>
-				<tr>
+								<tr>
 					<td id="strings_editar">
-						Nombre del Producto(*)
-					</td>
-					<td>
-						<input type="text" name="nomb_producto" id="descripcion" height="6em;" required>
-					</td>
-				</tr>
-				<tr>
-					<td id="strings_editar">
-						Descripción del producto (*)
+						Nombre del producto (*)
 					</td>
 					<td>
 						<input type="text" name="descripcion" id="descripcion" height="6em;" required>
 					</td>
+				</tr
+				<tr>
+					<td id="strings_editar">
+						Descripcion del Producto(*)
+					</td>
+					<td>
+						<input type="text" name="nombproducto" id="nombproducto" height="6em;" required>
+					</td>
 				</tr>
+>
 				<tr>
 					<td id="strings_editar">
 						Link. Agrega un video que contenga más información:

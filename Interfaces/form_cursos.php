@@ -9,7 +9,7 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="../imgs/icono/apple-icon-114x114.png">
 		<link rel="apple-touch-icon" sizes="120x120" href="../imgs/icono/apple-icon-120x120.png">
 		<link rel="apple-touch-icon" sizes="144x144" href="../imgs/icono/apple-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="../imgs/icono/apple-icon-152x152.png">
+		<link rel="actionpple-touch-icon" sizes="152x152" href="../imgs/icono/apple-icon-152x152.png">
 		<link rel="apple-touch-icon" sizes="180x180" href="../imgs/icono/apple-icon-180x180.png">
 		<link rel="icon" type="image/png" sizes="192x192"  href="../imgs/android-icon-192x192.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="../imgs/icono/favicon-32x32.png">
@@ -34,7 +34,7 @@
 						<img id="logo2" src="../imgs/logo2.png">
 					</center>
 				</div>
-<form method="POST" action="../Logica/formulario_particular.php">
+<form method="POST" action="../Logica/agregarInscrito.php">
 				<div style="float: right; width: 60%;">
 			<h1 id="titulos_contacto">Regristro Cursos C.D.A</h1>
 			<h1 id="titulos_noti">Registro al curso: </h1>
@@ -46,7 +46,7 @@
 			<tr><td> <input placeholder="Nombre Completo" id="input_txt" type='text' name='nombre' required></td></tr>
 			<tr><td> <input placeholder="Cedula" id="input_txt" type='tel' name='cedula' required></td></tr>
 			<tr><td> <input placeholder="email" id="input_txt" type='email' name='email' required></td></tr>
-			<tr><td> <input placeholder="Celular" id="input_txt" type='tel' name='mensaje' required></input></td></tr>
+			<tr><td> <input placeholder="Celular" id="input_txt" type='tel' name='celular' required></input></td></tr>
 			<tr><td> <input placeholder="Direccion" id="input_txt" type='text' name='direccion' required></input></td></tr>
 			<tr><td> <input placeholder="Ciudad" id="input_txt" type='text' name='ciudad' required></input></td></tr>
 			<tr><td colspan='2'></td></tr>

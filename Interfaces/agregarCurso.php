@@ -191,6 +191,7 @@
 						</table>
 						</form>
 						<script type="text/javascript" src="agregarCurso.js"></script>
+						<input type="button" id="boton_enviar" value="Ver Inscritos" onClick="window.location.href='verInscritos.php'">
 				</center>
 			</section>
 			<footer>		

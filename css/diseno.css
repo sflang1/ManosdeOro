@@ -55,7 +55,7 @@ body{
 
 #reporte{
 margin-top:20px;
-	height: auto;
+	height: 700px;
 	width: auto;
 	-moz-border-radius: 50px 50px 50px 50px;
 	-webkit-border-radius: 50px 50px 50px 50px;
@@ -413,7 +413,7 @@ margin: 2px;
 	font-family: CenturyGothicNormal;
  	color: #000;
  	font-size: 15px;
- 	text-align: left;
+ 	text-align: justify;
 }
 
 #strings_editar_rojo{

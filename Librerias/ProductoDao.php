@@ -130,11 +130,12 @@ class ProductoDao {
      */
     function create($conn, $valueObject) {
 
-          $sql = "INSERT INTO producto ( descripcion, link, ";
+          $sql = "INSERT INTO producto ( nombproducto, descripcion, link, ";
           $sql = $sql."idartesano, aceptado, empresa, ";
           $sql = $sql."nroenvio, notificado, stock, ";
           $sql = $sql."ventas, formatofoto, precio, ";
           $sql = $sql."mostrar) VALUES (";
+          $sql = $sql."'".$valueObject->getNombproducto()."', ";
           $sql = $sql."'".$valueObject->getDescripcion()."', ";
           $sql = $sql."'".$valueObject->getLink()."', ";
           $sql = $sql."".$valueObject->getIdartesano().", ";
@@ -167,7 +168,8 @@ class ProductoDao {
      */
     function save($conn, $valueObject) {
 
-          $sql = "UPDATE producto SET descripcion = '".$valueObject->getDescripcion()."', ";
+          $sql = "UPDATE producto SET descripcion = '".$valueObject->getNombproducto()."', ";
+          $sql = $sql."descripcion = '".$valueObject->getDescripcion()."', ";
           $sql = $sql."link = '".$valueObject->getLink()."', ";
           $sql = $sql."idartesano = ".$valueObject->getIdartesano().", ";
           $sql = $sql."aceptado = ".$valueObject->getAceptado().", ";
@@ -287,6 +289,11 @@ class ProductoDao {
               $sql = $sql."AND idproducto = ".$valueObject->getIdproducto()." ";
           }
 
+          if ($valueObject->getNombproducto() != "") {
+              if ($first) { $first = false; }
+              $sql = $sql."AND nombproducto LIKE '".$valueObject->getNombproducto()."%' ";
+          }
+
           if ($valueObject->getDescripcion() != "") {
               if ($first) { $first = false; }
               $sql = $sql."AND descripcion LIKE '".$valueObject->getDescripcion()."%' ";
@@ -404,18 +411,19 @@ class ProductoDao {
           if ($row = $conn->nextRow($result)) {
 
                    $valueObject->setIdproducto($row[0]); 
-                   $valueObject->setDescripcion($row[1]); 
-                   $valueObject->setLink($row[2]); 
-                   $valueObject->setIdartesano($row[3]); 
-                   $valueObject->setAceptado($row[4]); 
-                   $valueObject->setEmpresa($row[5]); 
-                   $valueObject->setNroenvio($row[6]); 
-                   $valueObject->setNotificado($row[7]); 
-                   $valueObject->setStock($row[8]); 
-                   $valueObject->setVentas($row[9]); 
-                   $valueObject->setFormatofoto($row[10]); 
-                   $valueObject->setPrecio($row[11]); 
-                   $valueObject->setMostrar($row[12]); 
+                   $valueObject->setNombproducto($row[1]); 
+                   $valueObject->setDescripcion($row[2]); 
+                   $valueObject->setLink($row[3]); 
+                   $valueObject->setIdartesano($row[4]); 
+                   $valueObject->setAceptado($row[5]); 
+                   $valueObject->setEmpresa($row[6]); 
+                   $valueObject->setNroenvio($row[7]); 
+                   $valueObject->setNotificado($row[8]); 
+                   $valueObject->setStock($row[9]); 
+                   $valueObject->setVentas($row[10]); 
+                   $valueObject->setFormatofoto($row[11]); 
+                   $valueObject->setPrecio($row[12]); 
+                   $valueObject->setMostrar($row[13]); 
           } else {
                //print " Object Not Found!";
                return false;
@@ -441,18 +449,19 @@ class ProductoDao {
                $temp = $this->createValueObject();
 
                $temp->setIdproducto($row[0]); 
-               $temp->setDescripcion($row[1]); 
-               $temp->setLink($row[2]); 
-               $temp->setIdartesano($row[3]); 
-               $temp->setAceptado($row[4]); 
-               $temp->setEmpresa($row[5]); 
-               $temp->setNroenvio($row[6]); 
-               $temp->setNotificado($row[7]); 
-               $temp->setStock($row[8]); 
-               $temp->setVentas($row[9]); 
-               $temp->setFormatofoto($row[10]); 
-               $temp->setPrecio($row[11]); 
-               $temp->setMostrar($row[12]); 
+               $temp->setNombproducto($row[1]); 
+               $temp->setDescripcion($row[2]); 
+               $temp->setLink($row[3]); 
+               $temp->setIdartesano($row[4]); 
+               $temp->setAceptado($row[5]); 
+               $temp->setEmpresa($row[6]); 
+               $temp->setNroenvio($row[7]); 
+               $temp->setNotificado($row[8]); 
+               $temp->setStock($row[9]); 
+               $temp->setVentas($row[10]); 
+               $temp->setFormatofoto($row[11]); 
+               $temp->setPrecio($row[12]); 
+               $temp->setMostrar($row[13]); 
                array_push($searchResults, $temp);
           }
 
