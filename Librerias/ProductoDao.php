@@ -56,11 +56,16 @@ class ProductoDao {
           $this->load($conn, $valueObject);
           return $valueObject;
     }
-
+    function listTiendaVirtualAlphabetic($conn)
+    {
+      $sql="SELECT * FROM producto WHERE (aceptado=2 && mostrar=1) ORDER BY descripcion ASC";
+      $searchResults=$this->listQuery($conn,$sql);
+      return $searchResults;
+    }
 
     function busquedaTiendaVirtual($conn,$cadena)
     {
-      $sql="SELECT * FROM producto WHERE (descripcion LIKE '%".$cadena."%') && (mostrar=1) && (aceptado=2)";
+      $sql="SELECT * FROM producto WHERE (descripcion LIKE '%".$cadena."%') && (mostrar=1) && (aceptado=2) ORDER BY producto.nombproducto";
       $searchResults=$this->listQuery($conn,$sql);
       return $searchResults;
       
@@ -467,6 +472,8 @@ class ProductoDao {
 
           return $searchResults;
     }
+
+
 }
 
 ?>

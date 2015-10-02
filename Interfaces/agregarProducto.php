@@ -102,6 +102,7 @@
 					<li><a id="opc_admin" href="reservarStand.php">Reservar Stand</a></li>
 					<li><a id="opc_admin" href='editarInfoArtesano.php'>Editar perfil</a></li>
 					<li><a id="opc_admin" href="cursos_artesanos.php">Cursos ofertados</a></li>
+					<li><a id="opc_admin" href='cambiarContrasenaArtesano.php'>Cambiar contraseña</a></li>
 				</ul>
 			</aside>
 

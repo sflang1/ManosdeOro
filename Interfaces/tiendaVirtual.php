@@ -91,10 +91,7 @@
 			<div id="articulosTiendaVirtual">
 			<table>
 			<?php
-				$busqueda=new Producto();
-				$busqueda->setAceptado(2);
-				$busqueda->setMostrar(1);
-				$listaproductos=$pdao->searchMatching($conn,$busqueda);
+				$listaproductos=$pdao->listTiendaVirtualAlphabetic($conn);
 				$conteo=0;
 				echo("<tr>");
 				for($i=0;$i<count($listaproductos);$i++)

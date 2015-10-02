@@ -106,6 +106,7 @@
 					<li><a id="opc_admin" href="reservarStand.php">Reservar Stand</a></li>
 					<li><a id="opc_admin" href='editarInfoArtesano.php'>Editar perfil</a></li>
 					<li><a id="opc_admin" href="cursos_artesanos.php">Cursos ofertados</a></li>
+					<li><a id="opc_admin" href='cambiarContrasenaArtesano.php'>Cambiar contraseña</a></li>
 				</ul>
 			</aside>
 
@@ -165,12 +166,6 @@
 										<H1 ID="strings_editar">-</h1>
 									</td>
 								</tr>
-
-								<tr>
-									<td><H1 ID="strings_editar">Contraseña:</h1></td>
-									<td><input type='text' name='contrasena'></td>
-								</tr>
-
 								<tr>
 									<td colspan='2'><input type='submit' value='Enviar' id="boton_iniciar"></td>
 								</tr>

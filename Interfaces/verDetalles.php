@@ -81,8 +81,9 @@
 		<H1 ID="titulos_detalle">Email:</H1> <?php echo($artesano->getEmail());?><br>
 		<H1 ID="titulos_detalle">Teléfono:</H1> <?php echo($artesano->getTelefono());?><br>
 		<H1 ID="titulos_detalle">Teléfono2:</H1> <?php echo($artesano->getTelefono2());?><br>
-		<H1 ID="titulos_detalle">Celular:</H1> <?php echo($artesano->getcelular());?><br>
-		<a href='tiendaVirtual.php'>Volver a la tienda</a>
+		<H1 ID="titulos_detalle">Celular:</H1> <?php echo($artesano->getcelular());?><br><br>
+		<a href='tiendaVirtual.php'>Volver a la tienda</a><br>
+		<a href='index.php'>Volver al inicio</a>
 				</div>
 
 			</section>
