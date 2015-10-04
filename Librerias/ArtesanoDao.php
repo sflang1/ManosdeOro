@@ -506,6 +506,17 @@ class ArtesanoDao
       $coded->setCursos(utf8_encode($ValueObject->getCursos())); 
       return $coded;
     }
+    function buscarArtesanoPorCedula($conn,$busqueda)
+    {
+      $sql="SELECT * FROM Artesano WHERE NroDoc LIKE '".$busqueda."%' ORDER BY nombre ASC;";
+      
+      return $this->listQuery($conn,$sql);
+    }
+    function buscarArtesanoPorNombre($conn,$busqueda)
+    {      
+      $sql="SELECT * FROM Artesano WHERE upper(nombre) LIKE '%".$busqueda."%' ORDER BY nombre ASC";
+      return $this->listQuery($conn,$sql);
+    }
 }
 
 ?>

@@ -23,6 +23,8 @@ function cambiar()
 						if(result.exito==1)
 						{
 							cadena="";
+							cadena=cadena+"<table><tr><td><select id='selectBuscar'><option value='1'>Buscar por cédula</option><option value='2'>Buscar por ciudad</option><option value='3'>Buscar por nombre</option></select></td><td> <input type='text' id='busqueda' onkeyup='buscar()'></td><td><input type='button' onClick='buscar()' value='Buscar'></td></tr></table>";
+							cadena=cadena+"<div id='lista'>";
 							cadena=cadena+"<table>";
 							cadena=cadena+"<th colspan='7'>Lista de artesanos</th>";
 							cadena=cadena+"<tr><td>Nombre</td><td>Número de documento</td><td>Dirección</td><td>Teléfono</td><td>Celular</td><td>Email</td><td></td></tr>";
@@ -31,6 +33,7 @@ function cambiar()
 								cadena=cadena+"<tr><td>"+valores[i].nombre+"</td><td>"+valores[i].nroDoc+"</td><td>"+valores[i].direccion+"</td><td>"+valores[i].telefono+"</td><td>"+valores[i].celular+"</td><td>"+valores[i].email+"</td><td><input type='button' value='Modificar' onclick='window.location.href=\"modificarArtesano.php?idArtesano="+valores[i].idArtesano+"\"'></td></tr>"
 							};
 							cadena=cadena+"</table>";
+							cadena=cadena+"</div>";
 							$("#contenido").html(cadena);
 						}
 						else
@@ -46,6 +49,8 @@ function cambiar()
 						if(result.exito==1)
 						{
 							cadena="";
+							cadena=cadena+"<table><tr><td><select id='selectBuscar'><option value='1'>Buscar por cédula</option><option value='2'>Buscar por ciudad</option><option value='3'>Buscar por nombre</option></select></td><td> <input type='text' id='busqueda' onkeyup='buscar()'></td><td><input type='button' onClick='buscar()' value='Buscar'></td></tr></table>";
+							cadena=cadena+"<div id='lista'>";
 							cadena=cadena+"<table>";
 							cadena=cadena+"<th colspan='7'>Lista de artesanos</th>";
 							cadena=cadena+"<tr><td>Nombre</td><td>Número de documento</td><td>Dirección</td><td>Teléfono</td><td>Celular</td><td>Email</td><td></td></tr>";
@@ -54,6 +59,7 @@ function cambiar()
 								cadena=cadena+"<tr><td>"+valores[i].nombre+"</td><td>"+valores[i].nroDoc+"</td><td>"+valores[i].direccion+"</td><td>"+valores[i].telefono+"</td><td>"+valores[i].celular+"</td><td>"+valores[i].email+"</td><td><input type='button' value='Eliminar' onclick='eliminarArtesano("+valores[i].idArtesano+")'></td></tr>"
 							};
 							cadena=cadena+"</table>";
+							cadena=cadena+"</div>";
 							$("#contenido").html(cadena);
 						}
 						else
@@ -307,4 +313,60 @@ function cambiarPerfiles()
 			check5.checked=false;
 		}
 	}
+}
+function buscar()
+{
+	var criterio=document.getElementById("selectBuscar").options[document.getElementById("selectBuscar").selectedIndex].value;
+	var busqueda=document.getElementById("busqueda").value;
+	var valor2=document.getElementById("selectAccion").value;
+	switch(valor2)
+	{
+		case "1":
+			$.getJSON("../Logica/buscarArtesanosPorCriterio.php?criterio="+criterio+"&busqueda="+busqueda,
+			function (result)
+			{
+				if(result.exito==1)
+				{
+					cadena="";
+					cadena=cadena+"<table>";
+					cadena=cadena+"<th colspan='7'>Lista de artesanos</th>";
+					cadena=cadena+"<tr><td>Nombre</td><td>Número de documento</td><td>Dirección</td><td>Teléfono</td><td>Celular</td><td>Email</td><td></td></tr>";
+					var valores=result.valores;
+					for (var i = valores.length - 1; i >= 0; i--) {
+						cadena=cadena+"<tr><td>"+valores[i].nombre+"</td><td>"+valores[i].nroDoc+"</td><td>"+valores[i].direccion+"</td><td>"+valores[i].telefono+"</td><td>"+valores[i].celular+"</td><td>"+valores[i].email+"</td><td><input type='button' value='Modificar' onclick='window.location.href=\"modificarArtesano.php?idArtesano="+valores[i].idArtesano+"\"'></td></tr>"
+					};
+					cadena=cadena+"</table>";
+					$("#lista").html(cadena);
+				}
+				else
+				{
+					alert("Error recuperando admins");
+				}
+			});
+			break;
+		case "2":
+			$.getJSON("../Logica/buscarArtesanosPorCriterio.php?criterio="+criterio+"&busqueda="+busqueda,
+			function (result)
+			{
+				if(result.exito==1)
+				{
+					cadena="";
+					cadena=cadena+"<table>";
+					cadena=cadena+"<th colspan='7'>Lista de artesanos</th>";
+					cadena=cadena+"<tr><td>Nombre</td><td>Número de documento</td><td>Dirección</td><td>Teléfono</td><td>Celular</td><td>Email</td><td></td></tr>";
+					var valores=result.valores;
+					for (var i = valores.length - 1; i >= 0; i--) {
+						cadena=cadena+"<tr><td>"+valores[i].nombre+"</td><td>"+valores[i].nroDoc+"</td><td>"+valores[i].direccion+"</td><td>"+valores[i].telefono+"</td><td>"+valores[i].celular+"</td><td>"+valores[i].email+"</td><td><input type='button' value='Eliminar' onclick='eliminarArtesano("+valores[i].idArtesano+")'></td></tr>"
+					};
+					cadena=cadena+"</table>";
+					$("#lista").html(cadena);
+				}
+				else
+				{
+					alert("Error recuperando admins");
+				}
+			});
+			break;
+	}
+	
 }
