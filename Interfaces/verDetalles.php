@@ -62,7 +62,7 @@
 			}
 		?>
 		<br><h1 id="titulos_noticias">Nombre del producto</h1><br> <?php echo($producto->getDescripcion());?><br>
-		<br><h1 id="titulos_noticias">Detalles del producto</h1><br> <?php echo(utf8_encode("<textarea style='width:250px; height:80px; resize:none; border:transparent;'>".$producto->getNombproducto()."</textarea>"));?><br>
+		<br><h1 id="titulos_noticias">Detalles del producto</h1><br> <?php echo(utf8_encode("<textarea readonly style='enabled:false; width:250px; height:80px; resize:none; border:transparent;'>".$producto->getNombproducto()."</textarea>"));?><br>
 		<?php
 			
 			if(strlen($producto->getLink())!=0)

@@ -1,4 +1,4 @@
-div{
+.borde{
 	width: 30px;
 	height: 30px;
 	border-style: solid;
@@ -20,8 +20,8 @@ div{
     -moz-transform: rotate(90deg); /* Chrome, Safari, Opera */
 	display:inline-block;
 	position: relative;
-	right: -540px;
-	top: -508px;
+	right: -340px;
+	top: -960px;
 }
 
 #horizontal2{
@@ -30,8 +30,8 @@ div{
     -moz-transform: rotate(90deg); /* Chrome, Safari, Opera */
 	display:inline-block;
 	position: relative;
-	top: -11px;
-	right: -440px;
+	top: -159px;
+	right: -340px;
 }
 
 #container2{
@@ -47,8 +47,8 @@ div{
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
 	display:inline-block;
 	position: relative;
-	top: -51px;
-	right: -100px;
+	top: -235px;
+	right: -10px;
 }
 
 #horizontal4{
@@ -56,8 +56,8 @@ div{
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
 	display:inline-block;
 	position: relative;
-	top: 350px;
-	right: -120px;
+	top: 293px;
+	right: -19px;
 }
 
 
@@ -101,9 +101,10 @@ body{
 }
 
 #contenedor{
-	margin: 2px;
+	margin: 0 auto;
+	position: relative;
 	height: auto;
-	width: auto;
+	width: 1200px;
 	-moz-border-radius: 50px 50px 50px 50px;
 	-webkit-border-radius: 50px 50px 50px 50px;
 	border-style: solid;

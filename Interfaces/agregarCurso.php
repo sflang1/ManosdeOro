@@ -146,52 +146,57 @@
 
 			<section id="sec6">
 				<center>
-
-					<h1 id="strings_editar_rojo">Bienvenido al formulario de inscripción de un curso. </h1><br>
-					<h1 id="strings_editar_rojo">Llene los siguientes campos, por favor:</h1>
+					<input type="button" id="boton_enviar" value="Ver Inscritos" onClick="window.location.href='verInscritos.php'">
+					<br>
+					<br>
+					<hr>
+					<h1 id="titulos_noti">Bienvenido al formulario de inscripción de un curso. </h1>
+					<h1 id="titulos_noticias">Llene los siguientes campos, por favor:</h1>
 					<form method="POST" action="../Logica/agregarCurso.php" onsubmit="return validarForm()" enctype="multipart/form-data">
 						<table>
 							<tr>
-								<td id="strings_editar">
-									Descripción del curso (*)
-								</td>
-								<td>
-									<input type="text" name="descripcion" required>
-								</td>
-							</tr>
-							<tr>
-								<td id="strings_editar">
+								<td id="strings_editar_rojo">
 									Fecha límite de inscripción del curso (*)
 								</td>
-								<td id="strings_editar">
-									<input type="date" name="fecha" required>
+								<td id="strings_editar_rojo">
+									<input type="date" style="width:500px" name="fecha" required>
 								</td>
 							</tr>
 							<tr>
-								<td id="strings_editar">
+								<td id="strings_editar_rojo">
 									Horario del curso (*)
 								</td>
 								<td>
-									<input type="text" name="horario" required>
+									<input type="text" style="width:500px" name="horario" required>
+								</td>
+							</tr>
+		
+							
+							<tr>
+								<td id="strings_editar_rojo">
+									Descripción del curso (*)
+								</td>
+								<td>
+									<textarea style="resize:none; width:500px; height: 200px"type="text" name="descripcion" required></textarea>
 								</td>
 							</tr>
 							<tr>
-									<td id="strings_editar">
+									<td id="strings_editar_rojo">
 										Ingresa una foto de tu producto para ponerlo en la tienda virtual. Sólo se admiten formatos .jpg:
 									</td>
 									<td>
 										<input type="file" name="foto" id="foto">
 									</td>
-									</tr>
+							</tr>
 							<tr>
 								<td colspan="2">
-									<input type="submit" value="Agregar curso">
+									<input id="boton_buscar" type="submit" value="Agregar curso">
 								</td>
 							</tr>
 						</table>
 						</form>
 						<script type="text/javascript" src="agregarCurso.js"></script>
-						<input type="button" id="boton_enviar" value="Ver Inscritos" onClick="window.location.href='verInscritos.php'">
+						
 				</center>
 			</section>
 			<footer>		

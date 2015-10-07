@@ -18,6 +18,8 @@
 ?>
 
 
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -130,13 +132,20 @@
 						Documento de identidad (*)
 					</td>
 					<td>
-						<select name="tipo" id="strings_editar">
+						<select name="tipo" id="strings_editar2">
 							<option value="0">Cédula de Ciudadanía</option>
 							<option value="1">Cédula de Extranjería</option>
 							<option value="2">Tarjeta de Identidad</option>
 							<option value="3">Registro Civil</option>
 							<option value="4">Número de pasaporte</option>
 						</select>
+					</td>
+				</tr>
+				<tr>
+					<td id="strings_editar">
+						
+					</td>
+					<td colspan="2" id="strings_editar_rojo">
 						<input type="text" id="docId" name="nroDoc" required>
 					</td>
 				</tr>
@@ -259,16 +268,7 @@
 					<td>
 						<input type="text" name="descripcion" id="descripcion" height="6em;" required>
 					</td>
-				</tr
-				<tr>
-					<td id="strings_editar">
-						Descripcion del Producto(*)
-					</td>
-					<td>
-						<input type="text" name="nombproducto" id="nombproducto" height="6em;" required>
-					</td>
 				</tr>
->
 				<tr>
 					<td id="strings_editar">
 						Link. Agrega un video que contenga más información:
@@ -282,7 +282,16 @@
 							La URL debe tener http o https. Sugerencia: Copia y pega el link del navegador
 					</td>
 				</tr>
-				
+				<tr>
+					<td id="strings_editar">
+						Descripcion del Producto(*)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="nombproducto" id="nombproducto" height="6em;" style="margin-left:20px; width:630px; height:100px" required>
+					</td>
+				</tr>
 				<tr>
 					<td colspan="2">
 						<input id="boton_iniciar" type="submit" value="Aceptar">

@@ -77,12 +77,14 @@
 			<h1 id="strings_contacto">Escribenos un Mensaje con tus Dudas, Sugerencias u Opiniones. Se te devolverá un correo a la dirección proveída para responder tu solicitud</h1>
 		<form method="POST" action="../Logica/contacto.php">
 			<center>
+				<br>
 			<table>
-			<tr><td> <input placeholder="Nombre" id="input_txt" type='text' name='nombre' required></td></tr>
-			<tr><td> <input placeholder="email" id="input_txt" type='email' name='email' required></td></tr>
-			<tr><td> <textarea placeholder="Mensaje" id="input_txt"type='text' name='mensaje' required></textarea></td></tr>
-			<tr><td colspan='2'></td></tr>
+			<tr><td style="padding-left:40px; padding-right:40px"> <input placeholder="Nombre" id="input_contacto" type='text' name='nombre' required></td>
+				<td style="padding-left:40px; padding-right:40px"> <input placeholder="email" id="input_contacto" type='email' name='email' required></td>
+			</tr>
 			</table>
+			 <textarea placeholder="Mensaje" id="input_contacto2"type='text' name='mensaje' required></textarea>
+			<br>
 			<input type='submit' id="boton_enviar" value='Enviar'>
 			</center>
 		</form>

@@ -138,15 +138,18 @@
 			<br>
 
 						<br>
-						<h1 id="strings_editar_rojo">Existen 3 eventos.</h1>
-						<h1 id="strings_editar">El primero con 60 stands.</h1>
-						<h1 id="strings_editar">el segundo con 20.</h1>
-						<h1 id="strings_editar">el tercero con 20. </h1>
+						<h1 id="titulos_detalles">Existen 3 eventos.</h1>
+						<br>
+						<h1 id="strings_editar">- El primero con 60 stands. Dispuesto en 2 patios</h1>
+						<h1 id="strings_editar">- El segundo con 20. </h1>
+						<h1 id="strings_editar">- El tercero con 20. </h1>
+						<br>
 						<h1 id="strings_editar_rojo">Selecciona un stand y resérvalo con el botón adyacente:<br></h1>
+						<br>
 						<table>
 							<tr>
 								<td>
-									<h1 id="strings_editar_rojo">Manos de Oro (Abril)</h1>
+									<h1 id="titulos_detalles">Manos de Oro (Abril)</h1>
 								</td>
 								<?php
 									if($mostrar1)
@@ -184,114 +187,120 @@
 							</tr>
 						</table>
 						<br><br>
-
-<h1 id="strings_editar_rojo">Patio 1 . Piso 1</h1>
+<br>
+<h1 id="strings_editar_rojo">Claustro Santo Domingo - Patio 1 . Piso 1</h1>
+<br>
 <div>
 <div class="container" >
 			<div style="float:right; margin-top: 60px" style="width: auto;height: auto">
-				<div id="square10"></div>
-				<div id="square9"></div>
-				<div id="square8"></div>
-				<div id="square7"></div>
-				<div id="square6"></div>
-				<div id="square5"></div>
-				<div id="square4"></div>
-				<div id="square3"></div>
-				<div id="square2"></div>
-				<div id="square1"></div>
+				<div class="borde" id="square10"><h1 id="strings_editar">10</h1></div>
+				<div class="borde" id="square9"><h1 id="strings_editar">9</h1></div>
+				<div class="borde" id="square8"><h1 id="strings_editar">8</h1></div>
+				<div class="borde" id="square7"><h1 id="strings_editar">7</h1></div>
+				<div class="borde" id="square6"><h1 id="strings_editar">6</h1></div>
+				<div class="borde" id="square5"><h1 id="strings_editar">5</h1></div>
+				<div class="borde" id="square4"><h1 id="strings_editar">4</h1></div>
+				<div class="borde" id="square3"><h1 id="strings_editar">3</h1></div>
+				<div class="borde" id="square2"><h1 id="strings_editar">2</h1></div>
+				<div class="borde" id="square1"><h1 id="strings_editar">1</h1></div>
 			</div>
 
 			<div style="float:left;  margin-top: 130px" style=" width: auto; height: auto;">
-				<div id="square21"></div>
-				<div id="square22"></div>
-				<div id="square23"></div>
-				<div id="square24"></div>
-				<div id="square25"></div>
-				<div id="square26"></div>
-				<div id="square27"></div>
-				<div id="square28"></div>
-				<div id="square29"></div>
-				<div id="square30"></div>
+				<div class="borde" id="square21"><h1 id="strings_editar">21</h1></div>
+				<div class="borde" id="square22"><h1 id="strings_editar">22</h1></div>
+				<div class="borde" id="square23"><h1 id="strings_editar">23</h1></div>
+				<div class="borde" id="square24"><h1 id="strings_editar">24</h1></div>
+				<div class="borde" id="square25"><h1 id="strings_editar">25</h1></div>
+				<div class="borde" id="square26"><h1 id="strings_editar">26</h1></div>
+				<div class="borde" id="square27"><h1 id="strings_editar">27</h1></div>
+				<div class="borde" id="square28"><h1 id="strings_editar">28</h1></div>
+				<div class="borde" id="square29"><h1 id="strings_editar">29</h1></div>
+				<div class="borde" id="square30"><h1 id="strings_editar">30</h1></div>
 			<center>
 			<div id="horizontal2">
-				<div id="square40"></div>
-				<div id="square39"></div>
-				<div id="square38"></div>
-				<div id="square37"></div>
-				<div id="square36"></div>
-				<div id="square35"></div>
-				<div id="square34"></div>
-				<div id="square33"></div>
-				<div id="square32"></div>
-				<div id="square31"></div>
+				<div class="borde" id="square40"><h1 id="strings_editar">40</h1></div>
+				<div class="borde" id="square39"><h1 id="strings_editar">39</h1></div>
+				<div class="borde" id="square38"><h1 id="strings_editar">38</h1></div>
+				<div class="borde" id="square37"><h1 id="strings_editar">37</h1></div>
+				<div class="borde" id="square36"><h1 id="strings_editar">36</h1></div>
+				<div class="borde" id="square35"><h1 id="strings_editar">35</h1></div>
+				<div class="borde" id="square34"><h1 id="strings_editar">34</h1></div>
+				<div class="borde" id="square33"><h1 id="strings_editar">33</h1></div>
+				<div class="borde" id="square32"><h1 id="strings_editar">32</h1></div>
+				<div class="borde" id="square31"><h1 id="strings_editar">31</h1></div>
 			</div>
 			</center>
 
 			<center>
 			<div id="horizontal">
-				<div id="square11"></div>
-				<div id="square12"></div>
-				<div id="square13"></div>
-				<div id="square14"></div>
-				<div id="square15"></div>
-				<div id="square16"></div>
-				<div id="square17"></div>
-				<div id="square18"></div>
-				<div id="square19"></div>
-				<div id="square20"></div>
+				<div class="borde" id="square11"><h1 id="strings_editar">11</h1></div>
+				<div class="borde" id="square12"><h1 id="strings_editar">12</h1></div>
+				<div class="borde" id="square13"><h1 id="strings_editar">13</h1></div>
+				<div class="borde" id="square14"><h1 id="strings_editar">14</h1></div>
+				<div class="borde" id="square15"><h1 id="strings_editar">15</h1></div>
+				<div class="borde" id="square16"><h1 id="strings_editar">16</h1></div>
+				<div class="borde" id="square17"><h1 id="strings_editar">17</h1></div>
+				<div class="borde" id="square18"><h1 id="strings_editar">18</h1></div>
+				<div class="borde" id="square19"><h1 id="strings_editar">19</h1></div>
+				<div class="borde" id="square20"><h1 id="strings_editar">20</h1></div>
 			</div>
 			</div>
 			</center>
 
 </div>
-
-<h1 id="strings_editar_rojo">Patio 2 - Piso 1</h1>
-
+<br>
+<h1 id="strings_editar_rojo">Claustro Santo Domingo - Patio 2 - Piso 1</h1>
+<br>
 <div>
 <div id="container2" >
-
-			<div style="float:right; margin-top: 60px" style="width: auto;height: auto">
-				<div id="square45"></div>
-				<div id="square44"></div>
-				<div id="square43"></div>
-				<div id="square42"></div>
-				<div id="square41"></div>
+			<div style="float:right; margin-top: 140px" style="width: auto;height: auto">
+				<div class="borde" id="square45"><h1 id="strings_editar">45</h1></div>
+				<div class="borde" id="square44"><h1 id="strings_editar">44</h1></div>
+				<div class="borde" id="square43"><h1 id="strings_editar">43</h1></div>
+				<div class="borde" id="square42"><h1 id="strings_editar">42</h1></div>
+				<div class="borde" id="square41"><h1 id="strings_editar">41</h1></div>
 			</div>
 
-			<div style="float:left;  margin-top: 150px" style=" width: auto; height: auto;">
-				<div id="square51"></div>
-				<div id="square52"></div>
-				<div id="square53"></div>
-				<div id="square54"></div>
-				<div id="square55"></div>
+			<div style="float:left;  margin-top: 110px" style=" width: auto; height: auto;">
+				<div class="borde" id="square51"><h1 id="strings_editar">51</h1></div>
+				<div class="borde" id="square52"><h1 id="strings_editar">52</h1></div>
+				<div class="borde" id="square53"><h1 id="strings_editar">53</h1></div>
+				<div class="borde" id="square54"><h1 id="strings_editar">54</h1></div>
+				<div class="borde" id="square55"><h1 id="strings_editar">55</h1></div>
 			</div>
 			<center>
 			<div id="horizontal4">
-
-				<div id="square60"></div>
-				<div id="square59"></div>
-				<div id="square58"></div>
-				<div id="square57"></div>
-				<div id="square56"></div>
+				<div class="borde" id="square60"><h1 id="strings_editar">60</h1></div>
+				<div class="borde" id="square59"><h1 id="strings_editar">59</h1></div>
+				<div class="borde" id="square58"><h1 id="strings_editar">58</h1></div>
+				<div class="borde" id="square57"><h1 id="strings_editar">57</h1></div>
+				<div class="borde" id="square56"><h1 id="strings_editar">56</h1></div>
 			</div>
 			</center>
 
 			<center>
 			<div id="horizontal3">
-				<div id="square46"></div>
-				<div id="square47"></div>
-				<div id="square48"></div>
-				<div id="square49"></div>
-				<div id="square50"></div>
+				<div class="borde" id="square46"><h1 id="strings_editar">46</h1></div>
+				<div class="borde" id="square47"><h1 id="strings_editar">47</h1></div>
+				<div class="borde" id="square48"><h1 id="strings_editar">48</h1></div>
+				<div class="borde" id="square49"><h1 id="strings_editar">49</h1></div>
+				<div class="borde" id="square50"><h1 id="strings_editar">50</h1></div>
 			</div>
 			</center>
 </div>
-
-
 						<table>
 							<tr>
 								<td>
-									<h1 id="strings_editar_rojo">Plazoleta San Francisco (Agosto)</h1>
+								<br>
+									<h1 id="titulos_detalles">Muestra Artesanal (Agosto)</h1>
+								<br>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<br>
+									<h1 id="strings_editar_rojo">Plazoleta San Francisco</h1>
+									<br>
 								</td>
 								<?php
 									if($mostrar2)
@@ -328,11 +337,20 @@
 								?>
 							</tr>
 							</table>
-							<br><br><br>
+							<br>
 							<table>
+								<tr>
+									<td>
+									<br>
+										<h1 id="titulos_detalles">Muestra Gastronomica (Diciembre)</h1>
+									<br>
+									</td>
+								</tr>
 							<tr>
 								<td>
-									<h1 id="strings_editar_rojo">Gastronomico (Diciembre)</h1>
+									<br>
+									<h1 id="strings_editar_rojo">Evento de Gastronomia</h1>
+									<br>
 								</td>
 								<?php
 									if($mostrar3)

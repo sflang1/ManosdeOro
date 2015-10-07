@@ -19,9 +19,30 @@
 		<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="../css/diseno.css">
 		<script type="text/javascript" src="../js/re_dir.js"></script>
+	<script type="text/javascript"><!--
+    function initialize() {
+        var latlng = new google.maps.LatLng(2.4410316,-76.6047626);
+        var settings = {
+            zoom: 16,
+            center: latlng,
+            mapTypeControl: true,
+            mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+            navigationControl: true,
+            navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), settings);
+	var companyPos = new google.maps.LatLng(2.440802, -76.604739);
+	var companyMarker = new google.maps.Marker({
+      position: companyPos,
+      map: map,
+      title:"Manos de Oro"
+  	});
+    }
+	</script>
 	</head>
-	<body>
-		<div id="contenedor2" style="margin-bottom: 40px;">
+	<body onload="initialize()">
+		<div id="contenedor" style="margin-bottom: 40px;">
 			<header>
 				<div id="img_fon">
 					<div id="img_fondo"></div>
@@ -34,7 +55,7 @@
 						<img id="logo2" src="../imgs/logo2.png">
 					</center>
 				</div>
-<form method="POST" action="../Logica/agregarInscrito.php">
+			<form method="POST" action="../Logica/agregarInscrito.php">
 				<div style="float: right; width: 60%;">
 			<h1 id="titulos_contacto">Regristro Cursos C.D.A</h1>
 			<h1 id="titulos_noti">Registro al curso: </h1>
@@ -52,10 +73,47 @@
 			<tr><td colspan='2'></td></tr>
 			</table>
 			<input type='submit' id="boton_enviar" value='Enviar Registro'>
+			<br>
+			<br>
+			<a href='ofertaCursos.php'>Volver a Oferta Cursos</a><br>
+			<a href='index.php'>Volver al inicio</a>
+			<br>
+			<br>
+			<br>
+			<br>
 			</center>
 		</form>
 				</div>
+
 			</section>
+			<footer>		
+				<div style="float: left; width: 33%;">
+						<h1 id="titulos_footer">Informacion</h1>
+						<h1 id="strings_footer">Junta Permanente Pro Semana Santa</h1>
+						<h1 id="strings_footer">Cda Manos De Oro</h1>
+						<h1 id="strings_footer">Calle 5 # 4 – 51 Centro</h1>
+						<h1 id="strings_footer">Teléfonos: 8220040 – 3154648923</h1>
+						<h1 id="strings_footer">Correo: cdamanosdeoro@gmail.com</h1>
+						<h1 id="strings_footer">Popayán – Cauca</h1>
+				</div>
+				<div style="float: left; width: 23%;">
+						<h1 id="titulos_footer">Redes Sociales</h1>
+						<div id="foot_face">
+							<a onclick="ir_facebook()"><img src="../imgs/facebook.png" id="logo_redes"></a>
+							<h1 id="strings_footer">/ManosdeOro Popayan</h1>
+						</div>
+						<br>
+						<div id="foot_twiter">
+						<a onclick="ir_twiter()"><img src="../imgs/twiter.png" id="logo_redes"></a>
+						<h1 id="strings_footer">/@ManosdeOroPop</h1>
+						<!--<a onclick="ir_instagram()"><img src="imgs/instagram.png" id="logo_redes"></a>
+						<a onclick="ir_youtube()"><img src="imgs/youtube.png" id="logo_redes"></a> -->
+						</div>
+				</div>
+				<div style="float: right; width: 43%;">
+						<h1 id="titulos_footer">Ubicacion</h1>
+						 <div id="map_canvas" style="width:auto; height:300px; margin-right:10px"></div>
+			</footer>
 		</div>
 	</body>	
 </html>

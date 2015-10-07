@@ -11,7 +11,7 @@ function dimePropiedades(){
 		cuadrado.style.background='#FFFFFF';
 	}
 	var square=document.getElementById("square"+seleccionado);
-	square.style.background='#ff0000';
+	square.style.background='#00ff00';
    	
 };
 
@@ -27,5 +27,4 @@ function dimePropiedades2(){
 	}
 	var square=document.getElementById("square"+seleccionado);
 	square.style.background='#ff0000';
-   	
 };

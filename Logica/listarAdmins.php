@@ -1,4 +1,4 @@
-<?php
+ <?php
 	include_once("../Librerias/Datasource.php");
 	include_once("../Librerias/AdministradorDao.php");
 	include_once("../Librerias/Administrador.php");

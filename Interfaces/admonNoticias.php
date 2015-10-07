@@ -151,18 +151,18 @@
 			<section id="sec6">
 				<center>
 
-					<h1 id="titulos_noti">Este es el menú de Administración de noticias</h1><br>
-
+					<h1 id="titulos_noti">Este es el menú de Administración de noticias</h1>
 					<h1 id="titulos_noticias">Aquí puedes agregar una nueva noticia:</h1>	
-					
+					<br>
+					<br>
 					<form method='POST' action='../Logica/agregarNoticia.php'>
-						<table>
+						<table style="width:100%">
 							<tr>
 								<td>
 									<h1 id="strings_editar_rojo">Título de la noticia:</h1>
 								</td>
 								<td>
-									<input type="text" name="titulo" maxlength="149" required>
+									<input style="width:600px; height: 30px"type="text" name="titulo" maxlength="149" required>
 								</td>
 							</tr>
 							<tr>
@@ -170,12 +170,12 @@
 									<h1 id="strings_editar">Descripción de la noticia:</h1>
 								</td>
 								<td>
-									<input type="text" name="descripcion" maxlength="65535" required>
+									<textarea style="resize:none; width:600px; height: 100px" type="text" name="descripcion" maxlength="65535" required></textarea>
 								</td>
 							</tr>
 							<tr>
 								<td colspan='2'>
-									<input type="submit" value="Agregar noticia">
+									<input id="boton_buscar" type="submit" value="Agregar noticia">
 								</td>
 							</tr>
 						</table>
