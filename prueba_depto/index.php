@@ -1,24 +1,19 @@
 <?php 
-mysql_connect("localhost","root","") or 
-die("No se puede conectar");
-mysql_select_db("departamento") or
-die ("No se ha podido seleccionar la Base de Datos");
-$depto=htmlentities($_REQUEST['depto']);
-$peartamento=$depto;
-$query="select * from departamentos"; 
-$res=mysql_query(utf8_decode($query));
+	include_once("../Librerias/Datasource.php");	
+	include_once("../Librerias/DepartamentoDao.php");
+	include_once("../Librerias/Departamento.php");
+	include_once("../Librerias/Municipio.php");
+	include_once("../Librerias/MunicipioDao.php");
+	include_once("../Librerias/Variables.php");
+	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
+	$ddao=new DepartamentoDao();
+	$mdao=new MunicipioDao();
+	$listaDeptos=$ddao->loadAll($conn);
+	$busqueda=new Municipio();
+	$busqueda->setId_departamento(1);
+	$listaMpios=$mdao->searchMatching($conn,$busqueda);	
 ?>
 
-<?php 
-mysql_connect("localhost","root","") or 
-die("No se puede conectar");
-mysql_select_db("municipio") or
-die ("No se ha podido seleccionar la Base de Datos");
-$muni=htmlentities($_REQUEST['muni']);
-$query="SELECT * FROM municipios WHERE id_departamento = '$depto'";
-$peartamento=$depto;
-$res2=mysql_query($query);
-?>
 
 <!DOCTYPE html PUBLIC >
 <head>
@@ -30,30 +25,48 @@ $res2=mysql_query($query);
 
 <form name="form1" >
 Selecciona tu departamento:
-<select name="depto" >
-<option value="" selected>Elige</option>
-<?php while($row=mysql_fetch_array($res))
+<select name="depto" id="selectDepartamentos" onChange="getMunicipios()">
+<option value=""  selected>Elige</option>
+<?php for($i=0;$i<count($listaDeptos);$i++)
 {?>
-<option value="<?php echo $row['id_departamento']?>"> <?php echo htmlentities($row['descripcion']);?></option>
+<option value="<?php echo $listaDeptos[$i]->getId_departamento()?>"> <?php echo htmlentities($listaDeptos[$i]->getDescripcion());?></option>
 <?php } ?>
 </select>
-
-<input type="submit" name="enviar" value="Enviar" /><br /><br />
-</form>
-<?php echo "Tu materia elegida fue: ". htmlentities($peartamento);?>
-
-<form name="form2" >
-Selecciona tu departamento:
+<br>
+<div id="selectMunicipios">
+Selecciona tu municipio: 
 <select name="muni" >
 <option value="" selected>Elige</option>
-<?php while($row=mysql_fetch_array($res2))
+<?php for($i=0;$i<count($listaMpios);$i++)
 {?>
-<option value="<?php echo $row['descripcion']?>"> <?php echo htmlentities($row['descripcion']);?></option>
+<option value="<?php echo $listaMpios[$i]->getId_departamento()?>"> <?php echo htmlentities($listaMpios[$i]->getDescripcion());?></option>
 <?php } ?>
 </select>
-<input type="submit" name="enviar" value="Enviar" /><br /><br />
+</div>
 </form>
-<?php echo "Tu materia elegida fue: ". $peartamento?> <br>
-<?php echo "Tu materia elegida fue: ". htmlentities($muni);?>
+<script type="text/javascript" src="../Librerias/jquery-1.3.1.js"></script>
+<script type="text/javascript">
+	function getMunicipios()
+	{
+		var depID=document.getElementById("selectDepartamentos").value;
+		$.getJSON("../Logica/obtenerMunicipioPorDepto.php?id_depto="+depID,
+			function (result)
+			{
+				cadena="Selecciona tu municipio: ";
+				if(result.exito==1)
+				{
+					
+					array=result.valores;
+					cadena=cadena+"<select name='muni'>";
+					for(i=0;i<array.length;i++)
+					{
+						cadena=cadena+"<option value='"+array[i].id_mpio+"'>"+array[i].descripcion+"</option>";
+					}
+					cadena=cadena+"</select>";
+					$("#selectMunicipios").html(cadena);
+				}
+			});
+	}
+</script>
 </body>
 </html>
