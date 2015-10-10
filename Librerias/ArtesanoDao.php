@@ -85,8 +85,6 @@ class ArtesanoDao
           else
                return false;
     }
-
-
     /**
      * LoadAll-method. This will read all contents from database table and
      * build an Vector containing valueObjects. Please note, that this method
@@ -123,12 +121,12 @@ class ArtesanoDao
      */
     function create($conn, $valueObject) {
 
-          $sql = "INSERT INTO artesano ( TipoDoc, NroDoc, ";
+          $sql = "INSERT INTO artesano (TipoDoc, NroDoc, ";
           $sql = $sql."password, direccion, telefono, telefono2, ";
           $sql = $sql."username, estado, nombre, ";
           $sql = $sql."celular, email, certificacion, ";
           $sql = $sql."nivelestudio, aprendices, cursos, ";
-          $sql = $sql."formatofoto) VALUES (";
+          $sql = $sql."formatofoto,departamento,ciudad) VALUES (";
           $sql = $sql."".$valueObject->getTipoDoc().", ";
           $sql = $sql."'".$valueObject->getNroDoc()."', ";
           $sql = $sql."'".$valueObject->getPassword()."', ";
@@ -144,7 +142,9 @@ class ArtesanoDao
           $sql = $sql."".$valueObject->getNivelestudio().", ";
           $sql = $sql."'".$valueObject->getAprendices()."', ";
           $sql = $sql."'".$valueObject->getCursos()."', ";
-          $sql = $sql."'".$valueObject->getFormatofoto()."') ";
+          $sql = $sql."'".$valueObject->getFormatofoto()."', ";
+          $sql = $sql."'".$valueObject->getDepartamento()."', ";
+          $sql = $sql."'".$valueObject->getCiudad()."') ";
           $result = $this->databaseUpdate($conn, $sql);
 
 
@@ -181,6 +181,8 @@ class ArtesanoDao
           $sql = $sql."aprendices = '".$valueObject->getAprendices()."', ";
           $sql = $sql."cursos = '".$valueObject->getCursos()."', ";
           $sql = $sql."formatofoto = '".$valueObject->getFormatofoto()."'";
+          $sql = $sql."departamento = '".$valueObject->getDepartamento()."'";
+          $sql = $sql."ciudad = '".$valueObject->getCiudad()."'";
           $sql = $sql." WHERE (idArtesano = ".$valueObject->getIdArtesano().") ";
           $result = $this->databaseUpdate($conn, $sql);
 
@@ -369,6 +371,16 @@ class ArtesanoDao
               $sql = $sql."AND formatofoto LIKE '".$valueObject->getFormatofoto()."%' ";
           }
 
+          if ($valueObject->getDepartamento() != "") {
+              if ($first) { $first = false; }
+              $sql = $sql."AND departamento LIKE '".$valueObject->getDepartamento()."%' ";
+          }
+
+            if ($valueObject->getCiudad() != "") {
+              if ($first) { $first = false; }
+              $sql = $sql."AND ciudad LIKE '".$valueObject->getCiudad()."%' ";
+          }
+
 
           $sql = $sql."ORDER BY idArtesano ASC ";
 
@@ -442,6 +454,8 @@ class ArtesanoDao
                    $valueObject->setAprendices($row[14]); 
                    $valueObject->setCursos($row[15]); 
                    $valueObject->setFormatofoto($row[16]); 
+                   $valueObject->setDepartamento($row[17]);
+                   $valueObject->setCiudad($row[18]);
           } else {
                //print " Object Not Found!";
                return false;
@@ -483,6 +497,8 @@ class ArtesanoDao
                $temp->setAprendices($row[14]); 
                $temp->setCursos($row[15]); 
                $temp->setFormatofoto($row[16]); 
+               $temp->setDepartamento($row[17]); 
+               $temp->setCiudad($row[18]); 
                array_push($searchResults, $temp);
           }
 
@@ -504,6 +520,8 @@ class ArtesanoDao
       $coded->setUsername(utf8_encode($ValueObject->getUsername())); 
       $coded->setAprendices(utf8_encode($ValueObject->getAprendices()));
       $coded->setCursos(utf8_encode($ValueObject->getCursos())); 
+      $coded->setCursos(utf8_encode($ValueObject->getDepartamento())); 
+      $coded->setCursos(utf8_encode($ValueObject->getCiudad())); 
       return $coded;
     }
     function buscarArtesanoPorCedula($conn,$busqueda)

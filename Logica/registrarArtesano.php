@@ -35,6 +35,8 @@
 		$segundonom=str_replace("", "\b", $segundonom);
 		$segundoape=str_replace("", "\b", $segundoape);
 		$nombre=$primernom." ".$segundonom." ".$primerape." ".$segundoape;
+		$depto=utf8_decode($_POST["depto"]);
+		$city=utf8_decode($_POST["city"]);
 		$password=utf8_decode($_POST["password"]);
 		$direccion=utf8_decode($_POST["direccion"]);
 		$telefono=utf8_decode($_POST["telefono"]);
@@ -57,10 +59,15 @@
 		$artesano->setEmail($email);
 		$artesano->setNivelestudio($estudios);
 		$artesano->setEstado(0);
+		$artesano->setDepartamento($depto);
+		$artesano->setCiudad($city);
+
 		if($artesanoDao->create($conn,$artesano))
 		{
 			$list=($artesanoDao->searchMatching($conn,$artesano));
+			echo $artesano->getNroDoc();
 			$artesano=$list[0];
+			echo(count($list));
 			$nombproducto=$_POST["nombproducto"];
 			$descripcion=$_POST["descripcion"];
 			$link=$_POST["link"];

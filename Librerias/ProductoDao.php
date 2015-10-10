@@ -139,7 +139,7 @@ class ProductoDao {
           $sql = $sql."idartesano, aceptado, empresa, ";
           $sql = $sql."nroenvio, notificado, stock, ";
           $sql = $sql."ventas, formatofoto, precio, ";
-          $sql = $sql."mostrar) VALUES (";
+          $sql = $sql."mostrar, fecha, comision) VALUES (";
           $sql = $sql."'".$valueObject->getNombproducto()."', ";
           $sql = $sql."'".$valueObject->getDescripcion()."', ";
           $sql = $sql."'".$valueObject->getLink()."', ";
@@ -152,7 +152,9 @@ class ProductoDao {
           $sql = $sql."".$valueObject->getVentas().", ";
           $sql = $sql."".$valueObject->getFormatofoto().", ";
           $sql = $sql."".$valueObject->getPrecio().", ";
-          $sql = $sql."".$valueObject->getMostrar().") ";
+          $sql = $sql."".$valueObject->getMostrar().", ";
+          $sql = $sql."'".$valueObject->getFecha()."', ";
+          $sql = $sql."'".$valueObject->getComision()."') ";
           $result = $this->databaseUpdate($conn, $sql);
 
 
@@ -186,6 +188,8 @@ class ProductoDao {
           $sql = $sql."formatofoto = ".$valueObject->getFormatofoto().", ";
           $sql = $sql."precio = ".$valueObject->getPrecio().", ";
           $sql = $sql."mostrar = ".$valueObject->getMostrar()."";
+          $sql = $sql."fecha = ".$valueObject->getFecha()."";
+          $sql = $sql."comision = ".$valueObject->getComision()."";
           $sql = $sql." WHERE (idproducto = ".$valueObject->getIdproducto().") ";
           $result = $this->databaseUpdate($conn, $sql);
 
@@ -359,6 +363,16 @@ class ProductoDao {
               $sql = $sql."AND mostrar = ".$valueObject->getMostrar()." ";
           }
 
+             if ($valueObject->getFecha() != 0) {
+              if ($first) { $first = false; }
+              $sql = $sql."AND fecha = ".$valueObject->getFecha()." ";
+          }
+
+             if ($valueObject->getComision() != 0) {
+              if ($first) { $first = false; }
+              $sql = $sql."AND comision = ".$valueObject->getComision()." ";
+          }
+
 
           $sql = $sql."ORDER BY idproducto ASC ";
 
@@ -429,6 +443,8 @@ class ProductoDao {
                    $valueObject->setFormatofoto($row[11]); 
                    $valueObject->setPrecio($row[12]); 
                    $valueObject->setMostrar($row[13]); 
+                   $valueObject->setFecha($row[14]); 
+                   $valueObject->setComision($row[15]); 
           } else {
                //print " Object Not Found!";
                return false;
@@ -467,6 +483,8 @@ class ProductoDao {
                $temp->setFormatofoto($row[11]); 
                $temp->setPrecio($row[12]); 
                $temp->setMostrar($row[13]); 
+               $temp->setFecha($row[14]); 
+               $temp->setComision($row[15]); 
                array_push($searchResults, $temp);
           }
 

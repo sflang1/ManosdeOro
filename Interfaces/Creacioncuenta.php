@@ -150,6 +150,22 @@
 					</td>
 				</tr>
 				<tr>
+					<td id="strings_editar">
+						Departamento
+					</td>
+					<td>
+						<input type="text" name="depto">
+					</td>
+				</tr>
+				<tr>
+					<td id="strings_editar">
+						Ciudad
+					</td>
+					<td>
+						<input type="text" name="city">
+					</td>
+				</tr>
+				<tr>
 					<td colspan="2" id="strings_editar_rojo">
 						Recuerde que su nombre de usuario será su documento de identidad sin ningún guión ni elemento adicional.
 					</td>
