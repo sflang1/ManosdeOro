@@ -12,7 +12,7 @@
 			$lista=$adao->buscarArtesanoPorCedula($conn,$busqueda);
 			break;
 		case 2:
-			# ciudad
+			$lista=$adao->buscarArtesanoPorCiudad($conn,$busqueda);	
 			break;
 		case 3:
 			$busqueda=utf8_decode(mb_strtoupper($busqueda,"utf-8"));

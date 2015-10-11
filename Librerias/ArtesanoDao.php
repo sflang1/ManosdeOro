@@ -535,6 +535,11 @@ class ArtesanoDao
       $sql="SELECT * FROM Artesano WHERE upper(nombre) LIKE '%".$busqueda."%' ORDER BY nombre ASC";
       return $this->listQuery($conn,$sql);
     }
+    function buscarArtesanoPorCiudad($conn,$busqueda)
+    {      
+      $sql="SELECT * FROM Artesano WHERE ciudad =".$busqueda." ORDER BY nombre ASC";
+      return $this->listQuery($conn,$sql);
+    }
 }
 
 ?>
