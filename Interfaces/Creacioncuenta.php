@@ -15,6 +15,19 @@
 			<?php
 		}
 	}
+	include_once("../Librerias/Datasource.php");	
+	include_once("../Librerias/DepartamentoDao.php");
+	include_once("../Librerias/Departamento.php");
+	include_once("../Librerias/Municipio.php");
+	include_once("../Librerias/MunicipioDao.php");
+	include_once("../Librerias/Variables.php");
+	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
+	$ddao=new DepartamentoDao();
+	$mdao=new MunicipioDao();
+	$listaDeptos=$ddao->loadAll($conn);
+	$busqueda=new Municipio();
+	$busqueda->setId_departamento(1);
+	$listaMpios=$mdao->searchMatching($conn,$busqueda);	
 ?>
 
 
@@ -147,6 +160,36 @@
 					</td>
 					<td colspan="2" id="strings_editar_rojo">
 						<input type="text" id="docId" name="nroDoc" required>
+					</td>
+				</tr>
+				<tr>
+					<td id="strings_editar">
+						Escoge tu departamento:
+					</td>
+					<td>
+					<select name="depto" id="selectDepartamentos" onChange="getMunicipios()" >
+					<option value=""  selected>Elige</option>
+						<?php for($i=0;$i<count($listaDeptos);$i++)
+						{?>
+						<option value="<?php echo $listaDeptos[$i]->getId_departamento()?>"> <?php echo htmlentities($listaDeptos[$i]->getDescripcion());?></option>
+						<?php } ?>
+					</select>
+					</td>
+					</tr>
+				<tr>
+					<td id="strings_editar">
+						Selecciona tu municipio: 
+					</td>
+					<td>
+						<div id="selectMunicipios">
+						<select name="city" id="strings_editar2">
+						<option value="" selected>Elige</option>
+						<?php for($i=0;$i<count($listaMpios);$i++)
+						{?>
+						<option value="<?php echo $listaMpios[$i]->getId_departamento()?>"> <?php echo htmlentities($listaMpios[$i]->getDescripcion());?></option>
+						<?php } ?>
+						</select>
+						</div>
 					</td>
 				</tr>
 				<tr>

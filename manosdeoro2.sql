@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2015 a las 08:06:57
--- Versión del servidor: 5.6.20
--- Versión de PHP: 5.5.15
+-- Tiempo de generación: 10-10-2015 a las 17:50:43
+-- Versión del servidor: 5.6.26
+-- Versión de PHP: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `manosdeoro2`
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `administrador` (
-`idadministrador` int(11) NOT NULL,
+  `idadministrador` int(11) NOT NULL,
   `primerNom` varchar(80) COLLATE utf8_bin NOT NULL,
   `segundoNom` varchar(80) COLLATE utf8_bin DEFAULT NULL,
   `primerApe` varchar(80) COLLATE utf8_bin NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `administrador` (
   `password` varchar(80) COLLATE utf8_bin NOT NULL,
   `email` varchar(100) COLLATE utf8_bin NOT NULL,
   `tipo` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `administrador`
@@ -58,7 +58,7 @@ INSERT INTO `administrador` (`idadministrador`, `primerNom`, `segundoNom`, `prim
 --
 
 CREATE TABLE IF NOT EXISTS `artesano` (
-`idArtesano` int(11) NOT NULL,
+  `idArtesano` int(11) NOT NULL,
   `TipoDoc` int(11) NOT NULL,
   `NroDoc` varchar(30) COLLATE utf8_bin NOT NULL,
   `password` varchar(40) COLLATE utf8_bin NOT NULL,
@@ -74,22 +74,24 @@ CREATE TABLE IF NOT EXISTS `artesano` (
   `nivelestudio` int(11) NOT NULL,
   `aprendices` text COLLATE utf8_bin,
   `cursos` text COLLATE utf8_bin,
-  `formatofoto` int(11) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=60 ;
+  `formatofoto` int(11) DEFAULT NULL,
+  `departamento` int(11) NOT NULL,
+  `ciudad` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `artesano`
 --
 
-INSERT INTO `artesano` (`idArtesano`, `TipoDoc`, `NroDoc`, `password`, `direccion`, `telefono`, `telefono2`, `username`, `estado`, `nombre`, `celular`, `email`, `certificacion`, `nivelestudio`, `aprendices`, `cursos`, `formatofoto`) VALUES
-(46, 0, '1061788569', 'abcdef', 'Cra 5E No. 57 N 03', '8363106', '', '1061788569', 2, 'Sebastián Felipe Landínez García', '3002695941', 'slandinezg@gmail.com', 0, 2, '', '', 1),
-(49, 1, '123456', '123', 'calle', '8367218', '', '123456', 2, 'pablo cesar molina sanjuan', '231', 'pablo.sanjuan@correo.com', 0, 0, '', '', 2),
-(54, 0, '133423', 'smfomd', 'ofmdo', '24324', '3432', '133423', 2, 'oskads ofds podso omdo', '3123', 'okasod@sd.cp', 0, 0, '', '', 2),
-(55, 0, '12123', '213123', 'ree', '231', '43232', '12123', 2, 'sdfsf sfdf dfsf sdfd', '2432', 'df@hooh.com', 0, 0, '', '', 1),
-(56, 0, '43553', 'ytu', 'ytut', '56756', '', '43553', 1, 'gj yut ytr rtyr', '76', 'ghj@kmg.com', 0, 0, '', '', 0),
-(57, 0, '213213', 'gfh', 'ewwer', '234', '345', '213213', 2, 'sdfs rter qweq sda', '4354', 'fsd@kmdfd.com', 0, 0, '', '', 1),
-(58, 0, '56858', 'dasd', 'hggj', '564', '353', '56858', 2, 'gfhg fhf tryr yty', '35', 'ghf@dld.xom', 0, 0, '', '', 2),
-(59, 0, 'rewer', 'pass', 'sfds', '343342', '4324324', 'user', 0, 'dfdfsd vxcv cvxvc xcvxcv', '534', 'fdg@ldd.com', 0, 0, '', '', 0);
+INSERT INTO `artesano` (`idArtesano`, `TipoDoc`, `NroDoc`, `password`, `direccion`, `telefono`, `telefono2`, `username`, `estado`, `nombre`, `celular`, `email`, `certificacion`, `nivelestudio`, `aprendices`, `cursos`, `formatofoto`, `departamento`, `ciudad`) VALUES
+(46, 0, '1061788569', 'abcdef', 'Cra 5E No. 57 N 03', '8363106', '', '1061788569', 2, 'Sebastián Felipe Landínez García', '3002695941', 'slandinezg@gmail.com', 0, 2, '', '', 1, 0, 0),
+(49, 1, '123456', '123', 'calle', '8367218', '', '123456', 2, 'pablo cesar molina sanjuan', '231', 'pablo.sanjuan@correo.com', 0, 0, '', '', 2, 0, 0),
+(54, 0, '133423', 'smfomd', 'ofmdo', '24324', '3432', '133423', 2, 'oskads ofds podso omdo', '3123', 'okasod@sd.cp', 0, 0, '', '', 2, 0, 0),
+(55, 0, '12123', '213123', 'ree', '231', '43232', '12123', 2, 'sdfsf sfdf dfsf sdfd', '2432', 'df@hooh.com', 0, 0, '', '', 1, 0, 0),
+(56, 0, '43553', 'ytu', 'ytut', '56756', '', '43553', 1, 'gj yut ytr rtyr', '76', 'ghj@kmg.com', 0, 0, '', '', 0, 0, 0),
+(57, 0, '213213', 'gfh', 'ewwer', '234', '345', '213213', 2, 'sdfs rter qweq sda', '4354', 'fsd@kmdfd.com', 0, 0, '', '', 1, 0, 0),
+(58, 0, '56858', 'dasd', 'hggj', '564', '353', '56858', 2, 'gfhg fhf tryr yty', '35', 'ghf@dld.xom', 0, 0, '', '', 2, 0, 0),
+(59, 0, 'rewer', 'pass', 'sfds', '343342', '4324324', 'user', 0, 'dfdfsd vxcv cvxvc xcvxcv', '534', 'fdg@ldd.com', 0, 0, '', '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -98,12 +100,12 @@ INSERT INTO `artesano` (`idArtesano`, `TipoDoc`, `NroDoc`, `password`, `direccio
 --
 
 CREATE TABLE IF NOT EXISTS `cursos` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `foto` varchar(255) NOT NULL,
   `descripcion` text NOT NULL,
   `fecha_lim` varchar(50) NOT NULL,
   `horario` varchar(50) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cursos`
@@ -147,10 +149,10 @@ INSERT INTO `inscritos` (`curso`, `nombre`, `cedula`, `email`, `celular`, `direc
 --
 
 CREATE TABLE IF NOT EXISTS `noticias` (
-`idNoticia` int(11) NOT NULL,
+  `idNoticia` int(11) NOT NULL,
   `titulo` varchar(150) NOT NULL,
   `contenido` text NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `noticias`
@@ -171,10 +173,10 @@ INSERT INTO `noticias` (`idNoticia`, `titulo`, `contenido`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `perfil` (
-`idPerfil` int(11) NOT NULL,
+  `idPerfil` int(11) NOT NULL,
   `nomPerfil` varchar(100) NOT NULL,
   `valorPerfil` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `perfil`
@@ -194,7 +196,7 @@ INSERT INTO `perfil` (`idPerfil`, `nomPerfil`, `valorPerfil`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `producto` (
-`idproducto` int(11) NOT NULL,
+  `idproducto` int(11) NOT NULL,
   `nombproducto` varchar(220) COLLATE utf8_bin NOT NULL,
   `descripcion` varchar(30) COLLATE utf8_bin NOT NULL,
   `link` varchar(150) COLLATE utf8_bin DEFAULT NULL,
@@ -207,23 +209,25 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `ventas` int(11) DEFAULT NULL,
   `formatofoto` int(11) DEFAULT NULL,
   `precio` int(11) NOT NULL DEFAULT '0',
-  `mostrar` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=51 ;
+  `mostrar` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `comision` float NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`idproducto`, `nombproducto`, `descripcion`, `link`, `idartesano`, `aceptado`, `empresa`, `nroenvio`, `notificado`, `stock`, `ventas`, `formatofoto`, `precio`, `mostrar`) VALUES
-(36, '', 'Bolsos', '', 46, 2, 'Servientrega', '102003', 0, 30, 0, 1, 2500, 1),
-(37, '', 'Sombreros', '', 46, 1, 'Deprisa', '101002', 0, 0, 0, 0, 0, 0),
-(40, 'asddddddddddddddddddddddddd ddddddddaaaaaaaaaaaaaaaaaaa', 'sadsad', 'https://www.facebook.com/', 49, 2, 'servientrega', '123', 0, 12, 0, 1, 3000, 1),
-(45, 'barro', 'barro', 'http://librosweb.es/libro/xhtml/capitulo_7/tablas_basicas.html', 54, 2, 'adas', '231', 0, 213, 0, 2, 100, 1),
-(46, 'adera', 'adera', 'http://librosweb.es/libro/xhtml/capitulo_7/tablas_basicas.html', 55, 2, 'ewr', '123', 0, 32, 0, 1, 100, 1),
-(47, 'ghj', 'ghj', 'https://www.facebook.com/', 56, 1, 'ok', '54646', 0, 0, 0, 0, 0, 1),
-(48, 'tarro', 'tarro', 'https://www.facebook.com/', 57, 2, 'sdff', '231', 0, 123, 0, 2, 100, 1),
-(49, 'felix', 'camargo', 'https://www.facebook.com/', 58, 2, 'dfg', 'dgg4664', 0, 242, 0, 2, 100, 1),
-(50, 'pablo', 'sanjuan', 'http://librosweb.es/libro/xhtml/capitulo_7/tablas_basicas.html', 59, 0, 'xvvx', '23142343', 0, 0, 0, 0, 0, 1);
+INSERT INTO `producto` (`idproducto`, `nombproducto`, `descripcion`, `link`, `idartesano`, `aceptado`, `empresa`, `nroenvio`, `notificado`, `stock`, `ventas`, `formatofoto`, `precio`, `mostrar`, `fecha`, `comision`) VALUES
+(36, '', 'Bolsos', '', 46, 2, 'Servientrega', '102003', 0, 30, 0, 1, 2500, 1, '0000-00-00', 0),
+(37, '', 'Sombreros', '', 46, 1, 'Deprisa', '101002', 0, 0, 0, 0, 0, 0, '0000-00-00', 0),
+(40, 'asddddddddddddddddddddddddd ddddddddaaaaaaaaaaaaaaaaaaa', 'sadsad', 'https://www.facebook.com/', 49, 2, 'servientrega', '123', 0, 12, 0, 1, 3000, 1, '0000-00-00', 0),
+(45, 'barro', 'barro', 'http://librosweb.es/libro/xhtml/capitulo_7/tablas_basicas.html', 54, 2, 'adas', '231', 0, 213, 0, 2, 100, 1, '0000-00-00', 0),
+(46, 'adera', 'adera', 'http://librosweb.es/libro/xhtml/capitulo_7/tablas_basicas.html', 55, 2, 'ewr', '123', 0, 32, 0, 1, 100, 1, '0000-00-00', 0),
+(47, 'ghj', 'ghj', 'https://www.facebook.com/', 56, 1, 'ok', '54646', 0, 0, 0, 0, 0, 1, '0000-00-00', 0),
+(48, 'tarro', 'tarro', 'https://www.facebook.com/', 57, 2, 'sdff', '231', 0, 123, 0, 2, 100, 1, '0000-00-00', 0),
+(49, 'felix', 'camargo', 'https://www.facebook.com/', 58, 2, 'dfg', 'dgg4664', 0, 242, 0, 2, 100, 1, '0000-00-00', 0),
+(50, 'pablo', 'sanjuan', 'http://librosweb.es/libro/xhtml/capitulo_7/tablas_basicas.html', 59, 0, 'xvvx', '23142343', 0, 0, 0, 0, 0, 1, '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -232,10 +236,10 @@ INSERT INTO `producto` (`idproducto`, `nombproducto`, `descripcion`, `link`, `id
 --
 
 CREATE TABLE IF NOT EXISTS `solicitud` (
-`idSolicitud` int(11) NOT NULL,
+  `idSolicitud` int(11) NOT NULL,
   `idArtesano` int(11) NOT NULL,
   `idStand` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `solicitud`
@@ -252,10 +256,10 @@ INSERT INTO `solicitud` (`idSolicitud`, `idArtesano`, `idStand`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `stand` (
-`idStand` int(11) NOT NULL,
+  `idStand` int(11) NOT NULL,
   `idArtesano` int(11) DEFAULT NULL,
   `reservado` int(11) DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `stand`
@@ -371,49 +375,51 @@ INSERT INTO `stand` (`idStand`, `idArtesano`, `reservado`) VALUES
 -- Indices de la tabla `administrador`
 --
 ALTER TABLE `administrador`
- ADD PRIMARY KEY (`idadministrador`);
+  ADD PRIMARY KEY (`idadministrador`);
 
 --
 -- Indices de la tabla `artesano`
 --
 ALTER TABLE `artesano`
- ADD PRIMARY KEY (`idArtesano`);
+  ADD PRIMARY KEY (`idArtesano`);
 
 --
 -- Indices de la tabla `cursos`
 --
 ALTER TABLE `cursos`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `noticias`
 --
 ALTER TABLE `noticias`
- ADD PRIMARY KEY (`idNoticia`);
+  ADD PRIMARY KEY (`idNoticia`);
 
 --
 -- Indices de la tabla `perfil`
 --
 ALTER TABLE `perfil`
- ADD PRIMARY KEY (`idPerfil`);
+  ADD PRIMARY KEY (`idPerfil`);
 
 --
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
- ADD PRIMARY KEY (`idproducto`), ADD KEY `foreignkey` (`idartesano`);
+  ADD PRIMARY KEY (`idproducto`),
+  ADD KEY `foreignkey` (`idartesano`);
 
 --
 -- Indices de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
- ADD PRIMARY KEY (`idSolicitud`);
+  ADD PRIMARY KEY (`idSolicitud`);
 
 --
 -- Indices de la tabla `stand`
 --
 ALTER TABLE `stand`
- ADD PRIMARY KEY (`idStand`), ADD KEY `idArtesano` (`idArtesano`);
+  ADD PRIMARY KEY (`idStand`),
+  ADD KEY `idArtesano` (`idArtesano`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -423,42 +429,42 @@ ALTER TABLE `stand`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `artesano`
 --
 ALTER TABLE `artesano`
-MODIFY `idArtesano` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
+  MODIFY `idArtesano` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-MODIFY `idPerfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `idPerfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `stand`
 --
 ALTER TABLE `stand`
-MODIFY `idStand` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
+  MODIFY `idStand` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
 --
 -- Restricciones para tablas volcadas
 --
@@ -467,7 +473,7 @@ MODIFY `idStand` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`idartesano`) REFERENCES `artesano` (`idArtesano`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`idartesano`) REFERENCES `artesano` (`idArtesano`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

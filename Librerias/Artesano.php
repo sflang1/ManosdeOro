@@ -24,10 +24,6 @@
   * for each database table you are paying for.) Send mail to
   * "Tuomo.Lukka@iki.fi" for more information. Thank you!
   */
-
-
-
-
 class Artesano {
 
     /** 
@@ -51,8 +47,8 @@ class Artesano {
     var $aprendices;
     var $cursos;
     var $formatofoto;
-
-
+    var $departamento;
+    var $ciudad;
 
     /** 
      * Constructors. DaoGen generates two constructors by default.
@@ -70,8 +66,6 @@ class Artesano {
           $this->idArtesano = $idArtesanoIn;
 
     } */
-
-
     /** 
      * Get- and Set-methods for persistent variables. The default
      * behaviour does not make any checks against malformed data,
@@ -197,6 +191,20 @@ class Artesano {
           $this->formatofoto = $formatofotoIn;
     }
 
+    function getDepartamento() {
+          return $this->departamento;
+    }
+    function setDepartamento($departamentoIn) {
+          $this->departamento = $departamentoIn;
+    }
+
+      function getCiudad() {
+          return $this->ciudad;
+    }
+    function setCiudad($ciudadIn) {
+          $this->ciudad = $ciudadIn;
+    }
+
 
 
     /** 
@@ -223,7 +231,9 @@ class Artesano {
           $nivelestudioIn,
           $aprendicesIn,
           $cursosIn,
-          $formatofotoIn) {
+          $formatofotoIn,
+          $departamentoIn,
+          $ciudadIn) {
           $this->idArtesano = $idArtesanoIn;
           $this->TipoDoc = $TipoDocIn;
           $this->NroDoc = $NroDocIn;
@@ -241,6 +251,8 @@ class Artesano {
           $this->aprendices = $aprendicesIn;
           $this->cursos = $cursosIn;
           $this->formatofoto = $formatofotoIn;
+          $this->departamento = $departamentoIn;
+          $this->ciudad = $ciudadIn;
     }
 
 
@@ -271,7 +283,6 @@ class Artesano {
           if ($valueObject->getTelefono() != $this->telefono) {
                     return(false);
           }
-
           if ($valueObject->getTelefono2() != $this->telefono2) {
                     return(false);
           }
@@ -303,6 +314,12 @@ class Artesano {
                     return(false);
           }
           if ($valueObject->getFormatofoto() != $this->formatofoto) {
+                    return(false);
+          }
+          if ($valueObject->getDepartamento() != $this->departamento) {
+                    return(false);
+          }
+          if ($valueObject->getCiudad() != $this->ciudad) {
                     return(false);
           }
 
@@ -337,6 +354,8 @@ class Artesano {
         $out = $out."aprendices = ".$this->aprendices."\n"; 
         $out = $out."cursos = ".$this->cursos."\n"; 
         $out = $out."formatofoto = ".$this->formatofoto."\n"; 
+        $out = $out."departamento = ".$this->departamento."\n"; 
+        $out = $out."ciudad = ".$this->ciudad."\n"; 
         return $out;
     }
 
@@ -367,6 +386,8 @@ class Artesano {
         $cloned->setAprendices($this->aprendices); 
         $cloned->setCursos($this->cursos); 
         $cloned->setFormatofoto($this->formatofoto); 
+        $cloned->setDepartamento($this->departamento); 
+        $cloned->setCiudad($this->ciudad); 
 
         return $cloned;
     }

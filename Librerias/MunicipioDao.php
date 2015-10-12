@@ -2,9 +2,9 @@
 
 
  /**
-  * Artesano Data Access Object (DAO).
+  * Municipio Data Access Object (DAO).
   * This class contains all database handling that is needed to 
-  * permanently store and retrieve Artesano object instances. 
+  * permanently store and retrieve Municipio object instances. 
   */
 
  /**
@@ -27,8 +27,7 @@
 
 
 
-class ArtesanoDao 
-{
+class MunicipioDao {
 
 
     /**
@@ -40,7 +39,7 @@ class ArtesanoDao
      * clone() method in it!
      */
     function createValueObject() {
-          return new Artesano();
+          return new Municipio();
     }
 
 
@@ -50,10 +49,10 @@ class ArtesanoDao
      * for the real load-method which accepts the valueObject as a parameter. Returned
      * valueObject will be created using the createValueObject() method.
      */
-    function getObject($conn, $idArtesano) {
+    function getObject($conn, $id_municipio) {
 
           $valueObject = $this->createValueObject();
-          $valueObject->setIdArtesano($idArtesano);
+          $valueObject->setId_municipio($id_municipio);
           $this->load($conn, $valueObject);
           return $valueObject;
     }
@@ -73,18 +72,20 @@ class ArtesanoDao
      */
     function load($conn, $valueObject) {
 
-          if (!$valueObject->getIdArtesano()) {
+          if (!$valueObject->getId_municipio()) {
                //print "Can not select without Primary-Key!";
                return false;
           }
 
-          $sql = "SELECT * FROM artesano WHERE (idArtesano = ".$valueObject->getIdArtesano().") "; 
+          $sql = "SELECT * FROM municipios WHERE (id_municipio = ".$valueObject->getId_municipio().") "; 
 
           if ($this->singleQuery($conn, $sql, $valueObject))
                return true;
           else
                return false;
     }
+
+
     /**
      * LoadAll-method. This will read all contents from database table and
      * build an Vector containing valueObjects. Please note, that this method
@@ -97,7 +98,7 @@ class ArtesanoDao
     function loadAll($conn) {
 
 
-          $sql = "SELECT * FROM artesano ORDER BY idArtesano ASC ";
+          $sql = "SELECT * FROM municipios ORDER BY id_municipio ASC ";
 
           $searchResults = $this->listQuery($conn, $sql);
 
@@ -121,30 +122,9 @@ class ArtesanoDao
      */
     function create($conn, $valueObject) {
 
-          $sql = "INSERT INTO artesano (TipoDoc, NroDoc, ";
-          $sql = $sql."password, direccion, telefono, telefono2, ";
-          $sql = $sql."username, estado, nombre, ";
-          $sql = $sql."celular, email, certificacion, ";
-          $sql = $sql."nivelestudio, aprendices, cursos, ";
-          $sql = $sql."formatofoto,departamento,ciudad) VALUES (";
-          $sql = $sql."".$valueObject->getTipoDoc().", ";
-          $sql = $sql."'".$valueObject->getNroDoc()."', ";
-          $sql = $sql."'".$valueObject->getPassword()."', ";
-          $sql = $sql."'".$valueObject->getDireccion()."', ";
-          $sql = $sql."'".$valueObject->getTelefono()."', ";
-          $sql = $sql."'".$valueObject->getTelefono2()."', ";
-          $sql = $sql."'".$valueObject->getUsername()."', ";
-          $sql = $sql."".$valueObject->getEstado().", ";
-          $sql = $sql."'".$valueObject->getNombre()."', ";
-          $sql = $sql."'".$valueObject->getCelular()."', ";
-          $sql = $sql."'".$valueObject->getEmail()."', ";
-          $sql = $sql."".$valueObject->getCertificacion().", ";
-          $sql = $sql."".$valueObject->getNivelestudio().", ";
-          $sql = $sql."'".$valueObject->getAprendices()."', ";
-          $sql = $sql."'".$valueObject->getCursos()."', ";
-          $sql = $sql."'".$valueObject->getFormatofoto()."', ";
-          $sql = $sql."'".$valueObject->getDepartamento()."', ";
-          $sql = $sql."'".$valueObject->getCiudad()."') ";
+          $sql = "INSERT INTO municipios ( id_municipio, id_departamento, descripcion) VALUES (".$valueObject->getId_municipio().", ";
+          $sql = $sql."".$valueObject->getId_departamento().", ";
+          $sql = $sql."'".$valueObject->getDescripcion()."') ";
           $result = $this->databaseUpdate($conn, $sql);
 
 
@@ -165,25 +145,9 @@ class ArtesanoDao
      */
     function save($conn, $valueObject) {
 
-          $sql = "UPDATE artesano SET TipoDoc = ".$valueObject->getTipoDoc().", ";
-          $sql = $sql."NroDoc = '".$valueObject->getNroDoc()."', ";
-          $sql = $sql."password = '".$valueObject->getPassword()."', ";
-          $sql = $sql."direccion = '".$valueObject->getDireccion()."', ";
-          $sql = $sql."telefono = '".$valueObject->getTelefono()."', ";
-          $sql = $sql."telefono2 = '".$valueObject->getTelefono2()."', ";
-          $sql = $sql."username = '".$valueObject->getUsername()."', ";
-          $sql = $sql."estado = ".$valueObject->getEstado().", ";
-          $sql = $sql."nombre = '".$valueObject->getNombre()."', ";
-          $sql = $sql."celular = '".$valueObject->getCelular()."', ";
-          $sql = $sql."email = '".$valueObject->getEmail()."', ";
-          $sql = $sql."certificacion = ".$valueObject->getCertificacion().", ";
-          $sql = $sql."nivelestudio = ".$valueObject->getNivelestudio().", ";
-          $sql = $sql."aprendices = '".$valueObject->getAprendices()."', ";
-          $sql = $sql."cursos = '".$valueObject->getCursos()."', ";
-          $sql = $sql."formatofoto = '".$valueObject->getFormatofoto()."'";
-          $sql = $sql."departamento = '".$valueObject->getDepartamento()."'";
-          $sql = $sql."ciudad = '".$valueObject->getCiudad()."'";
-          $sql = $sql." WHERE (idArtesano = ".$valueObject->getIdArtesano().") ";
+          $sql = "UPDATE municipios SET id_departamento = ".$valueObject->getId_departamento().", ";
+          $sql = $sql."descripcion = '".$valueObject->getDescripcion()."'";
+          $sql = $sql." WHERE (id_municipio = ".$valueObject->getId_municipio().") ";
           $result = $this->databaseUpdate($conn, $sql);
 
           if ($result != 1) {
@@ -210,12 +174,12 @@ class ArtesanoDao
     function delete($conn, $valueObject) {
 
 
-          if (!$valueObject->getIdArtesano()) {
+          if (!$valueObject->getId_municipio()) {
                //print "Can not delete without Primary-Key!";
                return false;
           }
 
-          $sql = "DELETE FROM artesano WHERE (idArtesano = ".$valueObject->getIdArtesano().") ";
+          $sql = "DELETE FROM municipios WHERE (id_municipio = ".$valueObject->getId_municipio().") ";
           $result = $this->databaseUpdate($conn, $sql);
 
           if ($result != 1) {
@@ -239,7 +203,7 @@ class ArtesanoDao
      */
     function deleteAll($conn) {
 
-          $sql = "DELETE FROM artesano";
+          $sql = "DELETE FROM municipios";
           $result = $this->databaseUpdate($conn, $sql);
 
           return true;
@@ -256,7 +220,7 @@ class ArtesanoDao
      */
     function countAll($conn) {
 
-          $sql = "SELECT count(*) FROM artesano";
+          $sql = "SELECT count(*) FROM municipios";
           $allRows = 0;
 
           $result = $conn->execute($sql);
@@ -284,105 +248,25 @@ class ArtesanoDao
     function searchMatching($conn, $valueObject) {
 
           $first = true;
-          $sql = "SELECT * FROM artesano WHERE 1=1 ";
+          $sql = "SELECT * FROM municipios WHERE 1=1 ";
 
-          if ($valueObject->getIdArtesano() != 0) {
+          if ($valueObject->getId_municipio() != 0) {
               if ($first) { $first = false; }
-              $sql = $sql."AND idArtesano = ".$valueObject->getIdArtesano()." ";
+              $sql = $sql."AND id_municipio = ".$valueObject->getId_municipio()." ";
           }
 
-          if ($valueObject->getTipoDoc() != 0) {
+          if ($valueObject->getId_departamento() != 0) {
               if ($first) { $first = false; }
-              $sql = $sql."AND TipoDoc = ".$valueObject->getTipoDoc()." ";
+              $sql = $sql."AND id_departamento = ".$valueObject->getId_departamento()." ";
           }
 
-          if ($valueObject->getNroDoc() != "") {
+          if ($valueObject->getDescripcion() != "") {
               if ($first) { $first = false; }
-              $sql = $sql."AND NroDoc = '".$valueObject->getNroDoc()."' ";
-          }
-
-          if ($valueObject->getPassword() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND password LIKE '".$valueObject->getPassword()."%' ";
-          }
-
-          if ($valueObject->getDireccion() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND direccion LIKE '".$valueObject->getDireccion()."%' ";
-          }
-
-          if ($valueObject->getTelefono() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND telefono LIKE '".$valueObject->getTelefono()."%' ";
-          }
-
-          if ($valueObject->getTelefono2() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND telefono2 LIKE '".$valueObject->getTelefono2()."%' ";
-          }
-
-          if ($valueObject->getUsername() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND username = '".$valueObject->getUsername()."' ";
-          }
-
-          if ($valueObject->getEstado() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND estado = ".$valueObject->getEstado()." ";
-          }
-
-          if ($valueObject->getNombre() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND nombre LIKE '".$valueObject->getNombre()."%' ";
-          }
-
-          if ($valueObject->getCelular() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND celular LIKE '".$valueObject->getCelular()."%' ";
-          }
-
-          if ($valueObject->getEmail() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND email LIKE '".$valueObject->getEmail()."%' ";
-          }
-
-          if ($valueObject->getCertificacion() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND certificacion = ".$valueObject->getCertificacion()." ";
-          }
-
-          if ($valueObject->getNivelestudio() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND nivelestudio = ".$valueObject->getNivelestudio()." ";
-          }
-
-          if ($valueObject->getAprendices() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND aprendices LIKE '".$valueObject->getAprendices()."%' ";
-          }
-
-          if ($valueObject->getCursos() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND cursos LIKE '".$valueObject->getCursos()."%' ";
-          }
-
-          if ($valueObject->getFormatofoto() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND formatofoto LIKE '".$valueObject->getFormatofoto()."%' ";
-          }
-
-          if ($valueObject->getDepartamento() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND departamento LIKE '".$valueObject->getDepartamento()."%' ";
-          }
-
-            if ($valueObject->getCiudad() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND ciudad LIKE '".$valueObject->getCiudad()."%' ";
+              $sql = $sql."AND descripcion LIKE '".$valueObject->getDescripcion()."%' ";
           }
 
 
-          $sql = $sql."ORDER BY idArtesano ASC ";
+          $sql = $sql."ORDER BY id_municipio ASC ";
 
           // Prevent accidential full table results.
           // Use loadAll if all rows must be returned.
@@ -437,25 +321,9 @@ class ArtesanoDao
 
           if ($row = $conn->nextRow($result)) {
 
-                   $valueObject->setIdArtesano($row[0]); 
-                   $valueObject->setTipoDoc($row[1]); 
-                   $valueObject->setNroDoc($row[2]); 
-                   $valueObject->setPassword($row[3]); 
-                   $valueObject->setDireccion($row[4]); 
-                   $valueObject->setTelefono($row[5]); 
-                   $valueObject->setTelefono2($row[6]); 
-                   $valueObject->setUsername($row[7]); 
-                   $valueObject->setEstado($row[8]); 
-                   $valueObject->setNombre($row[9]); 
-                   $valueObject->setCelular($row[10]); 
-                   $valueObject->setEmail($row[11]); 
-                   $valueObject->setCertificacion($row[12]); 
-                   $valueObject->setNivelestudio($row[13]); 
-                   $valueObject->setAprendices($row[14]); 
-                   $valueObject->setCursos($row[15]); 
-                   $valueObject->setFormatofoto($row[16]); 
-                   $valueObject->setDepartamento($row[17]);
-                   $valueObject->setCiudad($row[18]);
+                   $valueObject->setId_municipio($row[0]); 
+                   $valueObject->setId_departamento($row[1]); 
+                   $valueObject->setDescripcion($row[2]); 
           } else {
                //print " Object Not Found!";
                return false;
@@ -480,65 +348,13 @@ class ArtesanoDao
           while ($row = $conn->nextRow($result)) {
                $temp = $this->createValueObject();
 
-               $temp->setIdArtesano($row[0]); 
-               $temp->setTipoDoc($row[1]); 
-               $temp->setNroDoc($row[2]); 
-               $temp->setPassword($row[3]); 
-               $temp->setDireccion($row[4]); 
-               $temp->setTelefono($row[5]); 
-               $temp->setTelefono2($row[6]); 
-               $temp->setUsername($row[7]); 
-               $temp->setEstado($row[8]); 
-               $temp->setNombre($row[9]); 
-               $temp->setCelular($row[10]); 
-               $temp->setEmail($row[11]); 
-               $temp->setCertificacion($row[12]); 
-               $temp->setNivelestudio($row[13]); 
-               $temp->setAprendices($row[14]); 
-               $temp->setCursos($row[15]); 
-               $temp->setFormatofoto($row[16]); 
-               $temp->setDepartamento($row[17]); 
-               $temp->setCiudad($row[18]); 
+               $temp->setId_municipio($row[0]); 
+               $temp->setId_departamento($row[1]); 
+               $temp->setDescripcion($row[2]); 
                array_push($searchResults, $temp);
           }
 
           return $searchResults;
-    }
-
-
-
-    function encodificaraUTF($ValueObject)
-    {
-      $coded=$ValueObject;
-      $coded->setNombre(utf8_encode($ValueObject->getNombre())); 
-      $coded->setNroDoc(utf8_encode($ValueObject->getNroDoc())); 
-      $coded->setPassword(utf8_encode($ValueObject->getPassword())); 
-      $coded->setDireccion(utf8_encode($ValueObject->getDireccion())); 
-      $coded->setTelefono(utf8_encode($ValueObject->getTelefono()));
-      $coded->setTelefono2(utf8_encode($ValueObject->getTelefono2())); 
-      $coded->setEmail(utf8_encode($ValueObject->getEmail())); 
-      $coded->setUsername(utf8_encode($ValueObject->getUsername())); 
-      $coded->setAprendices(utf8_encode($ValueObject->getAprendices()));
-      $coded->setCursos(utf8_encode($ValueObject->getCursos())); 
-      $coded->setCursos(utf8_encode($ValueObject->getDepartamento())); 
-      $coded->setCursos(utf8_encode($ValueObject->getCiudad())); 
-      return $coded;
-    }
-    function buscarArtesanoPorCedula($conn,$busqueda)
-    {
-      $sql="SELECT * FROM Artesano WHERE NroDoc LIKE '".$busqueda."%' ORDER BY nombre ASC;";
-      
-      return $this->listQuery($conn,$sql);
-    }
-    function buscarArtesanoPorNombre($conn,$busqueda)
-    {      
-      $sql="SELECT * FROM Artesano WHERE upper(nombre) LIKE '%".$busqueda."%' ORDER BY nombre ASC";
-      return $this->listQuery($conn,$sql);
-    }
-    function buscarArtesanoPorCiudad($conn,$busqueda)
-    {      
-      $sql="SELECT * FROM Artesano WHERE ciudad =".$busqueda." ORDER BY nombre ASC";
-      return $this->listQuery($conn,$sql);
     }
 }
 

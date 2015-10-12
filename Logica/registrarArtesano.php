@@ -1,14 +1,20 @@
 <?php
 	@session_start();
+	date_default_timezone_set("America/Bogota");
 	include_once("../Librerias/Datasource.php");
 	include_once("../Librerias/ArtesanoDao.php");
 	include_once("../Librerias/Artesano.php");
 	include_once("../Librerias/ProductoDao.php");
 	include_once("../Librerias/Producto.php");
+	include_once("../Librerias/Noticias.php");
+	include_once("../Librerias/NoticiasDao.php");
 	include_once("../Librerias/Variables.php");
 	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
 	$artesanoDao=new ArtesanoDao();
 	$pDao=new ProductoDao();
+	$ndao=new NoticiasDao();
+	$c=$ndao->getObject($conn,-1);
+	$comision=$c->getContenido();
 	$nroDoc=utf8_decode($_POST["nroDoc"]);
 	$reemplazar = array("/","-","\\","_"," ",".",",","'");
     $username=str_replace($reemplazar, "", $nroDoc);
@@ -35,6 +41,8 @@
 		$segundonom=str_replace("", "\b", $segundonom);
 		$segundoape=str_replace("", "\b", $segundoape);
 		$nombre=$primernom." ".$segundonom." ".$primerape." ".$segundoape;
+		$depto=utf8_decode($_POST["depto"]);
+		$city=utf8_decode($_POST["city"]);
 		$password=utf8_decode($_POST["password"]);
 		$direccion=utf8_decode($_POST["direccion"]);
 		$telefono=utf8_decode($_POST["telefono"]);
@@ -57,6 +65,8 @@
 		$artesano->setEmail($email);
 		$artesano->setNivelestudio($estudios);
 		$artesano->setEstado(0);
+		$artesano->setDepartamento($depto);
+		$artesano->setCiudad($city);
 		if($artesanoDao->create($conn,$artesano))
 		{
 			$list=($artesanoDao->searchMatching($conn,$artesano));
@@ -67,11 +77,14 @@
 			$empresa=utf8_decode($_POST["empresa"]);
 			$nroenvio=$_POST["nroenvio"];
 			$producto=new Producto();
-			$producto->setAll(1,$nombproducto,$descripcion,$link,$artesano->getIdArtesano(),0,$empresa,$nroenvio,0,0,0,0,0,$_POST["mostrar"]);
+			//Obtener la hora
+			$date=date("Y-m-d");
+			$producto->setAll(1,$nombproducto,$descripcion,$link,$artesano->getIdArtesano(),0,$empresa,$nroenvio,0,0,0,0,0,$_POST["mostrar"],$date,$comision);
 			if($pDao->create($conn,$producto))
 			{
 				$asunto="Notificación artesano  registrado: ".$artesano->getNombre();
-				$cadena="Estimad@ administrador<br>Te informamos que se ha registrado un nuevo artesano. Puedes proceder a aceptarlo o rechazarlo.<br>Atentamente,<br>Artesanías Manos de Oro";
+				$cadena="Estimad@ administrador<br>Te informamos que se ha registrado un nuevo artesano. Puedes proceder a 
+							aceptarlo o rechazarlo.<br>Atentamente,<br>Artesanías Manos de Oro";
 				$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 				$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 				mail("fxcamargo@gmail.com", $asunto, $cadena,$cabeceras);
@@ -81,19 +94,19 @@
 					$_SESSION["ID"]=$artesano->getIdArtesano();
 					$_SESSION["ROL"]="Artesano";
 					?>
+					<META HTTP-EQUIV="REFRESH" CONTENT="0,URL=../Interfaces/principal.php">
 					<script type="text/javascript">
 						alert("Usuario creado correctamente");
 					</script>
-					<META HTTP-EQUIV="REFRESH" CONTENT="0,URL=../Interfaces/principal.php">
 					<?php		
 				}
 				else
 				{
 					?>
+					<META HTTP-EQUIV="REFRESH" CONTENT="0,URL=../Interfaces/creacionPersonas.php">
 					<script type="text/javascript">
 						alert("Usuario creado correctamente");
 					</script>
-					<META HTTP-EQUIV="REFRESH" CONTENT="0,URL=../Interfaces/creacionPersonas.php">
 					<?php	
 				}
 			}

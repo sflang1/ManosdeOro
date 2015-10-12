@@ -48,6 +48,8 @@ class Producto {
     var $formatofoto;
     var $precio;
     var $mostrar;
+    var $fecha;
+    var $comision;
 
 
 
@@ -173,6 +175,18 @@ class Producto {
     function setMostrar($mostrarIn) {
           $this->mostrar = $mostrarIn;
     }
+      function getFecha() {
+          return $this->fecha;
+    }
+    function setFecha($fechaIn) {
+          $this->fecha = $fechaIn;
+    }
+      function getComision() {
+          return $this->comision;
+    }
+    function setComision($comisionIn) {
+          $this->comision = $comisionIn;
+    }
 
 
 
@@ -197,7 +211,9 @@ class Producto {
           $ventasIn,
           $formatofotoIn,
           $precioIn,
-          $mostrarIn) {
+          $mostrarIn,
+          $fechaIn,
+          $comisionIn) {
           $this->idproducto = $idproductoIn;
           $this->nombproducto = $nombproductoIn;
           $this->descripcion = $descripcionIn;
@@ -212,6 +228,8 @@ class Producto {
           $this->formatofoto = $formatofotoIn;
           $this->precio = $precioIn;
           $this->mostrar = $mostrarIn;
+          $this->fecha = $fechaIn;
+          $this->comision = $comisionIn;
     }
 
 
@@ -266,6 +284,12 @@ class Producto {
           if ($valueObject->getMostrar() != $this->mostrar) {
                     return(false);
           }
+           if ($valueObject->getFecha() != $this->fecha) {
+                    return(false);
+          }
+           if ($valueObject->getComision() != $this->comision) {
+                    return(false);
+          }
 
           return true;
     }
@@ -295,6 +319,8 @@ class Producto {
         $out = $out."formatofoto = ".$this->formatofoto."\n"; 
         $out = $out."precio = ".$this->precio."\n"; 
         $out = $out."mostrar = ".$this->mostrar."\n"; 
+        $out = $out."fecha = ".$this->fecha."\n"; 
+        $out = $out."comision = ".$this->comision."\n"; 
         return $out;
     }
 
@@ -322,6 +348,8 @@ class Producto {
         $cloned->setFormatofoto($this->formatofoto); 
         $cloned->setPrecio($this->precio); 
         $cloned->setMostrar($this->mostrar); 
+        $cloned->setFecha($this->fecha); 
+        $cloned->setComision($this->comision);
 
         return $cloned;
     }
