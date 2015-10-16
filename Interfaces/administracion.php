@@ -45,7 +45,7 @@
 		<script type="text/javascript" src="../js/re_dir.js"></script>
 	</head>
 	<body>
-		<div id="contenedor2">
+		<div id="contenedor">
 			<header>
 				<div id="img_fon">
 					<div id="img_fondo"></div>

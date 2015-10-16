@@ -101,11 +101,11 @@
 					<title>Reporte de Ventas</title>
 				</head>
 				<body>
-<div id="reporte">
+				<div id="reporte">
 					<center>
 					<img src="../imgs/logo2.png" id="logo_cabecera2">
 					</center>
-<center>		
+				<center>		
 					<table style="border: 1px solid black; border-collapse: collapse;">
 						<tr style="border: 1px solid black; border-collapse: collapse;">
 							<th style="border: 1px solid black; border-collapse: collapse;">Descripción del producto</th>

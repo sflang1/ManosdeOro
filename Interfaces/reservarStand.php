@@ -403,12 +403,12 @@
 				<div style="float: left; width: 23%;">
 						<h1 id="titulos_footer">Redes Sociales</h1>
 						<div id="foot_face">
-							<a onclick="ir_facebook()"><img src="../imgs/facebook.png" id="logo_redes"></a>
+							<a onclick="ir_facebook()"><img src="../imgs/facebook.png" id="logo_redes2"></a>
 							<h1 id="strings_footer">/ManosdeOro Popayan</h1>
 						</div>
 						<br>
 						<div id="foot_twiter">
-						<a onclick="ir_twiter()"><img src="../imgs/twiter.png" id="logo_redes"></a>
+						<a onclick="ir_twiter()"><img src="../imgs/twiter.png" id="logo_redes2"></a>
 						<h1 id="strings_footer">/@ManosdeOroPop</h1>
 						<!--<a onclick="ir_instagram()"><img src="imgs/instagram.png" id="logo_redes"></a>
 						<a onclick="ir_youtube()"><img src="imgs/youtube.png" id="logo_redes"></a> -->
