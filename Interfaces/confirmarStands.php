@@ -194,6 +194,7 @@
 								echo("<td id='strings_editar'>".$stand."</td>");
 								echo("<td><input type='button' value='Ver Detalles' onclick=\"location.href='verDetallesArtesano.php?id=".$solicitudes[$i]->getIdartesano()."'\"></td>");
 								echo("<td><input type='button' value='Confirmar solicitud' onclick='confirmarStand(".$solicitudes[$i]->getIdsolicitud().")'></td>");
+								echo("<td><input type='button' value='Rechazar solicitud' onclick='rechazarStand(".$solicitudes[$i]->getIdsolicitud().")'></td>");
 								echo("</tr>");
 							}
 							echo("</table>");	
