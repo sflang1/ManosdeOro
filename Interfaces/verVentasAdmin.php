@@ -205,7 +205,7 @@
 					<br><br>
 					<div id='reporteMensual'>
 						<h4>Búsqueda por meses</h4>
-						<input type="radio" name="criterio" value="1">Antes de
+						<input type="radio" name="criterio" value="1" checked>Antes de
 						<input type="radio" name="criterio" value="2">Durante
 						<input type="radio" name="criterio" value="3">Desde
 						<select>
@@ -238,7 +238,8 @@
 					<a href="admon.php">Volver al inicio</a>
 			</center>
 </div>
-
+				<script type="text/javascript" src="../Librerias/jquery-1.3.1.js"></script>
+				<script type="text/javascript" src="verVentasAdmin.js"></script>
 				</body>
 			</html>
 			<?php

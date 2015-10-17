@@ -7,11 +7,16 @@
 	include_once("../Librerias/Producto.php");
 	include_once("../Librerias/Venta.php");
 	include_once("../Librerias/VentaDao.php");
+	include_once("../Librerias/Noticias.php");
+	include_once("../Librerias/NoticiasDao.php");
 	include_once("../Librerias/Variables.php");
 	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);
 	$pdao=new ProductoDao();
 	$adao=new ArtesanoDao();
 	$vdao=new VentaDao();
+	$ndao=new NoticiasDao();
+	$objComision=$ndao->getObject($conn,-1);
+	$comision=$objComision->getContenido();
 	$index=$_POST["id"];
 	$ventas=$_POST["ventas"];
 	$stock=0;
@@ -38,6 +43,7 @@
 		$venta->setNroProductosVendidos($_POST["ventas"]);
 		$date=date("Y-m-d");
 		$venta->setFecha($date);
+		$venta->setComision($comision);
 		if($vdao->create($conn,$venta))
 		{
 
