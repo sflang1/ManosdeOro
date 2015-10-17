@@ -2,9 +2,9 @@
 
 
  /**
-  * Producto Data Access Object (DAO).
+  * Venta Data Access Object (DAO).
   * This class contains all database handling that is needed to 
-  * permanently store and retrieve Producto object instances. 
+  * permanently store and retrieve Venta object instances. 
   */
 
  /**
@@ -27,7 +27,7 @@
 
 
 
-class ProductoDao {
+class VentaDao {
 
 
     /**
@@ -39,7 +39,7 @@ class ProductoDao {
      * clone() method in it!
      */
     function createValueObject() {
-          return new Producto();
+          return new Venta();
     }
 
 
@@ -49,27 +49,14 @@ class ProductoDao {
      * for the real load-method which accepts the valueObject as a parameter. Returned
      * valueObject will be created using the createValueObject() method.
      */
-    function getObject($conn, $idproducto) {
+    function getObject($conn, $idVenta) {
 
           $valueObject = $this->createValueObject();
-          $valueObject->setIdproducto($idproducto);
+          $valueObject->setIdVenta($idVenta);
           $this->load($conn, $valueObject);
           return $valueObject;
     }
-    function listTiendaVirtualAlphabetic($conn)
-    {
-      $sql="SELECT * FROM producto WHERE (aceptado=2 && mostrar=1) ORDER BY descripcion ASC";
-      $searchResults=$this->listQuery($conn,$sql);
-      return $searchResults;
-    }
 
-    function busquedaTiendaVirtual($conn,$cadena)
-    {
-      $sql="SELECT * FROM producto WHERE (descripcion LIKE '%".$cadena."%') && (mostrar=1) && (aceptado=2) ORDER BY producto.nombproducto";
-      $searchResults=$this->listQuery($conn,$sql);
-      return $searchResults;
-      
-    }
 
     /**
      * load-method. This will load valueObject contents from database using
@@ -85,12 +72,12 @@ class ProductoDao {
      */
     function load($conn, $valueObject) {
 
-          if (!$valueObject->getIdproducto()) {
+          if (!$valueObject->getIdVenta()) {
                //print "Can not select without Primary-Key!";
                return false;
           }
 
-          $sql = "SELECT * FROM producto WHERE (idproducto = ".$valueObject->getIdproducto().") "; 
+          $sql = "SELECT * FROM venta WHERE (idVenta = ".$valueObject->getIdVenta().") "; 
 
           if ($this->singleQuery($conn, $sql, $valueObject))
                return true;
@@ -111,7 +98,7 @@ class ProductoDao {
     function loadAll($conn) {
 
 
-          $sql = "SELECT * FROM producto ORDER BY idproducto ASC ";
+          $sql = "SELECT * FROM venta ORDER BY idVenta ASC ";
 
           $searchResults = $this->listQuery($conn, $sql);
 
@@ -135,26 +122,12 @@ class ProductoDao {
      */
     function create($conn, $valueObject) {
 
-          $sql = "INSERT INTO producto ( nombproducto, descripcion, link, ";
-          $sql = $sql."idartesano, aceptado, empresa, ";
-          $sql = $sql."nroenvio, notificado, stock, ";
-          $sql = $sql."ventas, formatofoto, precio, ";
-          $sql = $sql."mostrar, fecha, comision) VALUES (";
-          $sql = $sql."'".$valueObject->getNombproducto()."', ";
-          $sql = $sql."'".$valueObject->getDescripcion()."', ";
-          $sql = $sql."'".$valueObject->getLink()."', ";
-          $sql = $sql."".$valueObject->getIdartesano().", ";
-          $sql = $sql."".$valueObject->getAceptado().", ";
-          $sql = $sql."'".$valueObject->getEmpresa()."', ";
-          $sql = $sql."'".$valueObject->getNroenvio()."', ";
-          $sql = $sql."".$valueObject->getNotificado().", ";
-          $sql = $sql."".$valueObject->getStock().", ";
-          $sql = $sql."".$valueObject->getVentas().", ";
-          $sql = $sql."".$valueObject->getFormatofoto().", ";
-          $sql = $sql."".$valueObject->getPrecio().", ";
-          $sql = $sql."".$valueObject->getMostrar().", ";
+          $sql = "INSERT INTO venta (idProducto, fecha, ";
+          $sql = $sql."nroProductosVendidos, comision) VALUES ( ";
+          $sql = $sql."".$valueObject->getIdProducto().", ";
           $sql = $sql."'".$valueObject->getFecha()."', ";
-          $sql = $sql."'".$valueObject->getComision()."') ";
+          $sql = $sql."".$valueObject->getNroProductosVendidos().", ";
+          $sql = $sql."".$valueObject->getComision().") ";
           $result = $this->databaseUpdate($conn, $sql);
 
 
@@ -175,22 +148,11 @@ class ProductoDao {
      */
     function save($conn, $valueObject) {
 
-          $sql = "UPDATE producto SET descripcion = '".$valueObject->getNombproducto()."', ";
-          $sql = $sql."descripcion = '".$valueObject->getDescripcion()."', ";
-          $sql = $sql."link = '".$valueObject->getLink()."', ";
-          $sql = $sql."idartesano = ".$valueObject->getIdartesano().", ";
-          $sql = $sql."aceptado = ".$valueObject->getAceptado().", ";
-          $sql = $sql."empresa = '".$valueObject->getEmpresa()."', ";
-          $sql = $sql."nroenvio = '".$valueObject->getNroenvio()."', ";
-          $sql = $sql."notificado = ".$valueObject->getNotificado().", ";
-          $sql = $sql."stock = ".$valueObject->getStock().", ";
-          $sql = $sql."ventas = ".$valueObject->getVentas().", ";
-          $sql = $sql."formatofoto = ".$valueObject->getFormatofoto().", ";
-          $sql = $sql."precio = ".$valueObject->getPrecio().", ";
-          $sql = $sql."mostrar = ".$valueObject->getMostrar().",";
-          $sql = $sql."fecha = ".$valueObject->getFecha().",";
+          $sql = "UPDATE venta SET idProducto = ".$valueObject->getIdProducto().", ";
+          $sql = $sql."fecha = '".$valueObject->getFecha()."', ";
+          $sql = $sql."nroProductosVendidos = ".$valueObject->getNroProductosVendidos().", ";
           $sql = $sql."comision = ".$valueObject->getComision()."";
-          $sql = $sql." WHERE (idproducto = ".$valueObject->getIdproducto().") ";
+          $sql = $sql." WHERE (idVenta = ".$valueObject->getIdVenta().") ";
           $result = $this->databaseUpdate($conn, $sql);
 
           if ($result != 1) {
@@ -217,12 +179,12 @@ class ProductoDao {
     function delete($conn, $valueObject) {
 
 
-          if (!$valueObject->getIdproducto()) {
+          if (!$valueObject->getIdVenta()) {
                //print "Can not delete without Primary-Key!";
                return false;
           }
 
-          $sql = "DELETE FROM producto WHERE (idproducto = ".$valueObject->getIdproducto().") ";
+          $sql = "DELETE FROM venta WHERE (idVenta = ".$valueObject->getIdVenta().") ";
           $result = $this->databaseUpdate($conn, $sql);
 
           if ($result != 1) {
@@ -246,7 +208,7 @@ class ProductoDao {
      */
     function deleteAll($conn) {
 
-          $sql = "DELETE FROM producto";
+          $sql = "DELETE FROM venta";
           $result = $this->databaseUpdate($conn, $sql);
 
           return true;
@@ -263,7 +225,7 @@ class ProductoDao {
      */
     function countAll($conn) {
 
-          $sql = "SELECT count(*) FROM producto";
+          $sql = "SELECT count(*) FROM venta";
           $allRows = 0;
 
           $result = $conn->execute($sql);
@@ -291,90 +253,35 @@ class ProductoDao {
     function searchMatching($conn, $valueObject) {
 
           $first = true;
-          $sql = "SELECT * FROM producto WHERE 1=1 ";
+          $sql = "SELECT * FROM venta WHERE 1=1 ";
 
-          if ($valueObject->getIdproducto() != 0) {
+          if ($valueObject->getIdVenta() != 0) {
               if ($first) { $first = false; }
-              $sql = $sql."AND idproducto = ".$valueObject->getIdproducto()." ";
+              $sql = $sql."AND idVenta = ".$valueObject->getIdVenta()." ";
           }
 
-          if ($valueObject->getNombproducto() != "") {
+          if ($valueObject->getIdProducto() != 0) {
               if ($first) { $first = false; }
-              $sql = $sql."AND nombproducto LIKE '".$valueObject->getNombproducto()."%' ";
+              $sql = $sql."AND idProducto = ".$valueObject->getIdProducto()." ";
           }
 
-          if ($valueObject->getDescripcion() != "") {
+          if ($valueObject->getFecha() != "") {
               if ($first) { $first = false; }
-              $sql = $sql."AND descripcion LIKE '".$valueObject->getDescripcion()."%' ";
+              $sql = $sql."AND fecha LIKE '".$valueObject->getFecha()."%' ";
           }
 
-          if ($valueObject->getLink() != "") {
+          if ($valueObject->getNroProductosVendidos() != 0) {
               if ($first) { $first = false; }
-              $sql = $sql."AND link LIKE '".$valueObject->getLink()."%' ";
+              $sql = $sql."AND nroProductosVendidos = ".$valueObject->getNroProductosVendidos()." ";
           }
 
-          if ($valueObject->getIdartesano() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND idartesano = ".$valueObject->getIdartesano()." ";
-          }
-
-          if (count($valueObject->getAceptado()) != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND aceptado = ".$valueObject->getAceptado()." ";
-          }
-
-          if ($valueObject->getEmpresa() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND empresa LIKE '".$valueObject->getEmpresa()."%' ";
-          }
-
-          if ($valueObject->getNroenvio() != "") {
-              if ($first) { $first = false; }
-              $sql = $sql."AND nroenvio LIKE '".$valueObject->getNroenvio()."%' ";
-          }
-
-          if (count($valueObject->getNotificado()) != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND notificado = ".$valueObject->getNotificado()." ";
-          }
-
-          if ($valueObject->getStock() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND stock = ".$valueObject->getStock()." ";
-          }
-
-          if ($valueObject->getVentas() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND ventas = ".$valueObject->getVentas()." ";
-          }
-
-          if ($valueObject->getFormatofoto() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND formatofoto = ".$valueObject->getFormatofoto()." ";
-          }
-
-          if ($valueObject->getPrecio() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND precio = ".$valueObject->getPrecio()." ";
-          }
-
-          if ($valueObject->getMostrar() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND mostrar = ".$valueObject->getMostrar()." ";
-          }
-
-             if ($valueObject->getFecha() != 0) {
-              if ($first) { $first = false; }
-              $sql = $sql."AND fecha = ".$valueObject->getFecha()." ";
-          }
-
-             if ($valueObject->getComision() != 0) {
+          if ($valueObject->getComision() != 0) {
               if ($first) { $first = false; }
               $sql = $sql."AND comision = ".$valueObject->getComision()." ";
           }
 
 
-          $sql = $sql."ORDER BY idproducto ASC ";
+          $sql = $sql."ORDER BY idVenta ASC ";
 
           // Prevent accidential full table results.
           // Use loadAll if all rows must be returned.
@@ -429,22 +336,11 @@ class ProductoDao {
 
           if ($row = $conn->nextRow($result)) {
 
-                   $valueObject->setIdproducto($row[0]); 
-                   $valueObject->setNombproducto($row[1]); 
-                   $valueObject->setDescripcion($row[2]); 
-                   $valueObject->setLink($row[3]); 
-                   $valueObject->setIdartesano($row[4]); 
-                   $valueObject->setAceptado($row[5]); 
-                   $valueObject->setEmpresa($row[6]); 
-                   $valueObject->setNroenvio($row[7]); 
-                   $valueObject->setNotificado($row[8]); 
-                   $valueObject->setStock($row[9]); 
-                   $valueObject->setVentas($row[10]); 
-                   $valueObject->setFormatofoto($row[11]); 
-                   $valueObject->setPrecio($row[12]); 
-                   $valueObject->setMostrar($row[13]); 
-                   $valueObject->setFecha($row[14]); 
-                   $valueObject->setComision($row[15]); 
+                   $valueObject->setIdVenta($row[0]); 
+                   $valueObject->setIdProducto($row[1]); 
+                   $valueObject->setFecha($row[2]); 
+                   $valueObject->setNroProductosVendidos($row[3]); 
+                   $valueObject->setComision($row[4]); 
           } else {
                //print " Object Not Found!";
                return false;
@@ -469,29 +365,16 @@ class ProductoDao {
           while ($row = $conn->nextRow($result)) {
                $temp = $this->createValueObject();
 
-               $temp->setIdproducto($row[0]); 
-               $temp->setNombproducto($row[1]); 
-               $temp->setDescripcion($row[2]); 
-               $temp->setLink($row[3]); 
-               $temp->setIdartesano($row[4]); 
-               $temp->setAceptado($row[5]); 
-               $temp->setEmpresa($row[6]); 
-               $temp->setNroenvio($row[7]); 
-               $temp->setNotificado($row[8]); 
-               $temp->setStock($row[9]); 
-               $temp->setVentas($row[10]); 
-               $temp->setFormatofoto($row[11]); 
-               $temp->setPrecio($row[12]); 
-               $temp->setMostrar($row[13]); 
-               $temp->setFecha($row[14]); 
-               $temp->setComision($row[15]); 
+               $temp->setIdVenta($row[0]); 
+               $temp->setIdProducto($row[1]); 
+               $temp->setFecha($row[2]); 
+               $temp->setNroProductosVendidos($row[3]); 
+               $temp->setComision($row[4]); 
                array_push($searchResults, $temp);
           }
 
           return $searchResults;
     }
-
-
 }
 
 ?>
