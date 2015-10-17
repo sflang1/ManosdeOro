@@ -46,27 +46,49 @@
 			<!DOCTYPE HTML>
 			<html>
 				<head>
-					<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+					<link rel="stylesheet" href="../css/diseno.css">
+<link rel="apple-touch-icon" sizes="57x57" href="../imgs/icono/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="../imgs/icono/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="../imgs/icono/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="../imgs/icono/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="../imgs/icono/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="../imgs/icono/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="../imgs/icono/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="../imgs/icono/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="../imgs/icono/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="../imgs/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../imgs/icono/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="../imgs/icono/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../imgs/icono/favicon-16x16.png">
+		<meta name="msapplication-TileImage" content="../imgs/icono/ms-icon-144x144.png">
 					<title>Detalles del Artesano</title>
 				</head>
 				<body>
-					Solicitaste detalles de un Artesano:
+					<div id="reporte">
+					<center>
+					<img src="../imgs/logo2.png" id="logo_cabecera2">
+					<h1 id="opc_admin">Detalles del Artesano:</h1>
+					<br><br>
+					</center>
 					<?php
 						echo("<table>");
 						if($artesano->getFormatofoto()==1)
 						{
-							echo("<tr><td>Foto:</td><td><img width='280' height='250' src='".$filelocation."/foto".$artesano->getIdartesano().".jpg'></tr>");
+							echo("<tr><td><h1 id='strings_editar_rojo'>Foto:</h1></td><td><img logo_cabecera2 src='".$filelocation."/foto".$artesano->getIdartesano().".jpg'></tr>");
 						}
 						else
 						{
 							echo("<tr><td>Foto:</td><td><img src='".$filelocation."/foto".$artesano->getIdartesano().".png'></tr>");
 						}
-						echo("<tr><td>Nombre:</td><td>".utf8_encode($artesano->getNombre())."</td<</tr>");
-						echo("<tr><td>Dirección:</td><td>".$artesano->getDireccion()."</td<</tr>");
-						echo("<tr><td>Correo de contacto:</td><td>".$artesano->getEmail()."</td<</tr>");
+						echo("<tr><td><h1 id='strings_editar_rojo'>Nombre:</h1></td><td>".utf8_encode($artesano->getNombre())."</td<</tr>");
+						echo("<tr><td><h1 id='strings_editar_rojo'>Dirección:</h1></td><td>".$artesano->getDireccion()."</td<</tr>");
+						echo("<tr><td><h1 id='strings_editar_rojo'>Correo de contacto:</h1></td><td>".$artesano->getEmail()."</td<</tr>");
 						echo("</table>");
 					?>
-					<a href="confirmarStands.php">Volver a la página de solicitudes</a>
+					<center>
+					<a href="confirmarStands.php">Volver a la pagina de solicitudes</a>
+					</center>
+				</div>
 				</body>
 			</html>
 			<?php

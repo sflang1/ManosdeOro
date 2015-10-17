@@ -40,7 +40,7 @@ class Artesano {
     var $username;
     var $estado;
     var $nombre;
-    var $celular;
+    var $celular; 
     var $email;
     var $certificacion;
     var $nivelestudio;

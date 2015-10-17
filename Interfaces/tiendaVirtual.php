@@ -84,23 +84,23 @@
 			<h1 id="titulos_acerca2"> A continuación se muestran las imágenes de los productos en la tienda</h1>
 			<br>
 			<div id="articulosTiendaVirtual">
-			<table>
+			<table id="tabla_tineda">
 			<?php
 				$listaproductos=$pdao->listTiendaVirtualAlphabetic($conn);
 				$conteo=0;
 				echo("<tr>");
 				for($i=0;$i<count($listaproductos);$i++)
 				{
-					echo("<td>");
+					echo("<td style='padding-top:3px'>");
 					if($listaproductos[$i]->getFormatofoto()==1)
 					{
-						echo("<img src='../Archivos/fotoProducto".($listaproductos[$i]->getIdproducto()).".jpg' onclick=\"window.location.href='verDetalles.php?id=".($listaproductos[$i]->getIdproducto())."'\" width='".$anchofoto."' height='".$altofoto."'>");	
+						echo("<img style='cursor:pointer' src='../Archivos/fotoProducto".($listaproductos[$i]->getIdproducto()).".jpg' onclick=\"window.location.href='verDetalles.php?id=".($listaproductos[$i]->getIdproducto())."'\" width='".$anchofoto."' height='".$altofoto."'>");	
 					}
 					else
 					{
-						echo("<img src='../Archivos/fotoProducto".($listaproductos[$i]->getIdproducto()).".png' width='".$anchofoto."' height='".$altofoto."' onclick=\"window.location.href='verDetalles.php?id=".($listaproductos[$i]->getIdproducto())."'\">");	
+						echo("<img style='cursor:pointer' src='../Archivos/fotoProducto".($listaproductos[$i]->getIdproducto()).".png' width='".$anchofoto."' height='".$altofoto."' onclick=\"window.location.href='verDetalles.php?id=".($listaproductos[$i]->getIdproducto())."'\">");	
 					}
-					echo("<br><a href='verDetalles.php?id=".($listaproductos[$i]->getIdproducto())."'>".$listaproductos[$i]->getDescripcion()."</a>");
+					echo("<br><a style='text-decoration:none; color: #000;' href='verDetalles.php?id=".($listaproductos[$i]->getIdproducto())."'>".$listaproductos[$i]->getDescripcion()."</a>");
 					echo("</td>");
 					$conteo++;
 					if($conteo>=4)

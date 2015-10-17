@@ -106,16 +106,47 @@
 					<img src="../imgs/logo2.png" id="logo_cabecera2">
 
 					</center>
+
+
+		<center>
+			
+<?php 
+mysql_connect("localhost","root","") or 
+die("No se puede conectar");
+mysql_select_db("manosdeoro2") or
+die ("No se ha podido seleccionar la Base de Datos");
+$curso=htmlentities($_REQUEST['buscar']);
+$query="select * from cursos"; 
+$res=mysql_query(utf8_decode($query));
+?>
+			<form name="form1" >
+			<h1 id="creatucuenta">Buscar por: </h1>
+			<select name="buscar" id="creatucuenta">
+				<option value="" id="creatucuenta" q selected>Elige una Opcion</option>
+				<?php while($row=mysql_fetch_array($res))
+				{?>
+				<option value="<?php echo $row['descripcion']?>"> <?php echo htmlentities($row['descripcion']);?></option>
+				<?php } ?>
+			</select>
+
+			<input type="submit" name="enviar" value="Buscar" /><br />
+			<br>
+					<a id="creatucuenta" href="agregarCurso.php">Volver al inicio</a>
+			</form>
+<br>
+		</center>
+
+
 <center>		
 			<?php
 				require_once '..\Logica\config.php';
 				require_once '..\Logica\funciones_bd.php';
 				$db = new funciones_bd();
 
-				$result = mysql_query("SELECT * from inscritos");
+				$result = mysql_query("SELECT * FROM inscritos WHERE curso = '$curso'");
 			        $num_rows = mysql_num_rows($result); //numero de filas retornadas
 	        		if ($num_rows > 0) {   
-					$result = mysql_query("SELECT * FROM inscritos");
+					$result = mysql_query("SELECT * FROM inscritos WHERE curso = '$curso'");
 					$myarray = array();
 			?>
             <table>
@@ -127,6 +158,7 @@
 		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Celular</td>
 		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Direccion</td>
 		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Ciudad</td>
+		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Departamento</td>
 	            </tr>
             <?php
             while($tabla = mysql_fetch_array($result)){
@@ -138,6 +170,7 @@
 					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['celular']."</td>");
 					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['direccion']."</td>");
 					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['ciudad']."</td>");
+					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['departamento']."</td>");
 				echo("</tr>");
 			}
 			?>
@@ -153,10 +186,7 @@
 </center>
 
 </div>
-<center>
 
-					<a href="agregarCurso.php">Volver al inicio</a>
-</center>
 </body>
 			</html>
 			<?php
@@ -172,6 +202,3 @@
 			<?php
 	}
 ?>
-<footer>
-					<a href="agregarCurso.php">Volver al inicio</a>
-</footer>

@@ -6,11 +6,12 @@ $email=$_POST["email"];
 $celular=$_POST["celular"];
 $direccion=$_POST["direccion"];
 $ciudad=$_POST["ciudad"];
+$departamento=$_POST["departamento"];
 
 require_once 'funciones_bd.php';
 $db = new funciones_BD();
 
-    if($db->addCurso($curso,$nombre,$cedula,$email,$celular,$direccion,$ciudad)){
+    if($db->addCurso($curso,$nombre,$cedula,$email,$celular,$direccion,$ciudad,$departamento)){
     ?>
 		<meta http-equiv="REFRESH" content="0,url=../Interfaces/index.php">
 		<script type="text/javascript">
@@ -28,6 +29,5 @@ $db = new funciones_BD();
 
     <?php
     }
-echo json_encode($resultado);
-	
+
 ?>

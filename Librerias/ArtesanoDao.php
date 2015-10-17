@@ -180,8 +180,8 @@ class ArtesanoDao
           $sql = $sql."nivelestudio = ".$valueObject->getNivelestudio().", ";
           $sql = $sql."aprendices = '".$valueObject->getAprendices()."', ";
           $sql = $sql."cursos = '".$valueObject->getCursos()."', ";
-          $sql = $sql."formatofoto = '".$valueObject->getFormatofoto()."'";
-          $sql = $sql."departamento = '".$valueObject->getDepartamento()."'";
+          $sql = $sql."formatofoto = '".$valueObject->getFormatofoto()."', ";
+          $sql = $sql."departamento = '".$valueObject->getDepartamento()."', ";
           $sql = $sql."ciudad = '".$valueObject->getCiudad()."'";
           $sql = $sql." WHERE (idArtesano = ".$valueObject->getIdArtesano().") ";
           $result = $this->databaseUpdate($conn, $sql);

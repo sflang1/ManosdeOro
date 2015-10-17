@@ -46,15 +46,17 @@
 			<tr><td><h1 id="titulos_noticias">Nombre Completo</h1><td></tr>
 			<tr><td> <input value="<?php echo($_GET["nombre"]);?>" placeholder="Nombre Completo" id="input_txt" type='text' name='nombre' required></td></tr>
 			<tr><td><h1 id="titulos_noticias">Cedula</h1><td></tr>
-			<tr><td> <input value="<?php echo($_GET["cedula"]);?>" placeholder="Cedula" id="input_txt" type='tel' name='cedula' required></td></tr>
+			<tr><td> <input value="<?php echo($_GET["cedula"]);?>" placeholder="Cedula" id="input_txt" type='text' name='cedula' required></td></tr>
 			<tr><td><h1 id="titulos_noticias">Email</h1><td></tr>
 			<tr><td> <input value="<?php echo($_GET["email"]);?>" placeholder="email" id="input_txt" type='email' name='email' required></td></tr>
 			<tr><td><h1 id="titulos_noticias">Celular</h1><td></tr>
-			<tr><td> <input value="<?php echo($_GET["celular"]);?>" placeholder="Celular" id="input_txt" type='tel' name='mensaje' required></input></td></tr>
+			<tr><td> <input value="<?php echo($_GET["celular"]);?>" placeholder="Celular" id="input_txt" type='text' name='celular' required></input></td></tr>
 			<tr><td><h1 id="titulos_noticias">Direccion</h1><td></tr>
 			<tr><td> <input value="<?php echo($_GET["direccion"]);?>" placeholder="Direccion" id="input_txt" type='text' name='direccion' required></input></td></tr>
 			<tr><td><h1 id="titulos_noticias">Ciudad</h1><td></tr>
-			<tr><td> <input placeholder="Ciudad" id="input_txt" type='text' name='ciudad' required></input></td></tr>
+			<tr><td> <input value="<?php echo($_GET["ciudad"]);?>" placeholder="Ciudad" id="input_txt" type='text' name='ciudad' required></input></td></tr>
+			<tr><td><h1 id="titulos_noticias">Departamento</h1><td></tr>
+			<tr><td> <input value="<?php echo($_GET["departamento"]);?>" placeholder="Departamento" id="input_txt" type='text' name='departamento' required></input></td></tr>
 			<tr><td colspan='2'></td></tr>
 			</table>
 			<input type='submit' id="boton_enviar" value='Enviar Registro'>

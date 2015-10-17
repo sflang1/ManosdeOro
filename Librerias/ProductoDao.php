@@ -187,8 +187,8 @@ class ProductoDao {
           $sql = $sql."ventas = ".$valueObject->getVentas().", ";
           $sql = $sql."formatofoto = ".$valueObject->getFormatofoto().", ";
           $sql = $sql."precio = ".$valueObject->getPrecio().", ";
-          $sql = $sql."mostrar = ".$valueObject->getMostrar().",";
-          $sql = $sql."fecha = ".$valueObject->getFecha().",";
+          $sql = $sql."mostrar = ".$valueObject->getMostrar().", ";
+          $sql = $sql."fecha = ".$valueObject->getFecha().", ";
           $sql = $sql."comision = ".$valueObject->getComision()."";
           $sql = $sql." WHERE (idproducto = ".$valueObject->getIdproducto().") ";
           $result = $this->databaseUpdate($conn, $sql);
