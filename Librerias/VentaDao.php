@@ -29,7 +29,30 @@
 
 class VentaDao {
 
-
+    function buscarPorFecha($conn,$criterio,$admin,$idProducto,$mes,$ano)
+    {
+      $sql="SELECT * FROM Venta where fecha";
+      switch ($criterio) 
+      {
+        case 1:
+          $sql=$sql."< '".$ano."-".$mes."'";
+          break;
+        case 2:
+          $sql=$sql." LIKE '".$ano."-".$mes."%'";
+          break;
+        case 3:
+          $sql=$sql."> '".$ano."-".$mes."'";
+          break;
+        default:
+          # code...
+          break;
+      }
+      if($admin==0)
+      {
+        $sql=$sql." && idProducto=".$idProducto;
+      }
+      return $this->listQuery($conn,$sql);
+    }
     /**
      * createValueObject-method. This method is used when the Dao class needs
      * to create new value object instance. The reason why this method exists
@@ -372,7 +395,6 @@ class VentaDao {
                $temp->setComision($row[4]); 
                array_push($searchResults, $temp);
           }
-
           return $searchResults;
     }
 }

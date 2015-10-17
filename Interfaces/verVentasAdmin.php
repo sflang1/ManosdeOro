@@ -208,7 +208,7 @@
 						<input type="radio" name="criterio" value="1" checked>Antes de
 						<input type="radio" name="criterio" value="2">Durante
 						<input type="radio" name="criterio" value="3">Desde
-						<select>
+						<select id="selectMeses">
 							<option value="1">Enero</option>
 							<option value="2">Febrero</option>
 							<option value="3">Marzo</option>
@@ -222,7 +222,7 @@
 							<option value="11">Noviembre</option>
 							<option value="12">Diciembre</option>
 						</select>
-						<select>
+						<select id="selectAgno">
 						<?php
 							for($i=$menor;$i<=$añoActual;$i++)
 							{
@@ -230,7 +230,7 @@
 							}
 						?>
 						</select>
-						<input type="button" value="Buscar" onClick="">
+						<input type="button" value="Buscar" onClick="buscarPorFecha()">
 					</div>
 					<br>
 					<div id="listaVentas"></div>
