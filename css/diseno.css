@@ -31,7 +31,7 @@ body{
 }
 
 #contenedor{
-	margin: 0 auto;
+	margin: 20px auto auto auto;
 	position: relative;
 	height: auto;
 	width: 1200px;
@@ -44,9 +44,10 @@ body{
 }
 
 #contenedor2{
-	margin-top: 40px;
+	margin: 20px auto auto auto;
+	position: relative;
 	height: auto;
-	width: auto;
+	width: 1200px;
 	-moz-border-radius: 50px 50px 50px 50px;
 	-webkit-border-radius: 50px 50px 50px 50px;
 	border-style: solid;
@@ -55,9 +56,11 @@ body{
 }
 
 #reporte{
-margin-top:20px;
-	height: 700px;
-	width: auto;
+	margin: 20px auto auto auto;
+	padding: 20px;
+	position: relative;
+	height: auto;
+	width: 1200px;
 	-moz-border-radius: 50px 50px 50px 50px;
 	-webkit-border-radius: 50px 50px 50px 50px;
 	border-style: solid;

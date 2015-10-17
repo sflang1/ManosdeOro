@@ -101,7 +101,7 @@ body{
 }
 
 #contenedor{
-	margin: 0 auto;
+	margin: 20px auto auto auto;
 	position: relative;
 	height: auto;
 	width: 1200px;
@@ -114,9 +114,10 @@ body{
 }
 
 #contenedor2{
-	margin-top: 40px;
+	margin: 20px auto auto auto;
+	position: relative;
 	height: auto;
-	width: auto;
+	width: 1200px;
 	-moz-border-radius: 50px 50px 50px 50px;
 	-webkit-border-radius: 50px 50px 50px 50px;
 	border-style: solid;
@@ -328,13 +329,12 @@ footer{
 	height: 10%;
 	width: 10%;
 }
-#logo_redes{
-	margin-left: 10px;
+#logo_redes2{
 	cursor: pointer;
-	height: 53%;
-	width: 99%;
+	height: 22px;
+	width: 22px;
 }
-	#logo_redes:hover{
+	#logo_redes2:hover{
 		-moz-box-shadow: #E8DEB9 0px 0px 50px;
 		-webkit-box-shadow: #E8DEB9 0px 0px 50px;
 	}

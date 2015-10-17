@@ -70,6 +70,7 @@
 			<tr><td> <input placeholder="Celular" id="input_txt" type='tel' name='celular' required></input></td></tr>
 			<tr><td> <input placeholder="Direccion" id="input_txt" type='text' name='direccion' required></input></td></tr>
 			<tr><td> <input placeholder="Ciudad" id="input_txt" type='text' name='ciudad' required></input></td></tr>
+			<tr><td> <input placeholder="Departamento" id="input_txt" type='text' name='departamento' required></input></td></tr>
 			<tr><td colspan='2'></td></tr>
 			</table>
 			<input type='submit' id="boton_enviar" value='Enviar Registro'>

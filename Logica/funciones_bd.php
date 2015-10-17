@@ -13,8 +13,8 @@
     function __destruct() {
     }
 
-    public function addCurso($curso,$nombre,$cedula,$email,$celular,$direccion,$ciudad){
-    $result = mysql_query("INSERT INTO inscritos(curso,nombre,cedula,email,celular,direccion,ciudad) VALUES('$curso','$nombre','$cedula','$email','$celular','$direccion','$ciudad')");
+    public function addCurso($curso,$nombre,$cedula,$email,$celular,$direccion,$ciudad,$departamento){
+    $result = mysql_query("INSERT INTO inscritos(curso,nombre,cedula,email,celular,direccion,ciudad,departamento) VALUES('$curso','$nombre','$cedula','$email','$celular','$direccion','$ciudad','$departamento')");
         // check for successful store
         if ($result) {
             return true;
@@ -22,8 +22,5 @@
             return false;
         }
     }
-     
-     
-     
      }
 ?>

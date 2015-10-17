@@ -38,7 +38,7 @@
 		<script type="text/javascript" src="../js/re_dir.js"></script>
 	</head>
 	<body>
-		<div id="contenedor2">
+		<div id="contenedor">
 			<header>
 				<div id="img_fon">
 					<div id="img_fondo"></div>
@@ -61,8 +61,9 @@
 				echo("<img src='../Archivos/fotoProducto".($producto->getIdproducto()).".png' width='".$anchofoto."' height='".$altofoto."'");	
 			}
 		?>
-		<br><h1 id="titulos_noticias">Nombre del producto</h1><br> <?php echo($producto->getDescripcion());?><br>
-		<br><h1 id="titulos_noticias">Detalles del producto</h1><br> <?php echo(utf8_encode("<textarea readonly style='enabled:false; width:250px; height:80px; resize:none; border:transparent;'>".$producto->getNombproducto()."</textarea>"));?><br>
+		<br><h1 id="titulos_noticias">Precio del Producto</h1> <?php echo($producto->getPrecio());?>
+		<h1 id="titulos_noticias">Nombre del Producto</h1> <?php echo($producto->getDescripcion());?><br>
+		<h1 id="titulos_noticias">Detalles del Producto</h1> <?php echo(utf8_encode("<textarea readonly style='enabled:false; width:250px; height:80px; resize:none; border:transparent;'>".$producto->getNombproducto()."</textarea>"));?><br>
 		<?php
 			
 			if(strlen($producto->getLink())!=0)

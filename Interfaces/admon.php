@@ -147,6 +147,7 @@
 				<center>
 
 					<img id="logo3" src="../imgs/logo2.png">
+					<button onclick="window.location.href='listaArtesanos.php'" id="boton_iniciar"><img id="logo_btn" src="../imgs/logo.png">Lista Artesanos</button>
 				</center>
 			</section>
 			<footer>		

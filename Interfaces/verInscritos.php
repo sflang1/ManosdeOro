@@ -129,9 +129,11 @@ $res=mysql_query(utf8_decode($query));
 				<?php } ?>
 			</select>
 
-			<input type="submit" name="enviar" value="Buscar" /><br /><br />
+			<input type="submit" name="enviar" value="Buscar" /><br />
+			<br>
+					<a id="creatucuenta" href="agregarCurso.php">Volver al inicio</a>
 			</form>
-<br><br>
+<br>
 		</center>
 
 
@@ -156,6 +158,7 @@ $res=mysql_query(utf8_decode($query));
 		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Celular</td>
 		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Direccion</td>
 		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Ciudad</td>
+		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Departamento</td>
 	            </tr>
             <?php
             while($tabla = mysql_fetch_array($result)){
@@ -167,6 +170,7 @@ $res=mysql_query(utf8_decode($query));
 					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['celular']."</td>");
 					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['direccion']."</td>");
 					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['ciudad']."</td>");
+					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['departamento']."</td>");
 				echo("</tr>");
 			}
 			?>
@@ -182,10 +186,7 @@ $res=mysql_query(utf8_decode($query));
 </center>
 
 </div>
-<center>
 
-					<a href="agregarCurso.php">Volver al inicio</a>
-</center>
 </body>
 			</html>
 			<?php
@@ -201,6 +202,3 @@ $res=mysql_query(utf8_decode($query));
 			<?php
 	}
 ?>
-<footer>
-					<a href="agregarCurso.php">Volver al inicio</a>
-</footer>
