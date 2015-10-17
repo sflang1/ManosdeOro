@@ -7,6 +7,8 @@
 	include_once("../Librerias/ProductoDao.php");
 	include_once("../Librerias/NoticiasDao.php");
 	include_once("../Librerias/Noticias.php");
+	include_once("../Librerias/Venta.php");
+	include_once("../Librerias/VentaDao.php");
 	include_once("../Librerias/Variables.php");
 	function formatearNumero($valor)
 	{
@@ -69,6 +71,18 @@
 			$pdao=new ProductoDao();
 			$adao=new ArtesanoDao();
 			$ndao=new NoticiasDao();
+			$vdao=new VentaDao();
+			$totalVentas=$vdao->loadAll($conn);
+			$menor=9999;
+			for($i=0;$i<count($totalVentas);$i++)
+			{
+				$año=substr($totalVentas[$i]->getFecha(), 0,4);
+				if($año<$menor)
+				{
+					$menor=$año;
+				}
+			}
+			$añoActual=date("Y");
 			$busqueda1=new Producto();
 			$busqueda2=new Producto();
 			$busqueda1->setAceptado(2);
@@ -77,6 +91,7 @@
 			$psinstock=$pdao->searchMatching($conn,$busqueda2);
 			$objcomision=$ndao->getObject($conn,-1);		
 			$porccomision=$objcomision->getContenido();
+
 			?>
 
 			<!DOCTYPE HTML>
@@ -114,7 +129,7 @@
 							<th style="border: 1px solid black; border-collapse: collapse;">Ventas totales</th>
 							<th style="border: 1px solid black; border-collapse: collapse;">Precio del producto</th>
 							<th style="border: 1px solid black; border-collapse: collapse;">Ventas totales</th>
-							<th style="border: 1px solid black; border-collapse: collapse;">Comisión Manos de Oro(<?php echo($porccomision);?>%)</th>
+							<th style="border: 1px solid black; border-collapse: collapse;">Comisión Manos de Oro</th>
 						</tr>
 					<?php
 					$total=0;
@@ -134,7 +149,15 @@
 						echo("<td style='text-align:right; border: 1px solid black; border-collapse: collapse;'>$ ".formatearNumero($pconstock[$i]->getPrecio())."</td>");
 						$parcial=$pconstock[$i]->getVentas()*$pconstock[$i]->getPrecio();
 						echo("<td style='text-align:right; border: 1px solid black; border-collapse: collapse;'>$ ".formatearNumero($parcial)."</td>");
-						$parcialganancia=$porccomision*$parcial/100;
+						//Obtención ganancia Manos de oro por el producto
+						for($j=0;$j<count($totalVentas);$j++)
+						{
+							if($totalVentas[$j]->getIdProducto()==$pconstock[$i]->getIdProducto())
+							{
+								$parcialganancia=$parcialganancia+($totalVentas[$j]->getComision()*$pconstock[$i]->getPrecio()*$totalVentas[$j]->getNroProductosVendidos()/100);
+							}
+						}
+						
 						echo("<td style='text-align:right; border: 1px solid black; border-collapse: collapse;'>$ ".formatearNumero($parcialganancia)."</td>");
 						echo("</tr>");
 						$total=$total+$parcial;
@@ -154,7 +177,14 @@
 						echo("<td style='text-align:right; border: 1px solid black; border-collapse: collapse;'> $ ".formatearNumero($psinstock[$i]->getPrecio())."</td>");
 						$parcial=$psinstock[$i]->getVentas()*$psinstock[$i]->getPrecio();
 						echo("<td style='text-align:right; border: 1px solid black; border-collapse: collapse;'> $ ".formatearNumero($parcial)."</td>");
-						$parcialganancia=$porccomision*$parcial/100;
+						//Obtención ganancia Manos de oro por el producto
+						for($j=0;$j<count($totalVentas);$j++)
+						{
+							if($totalVentas[$j]->getIdProducto()==$psinstock[$i]->getIdProducto())
+							{
+								$parcialganancia=$parcialganancia+($totalVentas[$j]->getComision()*$psinstock[$i]->getPrecio()*$totalVentas[$j]->getNroProductosVendidos()/100);
+							}
+						}
 						echo("<td style='text-align:right; border: 1px solid black; border-collapse: collapse;'> $ ".formatearNumero($parcialganancia)."</td>");
 						echo("</tr>");
 						$total=$total+$parcial;
@@ -172,12 +202,44 @@
 					echo("</tr>");
 					?>
 					</table>
-</center>
-
-</div>
-<center>
+					<br><br>
+					<div id='reporteMensual'>
+						<h4>Búsqueda por meses</h4>
+						<input type="radio" name="criterio" value="1" checked>Antes de
+						<input type="radio" name="criterio" value="2">Durante
+						<input type="radio" name="criterio" value="3">Desde
+						<select id="selectMeses">
+							<option value="1">Enero</option>
+							<option value="2">Febrero</option>
+							<option value="3">Marzo</option>
+							<option value="4">Abril</option>
+							<option value="5">Mayo</option>
+							<option value="6">Junio</option>
+							<option value="7">Julio</option>
+							<option value="8">Agosto</option>
+							<option value="9">Septiembre</option>
+							<option value="10">Octubre</option>
+							<option value="11">Noviembre</option>
+							<option value="12">Diciembre</option>
+						</select>
+						<select id="selectAgno">
+						<?php
+							for($i=$menor;$i<=$añoActual;$i++)
+							{
+								echo("<option value='".$i."'>".$i."</option>");
+							}
+						?>
+						</select>
+						<input type="button" value="Buscar" onClick="buscarPorFecha()">
+					</div>
+					<br>
+					<div id="listaVentas"></div>
+					<br>
 					<a href="admon.php">Volver al inicio</a>
-</center>
+			</center>
+</div>
+				<script type="text/javascript" src="../Librerias/jquery-1.3.1.js"></script>
+				<script type="text/javascript" src="verVentasAdmin.js"></script>
 				</body>
 			</html>
 			<?php

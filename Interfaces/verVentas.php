@@ -5,6 +5,8 @@
 	include_once("../Librerias/Artesano.php");
 	include_once("../Librerias/ProductoDao.php");
 	include_once("../Librerias/Producto.php");
+	include_once("../Librerias/Venta.php");
+	include_once("../Librerias/VentaDao.php");
 	include_once("../Librerias/Variables.php");
 	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
 	$adao=new ArtesanoDao();
@@ -35,6 +37,18 @@
 			$busqueda2->setIdartesano($artesano->getIdartesano());			
 			$busqueda2->setAceptado(3);
 			$productossinstock=$pdao->searchMatching($conn,$busqueda2);
+			$vdao=new VentaDao();
+			$totalVentas=$vdao->loadAll($conn);
+			$menor=9999;
+			for($i=0;$i<count($totalVentas);$i++)
+			{
+				$año=substr($totalVentas[$i]->getFecha(), 0,4);
+				if($año<$menor)
+				{
+					$menor=$año;
+				}
+			}
+			$añoActual=date("Y");
 			?>
 
 <!DOCTYPE html>
@@ -161,7 +175,38 @@
 								}
 							?>
 						</table>
-
+						<div id='reporteMensual'>
+						<h4>Búsqueda por meses</h4>
+						<input type="hidden" id="idArtesano" value=<?php echo($artesano->getIdartesano());?>> 
+						<input type="radio" name="criterio" value="1" checked>Antes de
+						<input type="radio" name="criterio" value="2">Durante
+						<input type="radio" name="criterio" value="3">Desde
+						<select id="selectMeses">
+							<option value="1">Enero</option>
+							<option value="2">Febrero</option>
+							<option value="3">Marzo</option>
+							<option value="4">Abril</option>
+							<option value="5">Mayo</option>
+							<option value="6">Junio</option>
+							<option value="7">Julio</option>
+							<option value="8">Agosto</option>
+							<option value="9">Septiembre</option>
+							<option value="10">Octubre</option>
+							<option value="11">Noviembre</option>
+							<option value="12">Diciembre</option>
+						</select>
+						<select id="selectAgno">
+						<?php
+							for($i=$menor;$i<=$añoActual;$i++)
+							{
+								echo("<option value='".$i."'>".$i."</option>");
+							}
+						?>
+						</select>
+						<input type="button" value="Buscar" onClick="buscarPorFecha()">
+					</div>
+					<br>
+					<div id="listaVentas"></div>
 
 			</section>
 			<footer>		
@@ -193,6 +238,9 @@
 						 <div id="map_canvas" style="width:auto; height:300px; margin-right:10px"></div>
 			</footer>
 		</div>
+
+				<script type="text/javascript" src="../Librerias/jquery-1.3.1.js"></script>
+				<script type="text/javascript" src="verVentas.js"></script>
 	</body>	
 </html>
 
