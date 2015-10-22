@@ -24,6 +24,15 @@
 		$errores=false;
 		for($i=0;$i<count($lista);$i++)
 		{
+			//Agregar el envío de stands rechazados
+				$artesanoActual=$adao->getObject($lista($i)->getIdArtesano());
+				$asunto="Notificación Solicitud de Stand rechazada: ".$artesano->getNombre();
+				$cadena="Estimad@ artesano<br>Te informamos que tu solicitud para reservar el 
+						Stand número ".$stand->getIdStand()." ha sido rechazada. Puedes, sin embargo, solicitar
+						un nuevo Stand.<br>Atentamente,<br>Artesanías Manos de Oro";
+				$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+				$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+				mail($artesanoActual->getEmail(), $asunto, $cadena,$cabeceras);
 			if(!$sdao->delete($conn,$lista[$i]))
 			{
 				$errores=true;
