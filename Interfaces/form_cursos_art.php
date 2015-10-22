@@ -1,3 +1,18 @@
+<?php
+	include_once("../Librerias/Datasource.php");	
+	include_once("../Librerias/DepartamentoDao.php");
+	include_once("../Librerias/Departamento.php");
+	include_once("../Librerias/Municipio.php");
+	include_once("../Librerias/MunicipioDao.php");
+	include_once("../Librerias/Variables.php");
+	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
+	$ddao=new DepartamentoDao();
+	$mdao=new MunicipioDao();
+	$listaDeptos=$ddao->loadAll($conn);
+	$busqueda=new Municipio();
+	$busqueda->setId_departamento(1);
+	$listaMpios=$mdao->searchMatching($conn,$busqueda);	
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -56,8 +71,8 @@
 			<tr><td><h1 id="titulos_noticias">Ciudad</h1><td></tr>
 			<tr><td> <input value="<?php echo($_GET["ciudad"]);?>" placeholder="Ciudad" id="input_txt" type='text' name='ciudad' required></input></td></tr>
 			<tr><td><h1 id="titulos_noticias">Departamento</h1><td></tr>
-			<tr><td> <input value="<?php echo($_GET["departamento"]);?>" placeholder="Departamento" id="input_txt" type='text' name='departamento' required></input></td></tr>
-			<tr><td colspan='2'></td></tr>
+			<tr><td> <input value="<?php echo $listaDeptos[$_GET['departamento']]->getDescripcion()?>" placeholder="Departamento" id="input_txt" type='text' name='departamento' required></input></td></tr>
+			<tr><td colspan='2'></td></tr>			
 			</table>
 			<input type='submit' id="boton_enviar" value='Enviar Registro'>
 			</center>

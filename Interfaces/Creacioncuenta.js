@@ -62,7 +62,7 @@ function validacionForm()
 	}
 	if(password!=passwordrep)
 	{
-		errores=errores+"Las Contraseñas Deben Ser Iguales<br>";
+		alert ("Las claves introducidas no son iguales");
 		correcto=false;
 	}
 	if(direccion.length==0||direccion==null)
