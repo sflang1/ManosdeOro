@@ -104,10 +104,11 @@
 <div id="reporte">
 					<center>
 					<img src="../imgs/logo2.png" id="logo_cabecera2">
-
-					</center>
-
-
+		<br>
+			<a id="creatucuenta" href="admon.php">Volver al inicio</a>
+		<br>
+		<br>
+</center>
 
 
 <center>		
