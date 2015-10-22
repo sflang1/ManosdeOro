@@ -157,20 +157,20 @@
 								{
 									echo("<tr style='border: 2px solid black;border-collapse: collapse;'>");
 									echo("<td style='border: 2px solid black;border-collapse: collapse;'>".$productosconstock[$i]->getDescripcion()."</td>");
-									echo("<td style='border: 2px solid black;border-collapse: collapse;'>".$productosconstock[$i]->getStock()."</td>");
-									echo("<td style='border: 2px solid black;border-collapse: collapse;'>".$productosconstock[$i]->getVentas()."</td>");
-									echo("<td style='border: 2px solid black;border-collapse: collapse;'>$".$productosconstock[$i]->getPrecio()."</td>");
-									echo("<td style='border: 2px solid black;border-collapse: collapse;'>$".($productosconstock[$i]->getVentas()*$productosconstock[$i]->getPrecio())."</td>");
+									echo("<td style='text-align:right; border: 2px solid black;border-collapse: collapse;'>".$productosconstock[$i]->getStock()."</td>");
+									echo("<td style='text-align:right; border: 2px solid black;border-collapse: collapse;'>".$productosconstock[$i]->getVentas()."</td>");
+									echo("<td style='text-align:right; border: 2px solid black;border-collapse: collapse;'>$".$productosconstock[$i]->getPrecio()."</td>");
+									echo("<td style='text-align:right; border: 2px solid black;border-collapse: collapse;'>$".($productosconstock[$i]->getVentas()*$productosconstock[$i]->getPrecio())."</td>");
 									echo("</tr>");
 								}
 								for($i=0;$i<count($productossinstock);$i++)
 								{
 									echo("<tr style='border: 2px solid black;border-collapse: collapse;'>");
 									echo("<td style='border: 2px solid black;border-collapse: collapse;'>".$productossinstock[$i]->getDescripcion()."</td>");
-									echo("<td style='border: 2px solid black;border-collapse: collapse;'>".$productossinstock[$i]->getStock()."</td>");
-									echo("<td style='border: 2px solid black;border-collapse: collapse;'>".$productossinstock[$i]->getVentas()."</td>");
-									echo("<td style='border: 2px solid black;border-collapse: collapse;'>$".$productossinstock[$i]->getPrecio()."</td>");
-									echo("<td style='border: 2px solid black;border-collapse: collapse;'>$".($productossinstock[$i]->getVentas()*$productossinstock[$i]->getPrecio())."</td>");
+									echo("<td style='text-align:right; border: 2px solid black;border-collapse: collapse;'>".$productossinstock[$i]->getStock()."</td>");
+									echo("<td style='text-align:right; border: 2px solid black;border-collapse: collapse;'>".$productossinstock[$i]->getVentas()."</td>");
+									echo("<td style='text-align:right; border: 2px solid black;border-collapse: collapse;'>$".$productossinstock[$i]->getPrecio()."</td>");
+									echo("<td style='text-align:right; border: 2px solid black;border-collapse: collapse;'>$".($productossinstock[$i]->getVentas()*$productossinstock[$i]->getPrecio())."</td>");
 									echo("</tr>");
 								}
 							?>
