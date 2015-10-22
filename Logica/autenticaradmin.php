@@ -6,8 +6,8 @@
 	include_once("../Librerias/Variables.php");
 	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
 	$admDao=new AdministradorDao();
-	$username=$_POST["username"];
-	$password=$_POST["password"];
+	$username= addslashes($_POST["username"]);
+	$password= addslashes($_POST["password"]);
 	$abusqueda=new Administrador();
 	$abusqueda->setUsername($username);
 	$list=$admDao->searchMatching($conn,$abusqueda);

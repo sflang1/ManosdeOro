@@ -9,7 +9,7 @@ function getMunicipios()
 				{
 					
 					array=result.valores;
-					cadena=cadena+"<select name='city' id='strings_editar2'>";
+					cadena=cadena+"<select class='inpt_txt' name='city' id='strings_editar2'>";
 					for(i=0;i<array.length;i++)
 					{
 						cadena=cadena+"<option value='"+array[i].idMpio+"'>"+array[i].descripcion+"</option>";

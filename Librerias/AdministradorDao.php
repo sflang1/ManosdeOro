@@ -51,6 +51,10 @@ class AdministradorDao {
      */
     function getObject($conn, $idAdministrador) {
 
+        if (!preg_match("/^[0-9]+$/", $idAdministrador)) {
+          $idAdministrador = 1000;        
+        }
+
           $valueObject = $this->createValueObject();
           $valueObject->setIdAdministrador($idAdministrador);
           $this->load($conn, $valueObject);

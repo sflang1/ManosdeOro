@@ -88,11 +88,13 @@
 			<tr><td> <input placeholder="Direccion" id="input_txt" type='text' name='direccion' required></input></td></tr>
 			
 				<tr>
-					<td id="strings_editar">
+					<td id="titulos_noticias">
 						Escoge tu departamento:
 					</td>
+					</tr>
+					<tr>
 					<td>
-					<select name="depto" id="selectDepartamentos" onChange="getMunicipios()" >
+					<select class="inpt_txt" name="depto" id="selectDepartamentos" onChange="getMunicipios()" >
 					<option value="" selected>Elige</option>
 						<?php for($i=0;$i<count($listaDeptos);$i++)
 						{?>
@@ -102,12 +104,14 @@
 					</td>
 					</tr>
 				<tr>
-					<td id="strings_editar">
+					<td id="titulos_noticias">
 						Selecciona tu municipio: 
 					</td>
+					</tr>
+					<tr>
 					<td>
 						<div id="selectMunicipios">
-						<select name="city" id="strings_editar2">
+						<select class="inpt_txt" name="city" id="strings_editar2">
 						<option value="" selected>Elige</option>
 						<?php for($i=0;$i<count($listaMpios);$i++)
 						{?>
