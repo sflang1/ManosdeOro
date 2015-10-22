@@ -163,5 +163,7 @@
 						 <div id="map_canvas" style="width:auto; height:300px; margin-right:10px"></div>
 			</footer>
 		</div>
+		<script type="text/javascript" src="../Librerias/jquery-1.3.1.js"></script>
+		<script type="text/javascript" src="form_cursos.js"></script>
 	</body>	
 </html>
