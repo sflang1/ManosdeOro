@@ -108,84 +108,35 @@
 					</center>
 
 
-		<center>
-			
-<?php 
-mysql_connect("localhost","root","") or 
-die("No se puede conectar");
-mysql_select_db("manosdeoro2") or
-die ("No se ha podido seleccionar la Base de Datos");
-$curso=htmlentities($_REQUEST['buscar']);
-$query="select * from aretesano"; 
-$res=mysql_query(utf8_decode($query));
-?>
-			<form name="form1" >
-			<h1 id="creatucuenta">Buscar por Cedula: </h1>
-			<input name="buscar">				
-				<?php echo htmlentities($row['NroDoc']);?>
-			<input type="submit" name="enviar" value="Buscar" /><br />
-			<br>
-					<a id="creatucuenta" href="admon.php">Volver al inicio</a>
-			</form>
-<br>
-		</center>
 
 
 <center>		
-
-<input type="radio" name="gender"
-value="Todo">Todo
-
-<input type="radio" name="gender"
-value="BuscarCedula">b
-
-			<?php
-				require_once '..\Logica\config.php';
-				require_once '..\Logica\funciones_bd.php';
-				$db = new funciones_bd();
-
-				$result = mysql_query("SELECT * FROM artesano WHERE NroDoc='$curso'");
-			        $num_rows = mysql_num_rows($result); //numero de filas retornadas
-	        		if ($num_rows > 0) {   
-					$result = mysql_query("SELECT * FROM artesano WHERE NroDoc='$curso'");
-					$myarray = array();
-			?>
-            <table>
-	            <tr>
-		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Nombre</td>
-		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >NroDoc</td>
-		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Email</td>
-		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Celular</td>
-		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Direccion</td>
-		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Ciudad</td>
-		            <td style='border: 1px solid black; border-collapse: collapse; padding: 10px' >Departamento</td>
-	            </tr>
-            <?php
-            while($tabla = mysql_fetch_array($result)){
-				echo("<tr>");
-					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['nombre']."</td>");
-					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['NroDoc']."</td>");
-					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['email']."</td>");
-					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['celular']."</td>");
-					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['direccion']."</td>");
-					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['ciudad']."</td>");
-					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['departamento']."</td>");
-				echo("</tr>");
-			}
-			?>
-	     </table>
-				<?php
-            
-        	}else{
-            
-        	}
-
-	        ?>
-
+	Para listar todos los artesanos, haga una búsqueda con el campo de texto en blanco.
+	<table>
+		<tr>
+			<td>
+				<select id='selectBuscar' onChange='limpiarBusqueda()'>
+					<option value='1'>Buscar por cédula</option>
+					<option value='2'>Buscar por ciudad</option>
+					<option value='3'>Buscar por nombre</option>
+				</select>
+			</td>
+			<td>
+				<div id='campoEntrada'>
+				 <input type='text' id='busqueda' onkeyup='buscar()'>
+				</div>
+			</td>
+			<td>
+				<input type='button' onClick='buscar()' value='Buscar'>
+			</td>
+		</tr>
+	</table>
+	<div id='lista'></div>
 </center>
 
 </div>
-
+<script type="text/javascript" src="../Librerias/jquery-1.3.1.js"></script>
+<script type="text/javascript" src="listaArtesanos.js"></script>
 </body>
 			</html>
 			<?php
