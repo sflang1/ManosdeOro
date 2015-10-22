@@ -1,3 +1,18 @@
+<?php
+	include_once("../Librerias/Datasource.php");	
+	include_once("../Librerias/DepartamentoDao.php");
+	include_once("../Librerias/Departamento.php");
+	include_once("../Librerias/Municipio.php");
+	include_once("../Librerias/MunicipioDao.php");
+	include_once("../Librerias/Variables.php");
+	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
+	$ddao=new DepartamentoDao();
+	$mdao=new MunicipioDao();
+	$listaDeptos=$ddao->loadAll($conn);
+	$busqueda=new Municipio();
+	$busqueda->setId_departamento(1);
+	$listaMpios=$mdao->searchMatching($conn,$busqueda);	
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,6 +34,8 @@
 		<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="../css/diseno.css">
 		<script type="text/javascript" src="../js/re_dir.js"></script>
+		<script type="text/javascript" src="form_cursos.js"></script>
+
 	<script type="text/javascript"><!--
     function initialize() {
         var latlng = new google.maps.LatLng(2.4410316,-76.6047626);
@@ -50,7 +67,7 @@
 				</div>
 			</header>
 			<section id="sec3">
-<div style="padding: 10px; float: left; width: 35%; text-align: justify;">
+			<div style="padding: 10px; float: left; width: 35%; text-align: justify;">
 					<center>
 						<img id="logo2" src="../imgs/logo2.png">
 					</center>
@@ -69,8 +86,38 @@
 			<tr><td> <input placeholder="email" id="input_txt" type='email' name='email' required></td></tr>
 			<tr><td> <input placeholder="Celular" id="input_txt" type='tel' name='celular' required></input></td></tr>
 			<tr><td> <input placeholder="Direccion" id="input_txt" type='text' name='direccion' required></input></td></tr>
-			<tr><td> <input placeholder="Ciudad" id="input_txt" type='text' name='ciudad' required></input></td></tr>
-			<tr><td> <input placeholder="Departamento" id="input_txt" type='text' name='departamento' required></input></td></tr>
+			
+				<tr>
+					<td id="strings_editar">
+						Escoge tu departamento:
+					</td>
+					<td>
+					<select name="depto" id="selectDepartamentos" onChange="getMunicipios()" >
+					<option value="" selected>Elige</option>
+						<?php for($i=0;$i<count($listaDeptos);$i++)
+						{?>
+						<option value="<?php echo $listaDeptos[$i]->getId_departamento()?>"> <?php echo htmlentities($listaDeptos[$i]->getDescripcion());?></option>
+						<?php } ?>
+					</select>
+					</td>
+					</tr>
+				<tr>
+					<td id="strings_editar">
+						Selecciona tu municipio: 
+					</td>
+					<td>
+						<div id="selectMunicipios">
+						<select name="city" id="strings_editar2">
+						<option value="" selected>Elige</option>
+						<?php for($i=0;$i<count($listaMpios);$i++)
+						{?>
+						<option value="<?php echo $listaMpios[$i]->getId_departamento()?>"> <?php echo htmlentities($listaMpios[$i]->getDescripcion());?></option>
+						<?php } ?>
+						</select>
+						</div>
+					</td>
+				</tr>
+
 			<tr><td colspan='2'></td></tr>
 			</table>
 			<input type='submit' id="boton_enviar" value='Enviar Registro'>
@@ -85,7 +132,7 @@
 			</center>
 		</form>
 				</div>
-
+			
 			</section>
 			<footer>		
 				<div style="float: left; width: 33%;">

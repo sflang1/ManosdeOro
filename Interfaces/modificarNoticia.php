@@ -183,7 +183,7 @@
 										<h1 id="strings_editar_rojo">Título de la noticia:</h1>
 									</td>
 									<td>
-										<input type='text' name='titulo'>
+										<input style="width:600px; height: 30px" type='text' name='titulo'>
 									</td>
 								</tr>
 								<tr>
@@ -191,7 +191,7 @@
 										<h1 id="strings_editar_rojo">Contenido de la noticia:</h1>
 									</td>
 									<td>
-										<input type='text' name='contenido'>
+										<textarea style="resize:none; width:600px; height: 100px" type="text" name='contenido'></textarea>
 									</td>
 								</tr>
 								<tr>

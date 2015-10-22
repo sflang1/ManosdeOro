@@ -5,8 +5,8 @@ $cedula=$_POST["cedula"];
 $email=$_POST["email"];
 $celular=$_POST["celular"];
 $direccion=$_POST["direccion"];
-$ciudad=$_POST["ciudad"];
-$departamento=$_POST["departamento"];
+$ciudad=$_POST["city"];
+$departamento=$_POST["depto"];
 
 require_once 'funciones_bd.php';
 $db = new funciones_BD();

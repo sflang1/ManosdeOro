@@ -122,7 +122,7 @@ $res=mysql_query(utf8_decode($query));
 			<form name="form1" >
 			<h1 id="creatucuenta">Buscar por: </h1>
 			<select name="buscar" id="creatucuenta">
-				<option value="" id="creatucuenta" q selected>Elige una Opcion</option>
+				<option value="" id="creatucuenta" selected>Elige una Opcion</option>
 				<?php while($row=mysql_fetch_array($res))
 				{?>
 				<option value="<?php echo $row['descripcion']?>"> <?php echo htmlentities($row['descripcion']);?></option>

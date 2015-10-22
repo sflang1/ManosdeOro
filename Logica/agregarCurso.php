@@ -34,12 +34,12 @@
 			$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 			$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 			$asunto="Nueva capacitación: ".$_POST['descripcion'];
-			for($i=0;count($artesanos);$i++)
-			{
-				$mensaje="Estimad@ ".$artesanos[$i]->getNombre().":<br>Se te informa que Manos de Oro abrió la inscripción para el curso: ".$_POST['descripcion'].", con el horario: ".$_POST["horario"].". La fecha límite de inscripción es: ".$_POST["fecha"]."<br>Atentamente,<br>Artesanías Manos de Oro";
-				mail($artesanos[$i]->getEmail(), $asunto, $mensaje,$cabeceras);
+			//for($i=0;count($artesanos);$i++)
+			// {
+			//	$mensaje="Estimad@ ".$artesanos[$i]->getNombre().":<br>Se te informa que Manos de Oro abrió la inscripción para el curso: ".$_POST['descripcion'].", con el horario: ".$_POST["horario"].". La fecha límite de inscripción es: ".$_POST["fecha"]."<br>Atentamente,<br>Artesanías Manos de Oro";
+			//	mail($artesanos[$i]->getEmail(), $asunto, $mensaje,$cabeceras);
 				
-			}
+			//}
 			?>
 			<script type="text/javascript">
 				alert("Curso creado exitosamente");

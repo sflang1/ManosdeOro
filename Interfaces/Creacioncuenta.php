@@ -207,6 +207,14 @@
 				</tr>
 				<tr>
 					<td id="strings_editar">
+						Repita su Contraseña (*)
+					</td>
+					<td>
+						<input type="password" id="passwordrep" name="passwordrep" required>
+					</td>
+				</tr>
+				<tr>
+					<td id="strings_editar">
 						Dirección (*)
 					</td>
 					<td>
@@ -332,7 +340,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" name="nombproducto" id="nombproducto" height="6em;" style="margin-left:20px; width:630px; height:100px" required>
+						<input type="text" name="nombproducto" id="nombproducto" height="6em;" style=" width:630px; height:100px" required>
 					</td>
 				</tr>
 				<tr>
@@ -349,8 +357,7 @@
 <center>
 		<a href="index.php" id="strings_editar">Regresar al menú principal</a>
 </center>
-		<script type="text/javascript" src="Creacioncuenta.js">
-		</script>
+		<script type="text/javascript" src="Creacioncuenta.js"></script>
 			</section>
 			<footer>		
 				<div style="float: left; width: 33%;">
@@ -382,22 +389,4 @@
 			</footer>
 		</div>
 	</body>	
-</html>
-
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>
-			Artesanías Manos de Oro
-		</title>
-		<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8"/>
-	</head>
-	<body>
-		
-	</body>
 </html>

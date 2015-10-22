@@ -25,13 +25,14 @@ function validacionForm()
 	var primerApe=document.getElementById("primerApe").value;
 	var docId=document.getElementById("docId").value;
 	var password=document.getElementById("password").value;
+	var passwordrep=document.getElementById("passwordrep").value;
 	var direccion=document.getElementById("direccion").value;
 	var telefono=document.getElementById("telefono").value;
 	var celular=document.getElementById("celular").value;
 	var empresa=document.getElementById("empresa").value;
 	var nroenvio=document.getElementById("nroenvio").value;
 	var link=document.getElementById("link").value;
-	var descripcion=document.getElementById("descripcion").value;ç
+	var descripcion=document.getElementById("descripcion").value;
 	var errores="Errores en el formulario: <br>"
 	var correcto=true;
 	if(primerNom.length==0||primerNom==null)
@@ -52,6 +53,16 @@ function validacionForm()
 	if(password.length==0||password==null)
 	{
 		errores=errores+"Contraseña vacía <br>";
+		correcto=false;
+	}
+	if(passwordrep.length==0||passwordrep==null)
+	{
+		errores=errores+"Repetir la Contraseña Vacía <br>";
+		correcto=false;
+	}
+	if(password!=passwordrep)
+	{
+		errores=errores+"Las Contraseñas Deben Ser Iguales<br>";
 		correcto=false;
 	}
 	if(direccion.length==0||direccion==null)

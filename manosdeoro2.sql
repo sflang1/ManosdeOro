@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2015 a las 16:48:55
+-- Tiempo de generación: 22-10-2015 a las 05:20:42
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -36,20 +36,15 @@ CREATE TABLE IF NOT EXISTS `administrador` (
   `password` varchar(80) COLLATE utf8_bin NOT NULL,
   `email` varchar(100) COLLATE utf8_bin NOT NULL,
   `tipo` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `administrador`
 --
 
 INSERT INTO `administrador` (`idadministrador`, `primerNom`, `segundoNom`, `primerApe`, `segundoApe`, `username`, `password`, `email`, `tipo`) VALUES
-(1, 'Sebastián', NULL, 'Landínez', NULL, 'sflang', 'abcdef', 'landinez@unicauca.edu.co', 1),
-(2, 'Andrés', NULL, 'Borreo', NULL, 'felbo123', 'abcdef', 'felbo123@gmail.com', 0),
 (3, 'felix', 'camargo', 'camrgo', 'camrgo', 'fx', '123', 'felix@gmail.com', 0),
-(4, 'jeferson', 'jeferson', 'jeferson', 'jeferson', 'jf', '123', 'jf@gmail.com', 1),
-(5, 'pablo', 'muñoz', 'muñoz', 'muñoz', 'polo', 'polo', 'pablosanjuanm@gmail.com', 18),
-(6, 'pablo', 'muñoz', 'muñoz', 'muñoz', 'polo', 'polo', 'pablosanjuanm@gmail.com', 18),
-(7, 'secre', 'secre', 'secre', 'secre', 'polosecre', 'secre', 'pablosanjuanm@gmail.com', 16);
+(4, 'jeferson', 'jeferson', 'jeferson', 'jeferson', 'jf', '123', 'jf@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -75,24 +70,21 @@ CREATE TABLE IF NOT EXISTS `artesano` (
   `aprendices` text COLLATE utf8_bin,
   `cursos` text COLLATE utf8_bin,
   `formatofoto` int(11) DEFAULT NULL,
-  `departamento` int(11) NOT NULL,
-  `ciudad` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=61 ;
+  `departamento` varchar(22) COLLATE utf8_bin NOT NULL,
+  `ciudad` varchar(22) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=66 ;
 
 --
 -- Volcado de datos para la tabla `artesano`
 --
 
 INSERT INTO `artesano` (`idArtesano`, `TipoDoc`, `NroDoc`, `password`, `direccion`, `telefono`, `telefono2`, `username`, `estado`, `nombre`, `celular`, `email`, `certificacion`, `nivelestudio`, `aprendices`, `cursos`, `formatofoto`, `departamento`, `ciudad`) VALUES
-(46, 0, '1061788569', 'abcdef', 'Cra 5E No. 57 N 03', '8363106', '', '1061788569', 2, 'Sebastián Felipe Landínez García', '3002695941', 'slandinezg@gmail.com', 0, 2, '', '', 1, 0, 0),
-(49, 1, '123456', '123', 'calle', '8367218', '', '123456', 2, 'pablo cesar molina sanjuan', '231', 'pablo.sanjuan@correo.com', 0, 0, '', '', 2, 0, 0),
-(54, 0, '133423', 'smfomd', 'ofmdo', '24324', '3432', '133423', 2, 'oskads ofds podso omdo', '3123', 'okasod@sd.cp', 0, 0, '', '', 2, 0, 0),
-(55, 0, '12123', '213123', 'ree', '231', '43232', '12123', 2, 'sdfsf sfdf dfsf sdfd', '2432', 'df@hooh.com', 0, 0, '', '', 1, 0, 0),
-(56, 0, '43553', 'ytu', 'ytut', '56756', '', '43553', 1, 'gj yut ytr rtyr', '76', 'ghj@kmg.com', 0, 0, '', '', 0, 0, 0),
-(57, 0, '213213', 'gfh', 'ewwer', '234', '345', '213213', 2, 'sdfs rter qweq sda', '4354', 'fsd@kmdfd.com', 0, 0, '', '', 1, 0, 0),
-(58, 0, '56858', 'dasd', 'hggj', '564', '353', '56858', 2, 'gfhg fhf tryr yty', '35', 'ghf@dld.xom', 0, 0, '', '', 2, 0, 0),
-(59, 0, 'rewer', 'pass', 'sfds', '343342', '4324324', 'user', 0, 'dfdfsd vxcv cvxvc xcvxcv', '534', 'fdg@ldd.com', 0, 0, '', '', 0, 0, 0),
-(60, 0, '5345345345', 'asd', 'calle', '8367788', '8333333', '5345345345', 0, 'xcvxcv vxcvxcv xcvxcv cxcvxcv', '321', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, 2, 14);
+(60, 0, '1061788569', 'pass', 'Cra 5 E No 57 N 03', '', '', 'user', 2, 'Sebastián  Landinez Garcia', '3002695941', 'slandinezg@gmail.com', 0, 2, '', '', 2, '10', '414'),
+(61, 0, '13312331', 'pass', 'calle', '3242', '234324', 'user2', 2, 'polo', '131231', 'pablo@pablo.com', 0, 0, 'hfgh', 'hgf', 1, '1', '1'),
+(62, 0, '9876543', 'qq', 'calle', '8367218', '8357788', '9876543', 0, 'andres ggg molina paerez', '321', 'marce58_@hotmail.com', 0, 0, '', '', 0, '5', '165'),
+(63, 0, '21312321312', 'qq', 'dgfd', '56756', '8333333', '21312321312', 0, 'pablo cesar ytr muñoz', '3244', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, '2', '15'),
+(64, 0, '8765', 'qq', 'dgfd', '8367218', '8333333', '8765', 0, 'andres cesar molina rtyr', '3244', 'slandinezg@gmail.com', 0, 0, '', '', 0, '2', '5'),
+(65, 0, '6543', 'qq', 'dgfd', '56756', '8360000', '6543', 0, 'dg cesar molina sanjuan', '3244', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, '17', '656');
 
 -- --------------------------------------------------------
 
@@ -103,18 +95,17 @@ INSERT INTO `artesano` (`idArtesano`, `TipoDoc`, `NroDoc`, `password`, `direccio
 CREATE TABLE IF NOT EXISTS `cursos` (
 `id` int(11) NOT NULL,
   `foto` varchar(255) NOT NULL,
-  `descripcion` text NOT NULL,
+  `descripcion` varchar(66) NOT NULL,
   `fecha_lim` varchar(50) NOT NULL,
   `horario` varchar(50) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `cursos`
 --
 
 INSERT INTO `cursos` (`id`, `foto`, `descripcion`, `fecha_lim`, `horario`) VALUES
-(1, 'fotoCursoManillas.jpg', 'Manillas', '2015-05-24', 'Viernes 4-8 p.m'),
-(2, 'fotoCursosds.jpg', 'sds', '2015-09-30', 'asdas');
+(1, 'fotoCursomanillas.jpg', 'manillas', '2015-10-31', '12-32');
 
 -- --------------------------------------------------------
 
@@ -125,45 +116,13 @@ INSERT INTO `cursos` (`id`, `foto`, `descripcion`, `fecha_lim`, `horario`) VALUE
 CREATE TABLE IF NOT EXISTS `departamentos` (
   `id_departamento` int(5) NOT NULL,
   `descripcion` varchar(22) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `departamentos`
 --
 
 INSERT INTO `departamentos` (`id_departamento`, `descripcion`) VALUES
-(1, 'Amazonas'),
-(2, 'Antioquia'),
-(3, 'Arauca'),
-(4, 'Atlantico'),
-(5, 'Bolivar'),
-(6, 'Boyaca'),
-(7, 'Caldas'),
-(8, 'Caqueta'),
-(9, 'Casanare'),
-(10, 'Cauca'),
-(11, 'Cesar'),
-(12, 'Choco'),
-(13, 'Cordoba'),
-(14, 'Cundinamarca'),
-(15, 'Guainia'),
-(16, 'Guaviare'),
-(17, 'Huila'),
-(18, 'La Guajira'),
-(19, 'Magdalena'),
-(20, 'Meta'),
-(21, 'Narino'),
-(22, 'Norte de Santander'),
-(23, 'Putumayo'),
-(24, 'Quindo'),
-(25, 'Risaralda'),
-(26, 'San Andres y Providenc'),
-(27, 'Santander'),
-(28, 'Sucre'),
-(29, 'Tolima'),
-(30, 'Valle del Cauca'),
-(31, 'Vaupes'),
-(32, 'Vichada'),
 (1, 'Amazonas'),
 (2, 'Antioquia'),
 (3, 'Arauca'),
@@ -204,25 +163,15 @@ INSERT INTO `departamentos` (`id_departamento`, `descripcion`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `inscritos` (
-  `curso` varchar(33) NOT NULL,
+  `curso` varchar(66) NOT NULL,
   `nombre` varchar(22) NOT NULL,
   `cedula` int(15) NOT NULL,
   `email` varchar(22) NOT NULL,
   `celular` int(15) NOT NULL,
   `direccion` varchar(22) NOT NULL,
-  `ciudad` varchar(22) NOT NULL
+  `ciudad` varchar(22) NOT NULL,
+  `departamento` varchar(22) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `inscritos`
---
-
-INSERT INTO `inscritos` (`curso`, `nombre`, `cedula`, `email`, `celular`, `direccion`, `ciudad`) VALUES
-('Manillas', 'q', 0, 'pablosanjuanm@gmail.co', 0, 'q', 'q'),
-('Manillas', 'hhHH', 0, 'pablosanjuanm@gmail.co', 0, 'JJ', 'JJ'),
-('sds', 'pablo', 1111, 'pablosanjuanm@gmail.co', 321, 'calle', 'popa'),
-('sds', 'cesar', 22, 'correo@coro.com', 123, 'po', 'cali'),
-('sds', 'cesar', 22, 'correo@coro.com', 123, 'po', 'cali');
 
 -- --------------------------------------------------------
 
@@ -1354,19 +1303,21 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 `idNoticia` int(11) NOT NULL,
   `titulo` varchar(150) NOT NULL,
   `contenido` text NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `noticias`
 --
 
 INSERT INTO `noticias` (`idNoticia`, `titulo`, `contenido`) VALUES
-(-1, 'comision', '10'),
-(1, '¿Quiénes somos?', 'apblo'),
-(2, 'Misión', 'hla'),
-(3, 'Visión', 'kamdma'),
-(4, 'Noticia 1', 'Este es el texto de prueba de la noticia 1. <br>Tiene un poco de HTML'),
-(5, 'Ã±Ã±Ã±', 'Ã±Ã±Ã±');
+(-1, 'comision', '8'),
+(1, '¿Quiénes somos?', 'El Centro de Desarrollo Artesanal Manos de Oro PopayÃ¡n  pertenece a la Junta Pro â€“ Semana Santa de PopayÃ¡n, es una entidad sin Ã¡nimo de lucro que vela continuamente por mantener el arte, las tradiciones y la cultura en nuestra comunidad. El CDA (Centro de Desarrollo Artesanal) Manos de Oro es un programa abierto a todos los artesanos del Cauca y pretende contribuir al mejoramiento integral del sector artesanal estimulando la creatividad, el desarrollo profesional y el amor por nuestra cultura.'),
+(2, 'Misión', 'Impulsar el sector artesanal caucano, a travÃ©s del perfeccionamiento del recurso humano, preservando el patrimonio cultural tangible e intangible de nuestra regiÃ³n garantizando la sostenibilidad y conservaciÃ³n del medio ambiente.'),
+(3, 'Visión', 'Manos de oro en el 2015 serÃ¡ un centro promotor y de desarrollo del sector artesanal Caucano, posicionado a nivel nacional e internacional. AsÃ­ mismo incentivarÃ¡ el  empresarismo artesanal en la regiÃ³n, la defensa y conservaciÃ³n de nuestra riqueza cultural y nuestras tradiciones.'),
+(6, 'En pleno el XIII Congreso GastronÃ³mico de PopayÃ¡n', 'sdfsdfdf'),
+(7, 'En pleno el XIII Congreso GastronÃ³mico de PopayÃ¡n', 'La mesa estÃ¡ servida, propios y visitantes; disfrutan de los dÃ­as mÃ¡s deliciosos, en el evento de gastronomÃ­a mÃ¡s importante del paÃ­s. El XIII Congreso de PopayÃ¡n, reÃºne como en todas sus versiones como bien lo menciona en su escrito â€œDonde el fogÃ³n es el centro de la culturaâ€ el doctor Ãlvaro GarzÃ³n miembro de la Junta directiva; a gastrÃ³nomos, intelectuales, investigadores, industriales, chef, estudiantes y a la ciudadanÃ­a de la capital caucana. AÃ±o tras aÃ±o, los asistentes tienen la oportunidad de degustar exquisitos platos regionales e internacionales y este 2015 no podrÃ­a ser la excepciÃ³n, para quienes viven la experiencia podrÃ­an contarla incansablemente ya que se trata nada mÃ¡s y nada menos de la cultura intangible de los pueblos: su gastronomÃ­a.'),
+(8, 'Festival Gastronomico Valle del Cauca', 'ContÃ¡ctenos PolicÃ­a Nacional de Colombia  DirecciÃ³n de Bienestar Social Centro Social de Agentes y Patrulleros PBX: (57 + 1) 605 44 47'),
+(9, 'PASEO DOMINICAL POR EL CAMINO ARTESANAL', 'Era un plan para curiosos, para desprogramados o para que la familia reunida saliera y se fuera a buscar desde un algodÃ³n de azÃºcar hasta una chaqueta de cuero.  Hoy en dÃ­a esa modalidad se cambiÃ³: las anunciadas ferias de calle desaparecieron. Ahora los artesanos se han localizado en lugares fijos a manera de pequeÃ±os centros comerciales artesanales.  Por ejemplo, hoy usted puede encontrar cinco centros artesanales de este tipo a lo largo de la carrera sÃ©ptima, entre las calles 12 y 26; uno mÃ¡s en Cedritos y dos mercados de San Pelayo, uno totalmente artesanal en UsaquÃ©n.');
 
 -- --------------------------------------------------------
 
@@ -1399,7 +1350,7 @@ INSERT INTO `perfil` (`idPerfil`, `nomPerfil`, `valorPerfil`) VALUES
 
 CREATE TABLE IF NOT EXISTS `producto` (
 `idproducto` int(11) NOT NULL,
-  `nombproducto` varchar(220) COLLATE utf8_bin NOT NULL,
+  `nombproducto` varchar(300) COLLATE utf8_bin NOT NULL,
   `descripcion` varchar(30) COLLATE utf8_bin NOT NULL,
   `link` varchar(150) COLLATE utf8_bin DEFAULT NULL,
   `idartesano` int(11) NOT NULL,
@@ -1414,23 +1365,19 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `mostrar` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `comision` float NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=59 ;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
 INSERT INTO `producto` (`idproducto`, `nombproducto`, `descripcion`, `link`, `idartesano`, `aceptado`, `empresa`, `nroenvio`, `notificado`, `stock`, `ventas`, `formatofoto`, `precio`, `mostrar`, `fecha`, `comision`) VALUES
-(36, '', 'Bolsos', '', 46, 2, 'Servientrega', '102003', 0, 30, 0, 1, 2500, 1, '0000-00-00', 0),
-(37, '', 'Sombreros', '', 46, 1, 'Deprisa', '101002', 0, 0, 0, 0, 0, 0, '0000-00-00', 0),
-(40, 'asddddddddddddddddddddddddd ddddddddaaaaaaaaaaaaaaaaaaa', 'sadsad', 'https://www.facebook.com/', 49, 2, 'servientrega', '123', 0, 12, 0, 1, 3000, 1, '0000-00-00', 0),
-(45, 'barro', 'barro', 'http://librosweb.es/libro/xhtml/capitulo_7/tablas_basicas.html', 54, 2, 'adas', '231', 0, 213, 0, 2, 100, 1, '0000-00-00', 0),
-(46, 'adera', 'adera', 'http://librosweb.es/libro/xhtml/capitulo_7/tablas_basicas.html', 55, 2, 'ewr', '123', 0, 32, 0, 1, 100, 1, '0000-00-00', 0),
-(47, 'ghj', 'ghj', 'https://www.facebook.com/', 56, 1, 'ok', '54646', 0, 0, 0, 0, 0, 1, '0000-00-00', 0),
-(48, 'tarro', 'tarro', 'https://www.facebook.com/', 57, 2, 'sdff', '231', 0, 123, 0, 2, 100, 1, '0000-00-00', 0),
-(49, 'felix', 'camargo', 'https://www.facebook.com/', 58, 2, 'dfg', 'dgg4664', 0, 242, 0, 2, 100, 1, '0000-00-00', 0),
-(50, 'pablo', 'sanjuan', 'http://librosweb.es/libro/xhtml/capitulo_7/tablas_basicas.html', 59, 0, 'xvvx', '23142343', 0, 0, 0, 0, 0, 1, '0000-00-00', 0),
-(51, 'adadasdasdasdasdasdasd', 'JAROONES', 'https://www.facebook.com/', 60, 0, 'servientrega', '4534', 0, 0, 0, 0, 0, 1, '2015-10-12', 10);
+(53, 'Manillas hermosas divinas', 'Manillas', '', 60, 2, 'Deprisa', '123', 1, 8, 17, 1, 7500, 1, '0000-00-00', 15),
+(54, '', 'jarrones', 'http://www.w3schools.com/php/php_form_complete.asp', 60, 2, 'servientrega', '123', 0, 13, 7, 1, 5000, 1, '0000-00-00', 0),
+(55, 'werwerwerer', 'manillas', 'https://www.youtube.com/', 62, 0, 'ok', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
+(56, 'efsf fewfewf ewfwefew', 'SADDA', 'https://www.youtube.com/', 63, 0, 'erw', '123', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
+(57, 'fsfsfsd sf sdfs fsfssfsdfs  fsdfs', 'hola', 'https://www.facebook.com/', 64, 0, 'qeq', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
+(58, 'ferfewf dfsfdf sfsdfwe  ewdsff ', 'manillas', 'https://www.youtube.com/', 65, 0, 'ok', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8);
 
 -- --------------------------------------------------------
 
@@ -1442,15 +1389,7 @@ CREATE TABLE IF NOT EXISTS `solicitud` (
 `idSolicitud` int(11) NOT NULL,
   `idArtesano` int(11) NOT NULL,
   `idStand` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `solicitud`
---
-
-INSERT INTO `solicitud` (`idSolicitud`, `idArtesano`, `idStand`) VALUES
-(1, 45, 61),
-(2, 48, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1469,7 +1408,7 @@ CREATE TABLE IF NOT EXISTS `stand` (
 --
 
 INSERT INTO `stand` (`idStand`, `idArtesano`, `reservado`) VALUES
-(1, 0, 0),
+(1, 48, 1),
 (2, 0, 0),
 (3, 0, 0),
 (4, 0, 0),
@@ -1479,7 +1418,7 @@ INSERT INTO `stand` (`idStand`, `idArtesano`, `reservado`) VALUES
 (8, 0, 0),
 (9, 0, 0),
 (10, 0, 0),
-(11, 0, 0),
+(11, 49, 1),
 (12, 0, 0),
 (13, 0, 0),
 (14, 0, 0),
@@ -1488,8 +1427,8 @@ INSERT INTO `stand` (`idStand`, `idArtesano`, `reservado`) VALUES
 (17, 0, 0),
 (18, 0, 0),
 (19, 0, 0),
-(20, 0, 0),
-(21, 0, 0),
+(20, 53, 1),
+(21, 54, 1),
 (22, 0, 0),
 (23, 0, 0),
 (24, 0, 0),
@@ -1529,7 +1468,7 @@ INSERT INTO `stand` (`idStand`, `idArtesano`, `reservado`) VALUES
 (58, 0, 0),
 (59, 0, 0),
 (60, 0, 0),
-(61, 0, 0),
+(61, 45, 1),
 (62, 0, 0),
 (63, 0, 0),
 (64, 0, 0),
@@ -1569,6 +1508,29 @@ INSERT INTO `stand` (`idStand`, `idArtesano`, `reservado`) VALUES
 (98, 0, 0),
 (99, 0, 0),
 (100, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `venta`
+--
+
+CREATE TABLE IF NOT EXISTS `venta` (
+  `idVenta` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `nroProductosVendidos` int(11) NOT NULL,
+  `comision` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`idVenta`, `idProducto`, `fecha`, `nroProductosVendidos`, `comision`) VALUES
+(0, 53, '2014-11-19', 2, 18),
+(1, 53, '2015-09-16', 2, 10),
+(2, 53, '2015-10-16', 4, 15);
 
 --
 -- Índices para tablas volcadas
@@ -1623,6 +1585,12 @@ ALTER TABLE `stand`
  ADD PRIMARY KEY (`idStand`), ADD KEY `idArtesano` (`idArtesano`);
 
 --
+-- Indices de la tabla `venta`
+--
+ALTER TABLE `venta`
+ ADD PRIMARY KEY (`idVenta`), ADD KEY `fkeyIndex` (`idProducto`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -1630,22 +1598,22 @@ ALTER TABLE `stand`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `artesano`
 --
 ALTER TABLE `artesano`
-MODIFY `idArtesano` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=61;
+MODIFY `idArtesano` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=66;
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `perfil`
 --
@@ -1655,12 +1623,12 @@ MODIFY `idPerfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=52;
+MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `stand`
 --
@@ -1675,6 +1643,12 @@ MODIFY `idStand` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
 --
 ALTER TABLE `producto`
 ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`idartesano`) REFERENCES `artesano` (`idArtesano`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `venta`
+--
+ALTER TABLE `venta`
+ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idproducto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
