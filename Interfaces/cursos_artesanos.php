@@ -136,7 +136,9 @@
 				echo("<td>");
 				echo("<h1 id='creatucuenta' >Fecha Límite Inscripción: </h1>".$lista[$i]->getFecha_lim()."<br>");
 				echo("<h1 id='creatucuenta' >Horario:  </h1>".$lista[$i]->getHorario());
-				echo("<br><button onclick=\"window.location.href='form_cursos_art.php?nomCurso=".$lista[$i]->getDescripcion()."& nombre=".$artesano->getNombre()."& celular=".$artesano->getCelular()."& cedula=".$artesano->getNroDoc()."& email=".$artesano->getEmail()."& direccion=".$artesano->getDireccion()."& ciudad=".$artesano->getCiudad()."& departamento=".$artesano->getDepartamento()."'\" id='boton_iniciar'><img id='logo_btn' src='../imgs/logo.png'>Registro</button>");
+				$cadena="\"window.location.href='form_cursos_art.php?nomCurso=".$lista[$i]->getDescripcion()."&nombre=".$artesano->getNombre()."& celular=".$artesano->getCelular()."& cedula=".$artesano->getNroDoc()."& email=".$artesano->getEmail()."& direccion=".$artesano->getDireccion()."& ciudad=".$artesano->getCiudad()."& departamento=".$artesano->getDepartamento()."'\" id='boton_iniciar'><img id='logo_btn' src='../imgs/logo.png'>Registro</button>";
+				$cadena=str_replace("#", "%23", $cadena);
+				echo("<br><button onclick=".$cadena);
 
 				echo("</td>");
 				echo("</tr>");
