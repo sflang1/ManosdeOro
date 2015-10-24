@@ -34,7 +34,7 @@
 	{
 		$prod=$pdao->getObject($conn,$lista[$i]->getIdProducto());
 		$venta=$lista[$i];
-		$array2 = array('idProducto'=>$prod->getIdProducto(),'nomProducto'=>$prod->getDescripcion(),'stock'=>$prod->getStock(),'precio'=>$prod->getPrecio(),'unidadesVendidas' => $venta->getNroProductosVendidos(),'comision'=>$venta->getComision());
+		$array2 = array('idProducto'=>$prod->getIdProducto(),'nomProducto'=>$prod->getDescripcion(),'stock'=>$prod->getStock(),'precio'=>$prod->getPrecio(),'unidadesVendidas' => $venta->getNroProductosVendidos(),'comision'=>$venta->getComision(),'fecha'=>$venta->getFecha());
 		$array1[]=$array2;
 	}		
 	$array3["exito"]=1;

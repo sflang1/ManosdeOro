@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2015 a las 05:20:42
+-- Tiempo de generación: 24-10-2015 a las 02:19:07
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `artesano` (
   `formatofoto` int(11) DEFAULT NULL,
   `departamento` varchar(22) COLLATE utf8_bin NOT NULL,
   `ciudad` varchar(22) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=67 ;
 
 --
 -- Volcado de datos para la tabla `artesano`
@@ -84,7 +84,8 @@ INSERT INTO `artesano` (`idArtesano`, `TipoDoc`, `NroDoc`, `password`, `direccio
 (62, 0, '9876543', 'qq', 'calle', '8367218', '8357788', '9876543', 0, 'andres ggg molina paerez', '321', 'marce58_@hotmail.com', 0, 0, '', '', 0, '5', '165'),
 (63, 0, '21312321312', 'qq', 'dgfd', '56756', '8333333', '21312321312', 0, 'pablo cesar ytr muñoz', '3244', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, '2', '15'),
 (64, 0, '8765', 'qq', 'dgfd', '8367218', '8333333', '8765', 0, 'andres cesar molina rtyr', '3244', 'slandinezg@gmail.com', 0, 0, '', '', 0, '2', '5'),
-(65, 0, '6543', 'qq', 'dgfd', '56756', '8360000', '6543', 0, 'dg cesar molina sanjuan', '3244', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, '17', '656');
+(65, 0, '6543', 'qq', 'dgfd', '56756', '8360000', '6543', 0, 'dg cesar molina sanjuan', '3244', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, '17', '656'),
+(66, 0, '43535', 'qq', 'calle con calle', '8367218', '8357788', '43535', 0, 'xcc fsdf sdfs sdfsd', '321', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, '2', '6');
 
 -- --------------------------------------------------------
 
@@ -172,6 +173,13 @@ CREATE TABLE IF NOT EXISTS `inscritos` (
   `ciudad` varchar(22) NOT NULL,
   `departamento` varchar(22) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `inscritos`
+--
+
+INSERT INTO `inscritos` (`curso`, `nombre`, `cedula`, `email`, `celular`, `direccion`, `ciudad`, `departamento`) VALUES
+('manillas', 'prueba', 123, 'pablosanjuanm@gmail.co', 12312123, 'calle con calle', '655', '17');
 
 -- --------------------------------------------------------
 
@@ -1310,7 +1318,7 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 --
 
 INSERT INTO `noticias` (`idNoticia`, `titulo`, `contenido`) VALUES
-(-1, 'comision', '8'),
+(-1, 'comision', '42'),
 (1, '¿Quiénes somos?', 'El Centro de Desarrollo Artesanal Manos de Oro PopayÃ¡n  pertenece a la Junta Pro â€“ Semana Santa de PopayÃ¡n, es una entidad sin Ã¡nimo de lucro que vela continuamente por mantener el arte, las tradiciones y la cultura en nuestra comunidad. El CDA (Centro de Desarrollo Artesanal) Manos de Oro es un programa abierto a todos los artesanos del Cauca y pretende contribuir al mejoramiento integral del sector artesanal estimulando la creatividad, el desarrollo profesional y el amor por nuestra cultura.'),
 (2, 'Misión', 'Impulsar el sector artesanal caucano, a travÃ©s del perfeccionamiento del recurso humano, preservando el patrimonio cultural tangible e intangible de nuestra regiÃ³n garantizando la sostenibilidad y conservaciÃ³n del medio ambiente.'),
 (3, 'Visión', 'Manos de oro en el 2015 serÃ¡ un centro promotor y de desarrollo del sector artesanal Caucano, posicionado a nivel nacional e internacional. AsÃ­ mismo incentivarÃ¡ el  empresarismo artesanal en la regiÃ³n, la defensa y conservaciÃ³n de nuestra riqueza cultural y nuestras tradiciones.'),
@@ -1365,19 +1373,20 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `mostrar` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `comision` float NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=59 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=60 ;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
 INSERT INTO `producto` (`idproducto`, `nombproducto`, `descripcion`, `link`, `idartesano`, `aceptado`, `empresa`, `nroenvio`, `notificado`, `stock`, `ventas`, `formatofoto`, `precio`, `mostrar`, `fecha`, `comision`) VALUES
-(53, 'Manillas hermosas divinas', 'Manillas', '', 60, 2, 'Deprisa', '123', 1, 8, 17, 1, 7500, 1, '0000-00-00', 15),
-(54, '', 'jarrones', 'http://www.w3schools.com/php/php_form_complete.asp', 60, 2, 'servientrega', '123', 0, 13, 7, 1, 5000, 1, '0000-00-00', 0),
+(53, 'Manillas hermosas divinas', 'Manillas', '', 60, 3, 'Deprisa', '123', 0, 0, 25, 1, 7500, 1, '0000-00-00', 15),
+(54, '', 'jarrones', 'http://www.w3schools.com/php/php_form_complete.asp', 60, 2, 'servientrega', '123', 0, 4, 16, 1, 5000, 1, '0000-00-00', 0),
 (55, 'werwerwerer', 'manillas', 'https://www.youtube.com/', 62, 0, 'ok', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
 (56, 'efsf fewfewf ewfwefew', 'SADDA', 'https://www.youtube.com/', 63, 0, 'erw', '123', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
 (57, 'fsfsfsd sf sdfs fsfssfsdfs  fsdfs', 'hola', 'https://www.facebook.com/', 64, 0, 'qeq', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
-(58, 'ferfewf dfsfdf sfsdfwe  ewdsff ', 'manillas', 'https://www.youtube.com/', 65, 0, 'ok', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8);
+(58, 'ferfewf dfsfdf sfsdfwe  ewdsff ', 'manillas', 'https://www.youtube.com/', 65, 0, 'ok', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
+(59, 'fddfgdfg sfsfsd', 'hola', 'https://www.youtube.com/', 66, 0, 'ok', '54646', 0, 0, 0, 0, 0, 1, '2015-10-21', 8);
 
 -- --------------------------------------------------------
 
@@ -1389,7 +1398,14 @@ CREATE TABLE IF NOT EXISTS `solicitud` (
 `idSolicitud` int(11) NOT NULL,
   `idArtesano` int(11) NOT NULL,
   `idStand` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `solicitud`
+--
+
+INSERT INTO `solicitud` (`idSolicitud`, `idArtesano`, `idStand`) VALUES
+(1, 60, 9);
 
 -- --------------------------------------------------------
 
@@ -1416,7 +1432,7 @@ INSERT INTO `stand` (`idStand`, `idArtesano`, `reservado`) VALUES
 (6, 0, 0),
 (7, 0, 0),
 (8, 0, 0),
-(9, 0, 0),
+(9, 60, 1),
 (10, 0, 0),
 (11, 49, 1),
 (12, 0, 0),
@@ -1516,21 +1532,24 @@ INSERT INTO `stand` (`idStand`, `idArtesano`, `reservado`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `venta` (
-  `idVenta` int(11) NOT NULL,
+`idVenta` int(11) NOT NULL,
   `idProducto` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `nroProductosVendidos` int(11) NOT NULL,
   `comision` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `venta`
 --
 
 INSERT INTO `venta` (`idVenta`, `idProducto`, `fecha`, `nroProductosVendidos`, `comision`) VALUES
-(0, 53, '2014-11-19', 2, 18),
-(1, 53, '2015-09-16', 2, 10),
-(2, 53, '2015-10-16', 4, 15);
+(1, 53, '2015-10-21', 2, 12),
+(2, 54, '2014-09-24', 2, 8),
+(3, 53, '2015-10-21', 1, 45),
+(4, 53, '2015-10-23', 3, 78),
+(5, 54, '2015-10-23', 2, 78),
+(6, 53, '2015-10-23', 2, 42);
 
 --
 -- Índices para tablas volcadas
@@ -1603,7 +1622,7 @@ MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT de la tabla `artesano`
 --
 ALTER TABLE `artesano`
-MODIFY `idArtesano` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=66;
+MODIFY `idArtesano` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
@@ -1623,17 +1642,22 @@ MODIFY `idPerfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=59;
+MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `stand`
 --
 ALTER TABLE `stand`
 MODIFY `idStand` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
+--
+-- AUTO_INCREMENT de la tabla `venta`
+--
+ALTER TABLE `venta`
+MODIFY `idVenta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- Restricciones para tablas volcadas
 --
