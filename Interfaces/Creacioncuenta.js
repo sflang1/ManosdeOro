@@ -60,11 +60,6 @@ function validacionForm()
 		errores=errores+"Dirección vacía <br>";
 		correcto=false;
 	}
-	if(telefono.length==0||telefono==null)
-	{
-		errores=errores+"Teléfono vacío <br>";
-		correcto=false;
-	}
 	if(celular.length==0||celular==null)
 	{
 		errores=errores+"Celular vacío <br>";
