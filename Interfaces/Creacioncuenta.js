@@ -55,16 +55,6 @@ function validacionForm()
 		errores=errores+"Contraseña vacía <br>";
 		correcto=false;
 	}
-	if(passwordrep.length==0||passwordrep==null)
-	{
-		errores=errores+"Repetir la Contraseña Vacía <br>";
-		correcto=false;
-	}
-	if(password!=passwordrep)
-	{
-		alert ("Las claves introducidas no son iguales");
-		correcto=false;
-	}
 	if(direccion.length==0||direccion==null)
 	{
 		errores=errores+"Dirección vacía <br>";

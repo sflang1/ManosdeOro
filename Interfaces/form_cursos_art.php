@@ -49,7 +49,7 @@
 						<img id="logo2" src="../imgs/logo2.png">
 					</center>
 				</div>
-<form method="POST" action="../Logica/agregarInscrito.php">
+		<form method="POST" action="../Logica/agregarInscrito.php">
 				<div style="float: right; width: 60%;">
 			<h1 id="titulos_contacto">Regristro Cursos C.D.A</h1>
 			<h1 id="titulos_noti">Registro al curso: </h1>

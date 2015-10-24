@@ -191,10 +191,16 @@
 					<form method="POST" action="../Logica/cambiarComision.php">
 						<br>
 						<br>
-						<h1 id="strings_editar">Comisión a cobrar (%): </h1><input type='number' name='comision' min='1' max='100' step='1' required><br>
+						<h1 id="strings_editar">Comisión a cobrar (%): </h1>
+						<br>
+							<input type='number' name='comision' min='1' max='100' step='1' required><br>
 						<br>
 						<input type='submit' value='Aceptar'>
 					</form>
+					<br>
+					<br>
+				<center>
+					<h1 id="strings_editar">La Comision Actul es: XXX %</h1>
 				</center>
 			</section>
 			<footer>		
