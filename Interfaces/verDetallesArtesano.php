@@ -69,22 +69,24 @@
 					<img src="../imgs/logo2.png" id="logo_cabecera2">
 					<h1 id="opc_admin">Detalles del Artesano:</h1>
 					<br><br>
-					</center>
+					
 					<?php
 						echo("<table>");
 						if($artesano->getFormatofoto()==1)
 						{
-							echo("<tr><td><h1 id='strings_editar_rojo'>Foto:</h1></td><td><img logo_cabecera2 src='".$filelocation."/foto".$artesano->getIdartesano().".jpg'></tr>");
+							echo("<tr><td><h1 id='strings_editar_rojo'>Foto Artesano:</h1></td><td><img style='heigth: 250px; width:280px;' src='".$filelocation."/foto".$artesano->getIdartesano().".jpg'></tr>");
 						}
 						else
 						{
-							echo("<tr><td>Foto:</td><td><img src='".$filelocation."/foto".$artesano->getIdartesano().".png'></tr>");
+							echo("<tr><td>Foto Artesano:</td><td><img style='heigth: 150px; width:180px;' src='".$filelocation."/foto".$artesano->getIdartesano().".png'></tr>");
 						}
-						echo("<tr><td><h1 id='strings_editar_rojo'>Nombre:</h1></td><td>".utf8_encode($artesano->getNombre())."</td<</tr>");
-						echo("<tr><td><h1 id='strings_editar_rojo'>Dirección:</h1></td><td>".$artesano->getDireccion()."</td<</tr>");
-						echo("<tr><td><h1 id='strings_editar_rojo'>Correo de contacto:</h1></td><td>".$artesano->getEmail()."</td<</tr>");
+						echo("<tr><td style='padding: 5px'><h1 id='strings_editar_rojo'>Nombre:</h1></td><td>".utf8_encode($artesano->getNombre())."</td<</tr>");
+						echo("<tr><td style='padding: 5px'><h1 id='strings_editar_rojo'>Direccion:</h1></td><td>".$artesano->getDireccion()."</td<</tr>");
+						echo("<tr><td style='padding: 5px'><h1 id='strings_editar_rojo'>Correo de contacto:</h1></td><td>".$artesano->getEmail()."</td<</tr>");
 						echo("</table>");
 					?>
+					</center>
+					<br>
 					<center>
 					<a href="confirmarStands.php">Volver a la pagina de solicitudes</a>
 					</center>

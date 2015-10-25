@@ -130,12 +130,12 @@ Bienvenido, <?php echo(utf8_encode($artesano->getNombre()));?>. En el siguiente 
 									</tr>
 									<tr>
 										<td colspan="2">
-											Foto del Producto. Sólo se aceptan formatos .png y .jpg 
+											Foto de tu Perfil como Artesano. Sólo se aceptan formatos .png y .jpg 
 										</td>
 									</tr>
 									<tr>
 										<td>
-											Sube aquí tu foto:
+											Sube aquí tu foto que sera usda en tu Perfil:
 										</td>
 										<td>
 											<input type="file" name="foto" id="foto">

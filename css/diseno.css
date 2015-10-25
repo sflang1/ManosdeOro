@@ -358,6 +358,12 @@ margin: 2px;
 	height: 30%;
 	width: 200px;
 }
+#logo4{
+	margin: 50px auto;
+	position: relative;
+	height: 50%;
+	width: 200px;
+}
 #titulos_contacto{
  	margin-top: 20px;
  	font-family:GillSansMTCondensed;

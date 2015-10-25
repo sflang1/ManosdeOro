@@ -81,7 +81,7 @@
 			<section id="sec9">
 <center>
 <h1 id="titulos_noti">A continuación se listan todos los productos que terminaron su registro y están en el sistema.</h1> <br><br>
-					<a id="boton_iniciar" href='registrarVentas.php'>Volver al inicio</a><br><br><br>
+					<a id="boton_iniciar" href='admonTienda.php'>Volver al inicio</a><br><br><br>
 					<table style="border: 2px solid black;border-collapse: collapse;">
 						<tr style="border: 2px solid black;border-collapse: collapse;">
 							<td style="border: 2px solid black;border-collapse: collapse;">

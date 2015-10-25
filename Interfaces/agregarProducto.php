@@ -125,7 +125,7 @@
 							</tr>
 							<tr>
 								<td id="strings_editar">
-									Descripción del producto (*)
+									Nombre del producto (*)
 								</td>
 								<td>
 									<input type="text" name="descripcion" required>

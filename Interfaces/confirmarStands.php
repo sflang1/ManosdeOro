@@ -12,12 +12,12 @@
 	{
 		if($permisos<2)
 		{
-			return "<ul><li><a id=\"opc_admin\" href=\"admon.php\">Inicio</a></li><li><a id=\"opc_admin\" href=\"admonNoticias.php\">Noticias</a></li><li><a id=\"opc_admin\" href=\"cambiarInstitucional.php\">Informacion Institucional</a></li><li><a id=\"opc_admin\" href=\"peticionesRegistro.php\">Peticiones de registro</a></li><li><a id=\"opc_admin\" href=\"verVentasAdmin.php\">Ver reporte total de ventas</a><br></li><li><a id=\"opc_admin\" href=\"confirmarStands.php\">Confirmar solicitudes de reserva de stands</a><br></li><li><a id=\"opc_admin\" href=\"agregarCurso.php\">Agregar un curso</a><br></li><li><a id=\"opc_admin\" href=\"cambiarComision.php\">Comision Tienda Virtual</a><br></li><li><a id=\"opc_admin\" href=\"cambiarContrasena.php\">Cambiar contraseña</a><br></li><li><a id=\"opc_admin\" href=\"creacionPerfil.php\">Crear nuevos Perfiles</a><br></li><li><a id=\"opc_admin\" href=\"creacionPersonas.php\">Administrar personas en el sistema</a><br></li></ul>";
+			return "<ul><li><a id=\"opc_admin\" href=\"admon.php\">Artesanos</a></li><li><a id=\"opc_admin\" href=\"admonNoticias.php\">Noticias</a></li><li><a id=\"opc_admin\" href=\"cambiarInstitucional.php\">Informacion Institucional</a></li><li><a id=\"opc_admin\" href=\"peticionesRegistro.php\">Peticiones de registro</a></li><li><a id=\"opc_admin\" href=\"verVentasAdmin.php\">Ver reporte total de ventas</a><br></li><li><a id=\"opc_admin\" href=\"confirmarStands.php\">Confirmar solicitudes de reserva de stands</a><br></li><li><a id=\"opc_admin\" href=\"agregarCurso.php\">Agregar un curso</a><br></li><li><a id=\"opc_admin\" href=\"cambiarComision.php\">Comision Tienda Virtual</a><br></li><li><a id=\"opc_admin\" href=\"cambiarContrasena.php\">Cambiar contraseña</a><br></li><li><a id=\"opc_admin\" href=\"creacionPerfil.php\">Crear nuevos Perfiles</a><br></li><li><a id=\"opc_admin\" href=\"creacionPersonas.php\">Administrar personas en el sistema</a><br></li></ul>";
 		}
 		else
 		{
 			$permisos=$permisos-2;
-			$cadena="<ul><li><a id=\"opc_admin\" href=\"admon.php\">Inicio</a></li>";
+			$cadena="<ul><li><a id=\"opc_admin\" href=\"admon.php\">Artesanos</a></li>";
 			if(($permisos& 1)!=0)
 			{
 				$cadena=$cadena."<li><a id=\"opc_admin\" href=\"agregarCurso.php\">Agregar un curso</a><br></li>";
@@ -154,6 +154,10 @@
 				<center>
 
 					<h1 id="strings_editar_rojo">A continuación encontrará todas las solicitudes de stands existentes hasta el momento.</h1><br>
+					
+					<h1 id="strings_editar">Al confirmar una solicitud, se rechazan las demas automaticamente que solicitan el mismo stand y se nunciara po r correo a quien se acepto y a quienes se rechazaron</h1>
+					<br>
+
 					<?php
 						$solicitudes=$sdao->loadAll($conn);
 						if(count($solicitudes)==0)
@@ -194,7 +198,6 @@
 								echo("<td id='strings_editar'>".$stand."</td>");
 								echo("<td><input type='button' value='Ver Detalles' onclick=\"location.href='verDetallesArtesano.php?id=".$solicitudes[$i]->getIdartesano()."'\"></td>");
 								echo("<td><input type='button' value='Confirmar solicitud' onclick='confirmarStand(".$solicitudes[$i]->getIdsolicitud().")'></td>");
-								echo("<td><input type='button' value='Rechazar solicitud' onclick='rechazarStand(".$solicitudes[$i]->getIdsolicitud().")'></td>");
 								echo("</tr>");
 							}
 							echo("</table>");	

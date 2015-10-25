@@ -173,10 +173,12 @@
 												?>
 											</select>
 										</td>
+										
 										<td>
 											<input type='submit' value='Enviar'>
 										</td>
 										</form>	
+
 										<?php
 									}
 									else
@@ -186,6 +188,10 @@
 								?>
 							</tr>
 						</table>
+						</br>
+										<td>
+											<h1 id="strings_editar">El núnero de stand que no se encuentre en la lista ya esta OCUPADO.</h1>
+										</td>
 						<br><br>
 <br>
 <h1 id="strings_editar_rojo">Claustro Santo Domingo - Patio 1 . Piso 1</h1>

@@ -80,11 +80,6 @@ function validacionForm()
 		errores=errores+"Descripción del producto vacía <br>";
 		correcto=false;
 	}
-	if(link.length==0||link==null)
-	{
-		errores=errores+"Link vacío <br>";
-		correcto=false;
-	}
 	if(!correcto)
 	{
 		
