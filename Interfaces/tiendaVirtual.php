@@ -78,7 +78,7 @@
 			</nav>
 			<section id="sec4">
 			<div style="float:right; margin-right:5px">
-			<input type='text' id='busquedaTiendaVirtual'><input id="boton_buscar"type='button' value='Buscar Articulo' onclick='buscarTiendaVirtual()'>
+			<input type='text' id='busquedaTiendaVirtual' onkeyup='buscarTiendaVirtual()'><input id="boton_buscar"type='button' value='Buscar Articulo' onclick='buscarTiendaVirtual()'>
 			</div>
 			<h1 id="titulos_inicio_sesion2">Tienda virtual de Artesanías Manos de Oro.</h1>
 			<h1 id="titulos_acerca2"> A continuación se muestran las imágenes de los productos en la tienda</h1>

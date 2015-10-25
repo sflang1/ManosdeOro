@@ -17,7 +17,7 @@ function buscarTiendaVirtual()
 				else
 				{
 					var arrayproductos=result.productos;
-					var cadena="<table><tr>";
+					var cadena="<table id='tabla_tineda'><tr>";
 					for(var i=0;i<arrayproductos.length;i++)
 					{
 						cadena=cadena+"<td style='padding-top:3px'><img style='cursor:pointer' src='"+arrayproductos[i].foto+"' width='180' height='150' onclick=\"window.location.href='verDetalles.php?id="+arrayproductos[i].idProducto+"'\"><br><a style='text-decoration:none; color: #000;' href='verDetalles.php?id="+arrayproductos[i].idProducto+"'>"+arrayproductos[i].descripcion+"</td>";
