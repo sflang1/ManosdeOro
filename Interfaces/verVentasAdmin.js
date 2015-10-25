@@ -33,8 +33,8 @@ function buscarPorFecha()
 					var precio="";
 					var cadena="<table>";
 					cadena+="<th style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Nombre del producto</th><th style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Unidades Vendidas en Total</th><th style='border: 1px solid black; border-collapse: collapse;padding:5px;'>Precio por unidad</th><th style='border: 1px solid black; border-collapse: collapse;padding:5px;'>Ventas totales</th>";
-					cadena+="<th style='border: 1px solid black; border-collapse: collapse; padding:5px;' >Comisión manos de oro</th><th style='border: 1px solid black; border-collapse: collapse;padding:5px;'>Comision Impuesta (%)</th><th style='border: 1px solid black; border-collapse: collapse;padding:5px;'>Fecha (aaaa-mm-dd)</th>";
-					for (var i = valores.length - 1; i >= 0; i--) 
+					cadena+="<th style='border: 1px solid black; border-collapse: collapse; padding:5px;' >Comisión manos de oro</th><th style='border: 1px solid black; border-collapse: collapse;padding:5px;'>Fecha (aaaa-mm-dd)</th>";
+					for (var i = 0;i<valores.length;i++) 
 					{
 						if(idActual==valores[i].idProducto)
 						{
@@ -50,9 +50,8 @@ function buscarPorFecha()
 						}
 						else
 						{
-							alert("Se cambia el ID");
 							cadena+="<tr>";
-							cadena+="<td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+nomProducto+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+unidadesVendidas+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+precio+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+gananciaTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+comisionTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+Valorcomision+" %</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+Fecha+"</td>";
+							cadena+="<td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+nomProducto+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+unidadesVendidas+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+precio+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+gananciaTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+comisionTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+Fecha+"</td>";
 							cadena+="</tr>";
 							idActual=valores[i].idProducto;
 							gananciaTotal=(valores[i].unidadesVendidas*valores[i].precio);
@@ -62,7 +61,7 @@ function buscarPorFecha()
 						}
 					};
 					cadena+="<tr >";
-					cadena+="<td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+nomProducto+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+unidadesVendidas+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+precio+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+gananciaTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+comisionTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+Valorcomision+" %</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+Fecha+"</td>";
+					cadena+="<td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+nomProducto+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+unidadesVendidas+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+precio+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+gananciaTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+comisionTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+Fecha+"</td>";
 					cadena+="</tr>";
 					cadena+="</table>";
 				}
