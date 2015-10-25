@@ -31,7 +31,6 @@
 			if($artesano->getEstado()==0)
 			{
 				$artesano->setEstado(-1);
-				$artesano->setNotificado(0);
 			}
 			if($adao->save($conn,$artesano))
 			{
