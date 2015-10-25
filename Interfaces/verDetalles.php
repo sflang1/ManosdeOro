@@ -61,7 +61,7 @@
 				echo("<img src='../Archivos/fotoProducto".($producto->getIdproducto()).".png' width='".$anchofoto."' height='".$altofoto."'");	
 			}
 		?>
-		<br><h1 id="titulos_noticias">Precio del Producto</h1> <?php echo($producto->getPrecio());?>
+		<br><h1 id="titulos_noticias">Precio del Producto</h1> $ <?php echo($producto->getPrecio());?>
 		<h1 id="titulos_noticias">Nombre del Producto</h1> <?php echo($producto->getDescripcion());?><br>
 		<h1 id="titulos_noticias">Detalles del Producto</h1> <?php echo(utf8_encode("<textarea readonly style='enabled:false; width:250px; height:80px; resize:none; border:transparent;'>".$producto->getNombproducto()."</textarea>"));?><br>
 		<?php

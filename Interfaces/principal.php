@@ -114,8 +114,6 @@
 			</aside>
 
 			<section id="sec6">
-			<br>
-
 						<br>
 						<h1 id="titulos_noticias">En este menú podrás ver el estado de tus productos y la fase de aprobación en la que se encuentran<br></h1>
 						
@@ -199,6 +197,33 @@
 							</div>
 							<script type="text/javascript" src="../Librerias/jquery-1.3.1.js"></script>
 							<script type="text/javascript" src="principal.js"></script>
+			<br>
+			<hr>
+			<br>
+			<center>
+					<img src="../imgs/logo2.png" id="logo_cabecera2">
+					<h1 id="opc_admin">Tus Datos:</h1>
+					<br><br>
+					
+					<?php
+						echo("<table>");
+						if($artesano->getFormatofoto()==1)
+						{
+							echo("<tr><td><h1 id='strings_editar_rojo'>Foto Artesano:</h1></td><td><img style='heigth: 150px; width:180px;' src='".$filelocation."/foto_".$artesano->getNroDoc().".jpg'></tr>");
+						}
+						else
+						{
+							echo("<tr><td>Foto Artesano:</td><td><img style='heigth: 150px; width:180px;' src='".$filelocation."/foto_".$artesano->getNroDoc().".png'></tr>");
+						}
+						echo("<tr><td style='padding: 5px'><h1 id='strings_editar_rojo'>Nombre:</h1></td><td>".utf8_decode($artesano->getNombre())."</td<</tr>");
+						echo("<tr><td style='padding: 5px'><h1 id='strings_editar_rojo'>Direccion:</h1></td><td>".$artesano->getDireccion()."</td<</tr>");
+						echo("<tr><td style='padding: 5px'><h1 id='strings_editar_rojo'>Correo de contacto:</h1></td><td>".$artesano->getEmail()."</td<</tr>");
+						echo("<tr><td style='padding: 5px'><h1 id='strings_editar_rojo'>Correo de contacto:</h1></td><td>".$artesano->getCelular()."</td<</tr>");
+						echo("</table>");
+					?>
+			</center>
+			<hr>
+			<br>
 			</section>
 			<footer>		
 				<div style="float: left; width: 33%;">
@@ -208,7 +233,8 @@
 						<h1 id="strings_footer">Calle 5 # 4 – 51 Centro</h1>
 						<h1 id="strings_footer">Teléfonos: 8220040 – 3154648923</h1>
 						<h1 id="strings_footer">Correo: cdamanosdeoro@gmail.com</h1>
-						<h1 id="strings_footer">Popayán – Cauca</h1>
+						<h1 id="strings_footer">Popayán – Cauca</h1><br><br><br><img src="../imgs/unidos.png" id="logo_institu2">
+						
 				</div>
 				<div style="float: left; width: 23%;">
 						<h1 id="titulos_footer">Redes Sociales</h1>

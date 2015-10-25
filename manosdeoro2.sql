@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2015 a las 02:19:07
+-- Tiempo de generación: 25-10-2015 a las 19:41:40
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `administrador` (
 --
 
 INSERT INTO `administrador` (`idadministrador`, `primerNom`, `segundoNom`, `primerApe`, `segundoApe`, `username`, `password`, `email`, `tipo`) VALUES
-(3, 'felix', 'camargo', 'camrgo', 'camrgo', 'fx', '123', 'felix@gmail.com', 0),
-(4, 'jeferson', 'jeferson', 'jeferson', 'jeferson', 'jf', '123', 'jf@gmail.com', 1);
+(1, 'felix', 'camargo', 'camrgo', 'camrgo', 'fx', '123', 'felix@gmail.com', 0),
+(2, 'jeferson', 'jeferson', 'jeferson', 'jeferson', 'jf', '123', 'jf@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -72,20 +72,12 @@ CREATE TABLE IF NOT EXISTS `artesano` (
   `formatofoto` int(11) DEFAULT NULL,
   `departamento` varchar(22) COLLATE utf8_bin NOT NULL,
   `ciudad` varchar(22) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=67 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=78 ;
 
 --
 -- Volcado de datos para la tabla `artesano`
 --
 
-INSERT INTO `artesano` (`idArtesano`, `TipoDoc`, `NroDoc`, `password`, `direccion`, `telefono`, `telefono2`, `username`, `estado`, `nombre`, `celular`, `email`, `certificacion`, `nivelestudio`, `aprendices`, `cursos`, `formatofoto`, `departamento`, `ciudad`) VALUES
-(60, 0, '1061788569', 'pass', 'Cra 5 E No 57 N 03', '', '', 'user', 2, 'Sebastián  Landinez Garcia', '3002695941', 'slandinezg@gmail.com', 0, 2, '', '', 2, '10', '414'),
-(61, 0, '13312331', 'pass', 'calle', '3242', '234324', 'user2', 2, 'polo', '131231', 'pablo@pablo.com', 0, 0, 'hfgh', 'hgf', 1, '1', '1'),
-(62, 0, '9876543', 'qq', 'calle', '8367218', '8357788', '9876543', 0, 'andres ggg molina paerez', '321', 'marce58_@hotmail.com', 0, 0, '', '', 0, '5', '165'),
-(63, 0, '21312321312', 'qq', 'dgfd', '56756', '8333333', '21312321312', 0, 'pablo cesar ytr muñoz', '3244', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, '2', '15'),
-(64, 0, '8765', 'qq', 'dgfd', '8367218', '8333333', '8765', 0, 'andres cesar molina rtyr', '3244', 'slandinezg@gmail.com', 0, 0, '', '', 0, '2', '5'),
-(65, 0, '6543', 'qq', 'dgfd', '56756', '8360000', '6543', 0, 'dg cesar molina sanjuan', '3244', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, '17', '656'),
-(66, 0, '43535', 'qq', 'calle con calle', '8367218', '8357788', '43535', 0, 'xcc fsdf sdfs sdfsd', '321', 'pablosanjuanm@gmail.com', 0, 0, '', '', 0, '2', '6');
 
 -- --------------------------------------------------------
 
@@ -99,14 +91,12 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `descripcion` varchar(66) NOT NULL,
   `fecha_lim` varchar(50) NOT NULL,
   `horario` varchar(50) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `cursos`
 --
 
-INSERT INTO `cursos` (`id`, `foto`, `descripcion`, `fecha_lim`, `horario`) VALUES
-(1, 'fotoCursomanillas.jpg', 'manillas', '2015-10-31', '12-32');
 
 -- --------------------------------------------------------
 
@@ -178,8 +168,6 @@ CREATE TABLE IF NOT EXISTS `inscritos` (
 -- Volcado de datos para la tabla `inscritos`
 --
 
-INSERT INTO `inscritos` (`curso`, `nombre`, `cedula`, `email`, `celular`, `direccion`, `ciudad`, `departamento`) VALUES
-('manillas', 'prueba', 123, 'pablosanjuanm@gmail.co', 12312123, 'calle con calle', '655', '17');
 
 -- --------------------------------------------------------
 
@@ -1311,21 +1299,18 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 `idNoticia` int(11) NOT NULL,
   `titulo` varchar(150) NOT NULL,
   `contenido` text NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Volcado de datos para la tabla `noticias`
 --
 
 INSERT INTO `noticias` (`idNoticia`, `titulo`, `contenido`) VALUES
-(-1, 'comision', '42'),
+(-1, 'comision', '6'),
 (1, '¿Quiénes somos?', 'El Centro de Desarrollo Artesanal Manos de Oro PopayÃ¡n  pertenece a la Junta Pro â€“ Semana Santa de PopayÃ¡n, es una entidad sin Ã¡nimo de lucro que vela continuamente por mantener el arte, las tradiciones y la cultura en nuestra comunidad. El CDA (Centro de Desarrollo Artesanal) Manos de Oro es un programa abierto a todos los artesanos del Cauca y pretende contribuir al mejoramiento integral del sector artesanal estimulando la creatividad, el desarrollo profesional y el amor por nuestra cultura.'),
 (2, 'Misión', 'Impulsar el sector artesanal caucano, a travÃ©s del perfeccionamiento del recurso humano, preservando el patrimonio cultural tangible e intangible de nuestra regiÃ³n garantizando la sostenibilidad y conservaciÃ³n del medio ambiente.'),
 (3, 'Visión', 'Manos de oro en el 2015 serÃ¡ un centro promotor y de desarrollo del sector artesanal Caucano, posicionado a nivel nacional e internacional. AsÃ­ mismo incentivarÃ¡ el  empresarismo artesanal en la regiÃ³n, la defensa y conservaciÃ³n de nuestra riqueza cultural y nuestras tradiciones.'),
-(6, 'En pleno el XIII Congreso GastronÃ³mico de PopayÃ¡n', 'sdfsdfdf'),
-(7, 'En pleno el XIII Congreso GastronÃ³mico de PopayÃ¡n', 'La mesa estÃ¡ servida, propios y visitantes; disfrutan de los dÃ­as mÃ¡s deliciosos, en el evento de gastronomÃ­a mÃ¡s importante del paÃ­s. El XIII Congreso de PopayÃ¡n, reÃºne como en todas sus versiones como bien lo menciona en su escrito â€œDonde el fogÃ³n es el centro de la culturaâ€ el doctor Ãlvaro GarzÃ³n miembro de la Junta directiva; a gastrÃ³nomos, intelectuales, investigadores, industriales, chef, estudiantes y a la ciudadanÃ­a de la capital caucana. AÃ±o tras aÃ±o, los asistentes tienen la oportunidad de degustar exquisitos platos regionales e internacionales y este 2015 no podrÃ­a ser la excepciÃ³n, para quienes viven la experiencia podrÃ­an contarla incansablemente ya que se trata nada mÃ¡s y nada menos de la cultura intangible de los pueblos: su gastronomÃ­a.'),
-(8, 'Festival Gastronomico Valle del Cauca', 'ContÃ¡ctenos PolicÃ­a Nacional de Colombia  DirecciÃ³n de Bienestar Social Centro Social de Agentes y Patrulleros PBX: (57 + 1) 605 44 47'),
-(9, 'PASEO DOMINICAL POR EL CAMINO ARTESANAL', 'Era un plan para curiosos, para desprogramados o para que la familia reunida saliera y se fuera a buscar desde un algodÃ³n de azÃºcar hasta una chaqueta de cuero.  Hoy en dÃ­a esa modalidad se cambiÃ³: las anunciadas ferias de calle desaparecieron. Ahora los artesanos se han localizado en lugares fijos a manera de pequeÃ±os centros comerciales artesanales.  Por ejemplo, hoy usted puede encontrar cinco centros artesanales de este tipo a lo largo de la carrera sÃ©ptima, entre las calles 12 y 26; uno mÃ¡s en Cedritos y dos mercados de San Pelayo, uno totalmente artesanal en UsaquÃ©n.');
+(4, 'Lo mejor de la artesanÃ­a en Festilana 2015', 'Por la amplia experiencia que ArtesanÃ­as de Colombia tiene en la selecciÃ³n y la curadurÃ­a de productos para ferias de artesanÃ­as, este aÃ±o le fue encomendada por parte de la FundaciÃ³n Compartir la importante misiÃ³n de seleccionar los 20 artesanos y los productos que harÃ¡n parte del Mercado artesanal que se exhibirÃ¡ en la versiÃ³n nÃºmero ocho de Festilana.\r\n\r\nTeniendo en cuenta que el objetivo general de este festival es ofrecer un espacio que promueva la cultura del Valle de UbatÃ©, la entidad prepara el espacio del Mercado Artesanal como una vitrina comercial con una oferta variada de productos de excelente calidad para que los artesanos puedan promocionarlos y comercializarlos. En este estarÃ¡ presente lo mejor de la oferta de artesanÃ­a de CucunubÃ¡, es decir productos en lana en su gran mayorÃ­a, complementada con otros productos artesanales de las regiones cercanas.');
 
 -- --------------------------------------------------------
 
@@ -1344,10 +1329,6 @@ CREATE TABLE IF NOT EXISTS `perfil` (
 --
 
 INSERT INTO `perfil` (`idPerfil`, `nomPerfil`, `valorPerfil`) VALUES
-(3, 'Perfil de prueba', 22),
-(4, 'perfil_nuevo', 26),
-(5, 'perfil_perfil', 33),
-(6, 'carntanta', 18),
 (7, 'secretario', 16);
 
 -- --------------------------------------------------------
@@ -1373,20 +1354,12 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `mostrar` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `comision` float NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=81 ;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`idproducto`, `nombproducto`, `descripcion`, `link`, `idartesano`, `aceptado`, `empresa`, `nroenvio`, `notificado`, `stock`, `ventas`, `formatofoto`, `precio`, `mostrar`, `fecha`, `comision`) VALUES
-(53, 'Manillas hermosas divinas', 'Manillas', '', 60, 3, 'Deprisa', '123', 0, 0, 25, 1, 7500, 1, '0000-00-00', 15),
-(54, '', 'jarrones', 'http://www.w3schools.com/php/php_form_complete.asp', 60, 2, 'servientrega', '123', 0, 4, 16, 1, 5000, 1, '0000-00-00', 0),
-(55, 'werwerwerer', 'manillas', 'https://www.youtube.com/', 62, 0, 'ok', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
-(56, 'efsf fewfewf ewfwefew', 'SADDA', 'https://www.youtube.com/', 63, 0, 'erw', '123', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
-(57, 'fsfsfsd sf sdfs fsfssfsdfs  fsdfs', 'hola', 'https://www.facebook.com/', 64, 0, 'qeq', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
-(58, 'ferfewf dfsfdf sfsdfwe  ewdsff ', 'manillas', 'https://www.youtube.com/', 65, 0, 'ok', '4534', 0, 0, 0, 0, 0, 1, '2015-10-21', 8),
-(59, 'fddfgdfg sfsfsd', 'hola', 'https://www.youtube.com/', 66, 0, 'ok', '54646', 0, 0, 0, 0, 0, 1, '2015-10-21', 8);
 
 -- --------------------------------------------------------
 
@@ -1398,14 +1371,11 @@ CREATE TABLE IF NOT EXISTS `solicitud` (
 `idSolicitud` int(11) NOT NULL,
   `idArtesano` int(11) NOT NULL,
   `idStand` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `solicitud`
 --
-
-INSERT INTO `solicitud` (`idSolicitud`, `idArtesano`, `idStand`) VALUES
-(1, 60, 9);
 
 -- --------------------------------------------------------
 
@@ -1440,7 +1410,7 @@ INSERT INTO `stand` (`idStand`, `idArtesano`, `reservado`) VALUES
 (14, 0, 0),
 (15, 0, 0),
 (16, 0, 0),
-(17, 0, 0),
+(17, 77, 1),
 (18, 0, 0),
 (19, 0, 0),
 (20, 53, 1),
@@ -1537,19 +1507,11 @@ CREATE TABLE IF NOT EXISTS `venta` (
   `fecha` date NOT NULL,
   `nroProductosVendidos` int(11) NOT NULL,
   `comision` float NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Volcado de datos para la tabla `venta`
 --
-
-INSERT INTO `venta` (`idVenta`, `idProducto`, `fecha`, `nroProductosVendidos`, `comision`) VALUES
-(1, 53, '2015-10-21', 2, 12),
-(2, 54, '2014-09-24', 2, 8),
-(3, 53, '2015-10-21', 1, 45),
-(4, 53, '2015-10-23', 3, 78),
-(5, 54, '2015-10-23', 2, 78),
-(6, 53, '2015-10-23', 2, 42);
 
 --
 -- Índices para tablas volcadas
@@ -1622,17 +1584,17 @@ MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT de la tabla `artesano`
 --
 ALTER TABLE `artesano`
-MODIFY `idArtesano` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
+MODIFY `idArtesano` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=78;
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `idNoticia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `perfil`
 --
@@ -1642,12 +1604,12 @@ MODIFY `idPerfil` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
+MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `stand`
 --
@@ -1657,7 +1619,7 @@ MODIFY `idStand` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-MODIFY `idVenta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `idVenta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- Restricciones para tablas volcadas
 --

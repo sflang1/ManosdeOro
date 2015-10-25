@@ -156,6 +156,7 @@
 						<div><img id="fondo" src="../imgs/img2.jpg"></div>
 						<div><img id="fondo" src="../imgs/img3.jpg"></div>
 						<div><img id="fondo" src="../imgs/img4.jpg"></div>
+						<div><img id="fondo" src="../imgs/img5.jpg"></div> 
 					</div>
 					
 					<script type="text/javascript">
@@ -184,7 +185,8 @@
 			</div>
 			</center>
 
-			<footer>		
+			<footer>
+			<div>
 				<div style="float: left; width: 33%;">
 						<h1 id="titulos_footer">Informacion</h1>
 						<h1 id="strings_footer">Junta Permanente Pro Semana Santa</h1>
@@ -192,7 +194,8 @@
 						<h1 id="strings_footer">Calle 5 # 4 – 51 Centro</h1>
 						<h1 id="strings_footer">Teléfonos: 8220040 – 3154648923</h1>
 						<h1 id="strings_footer">Correo: cdamanosdeoro@gmail.com</h1>
-						<h1 id="strings_footer">Popayán – Cauca</h1>
+						<h1 id="strings_footer">Popayán – Cauca</h1><br><br><br><img src="../imgs/unidos.png" id="logo_institu2">
+
 				</div>
 				<div style="float: left; width: 23%;">
 						<h1 id="titulos_footer">Redes Sociales</h1>
@@ -211,6 +214,8 @@
 				<div style="float: right; width: 43%;">
 						<h1 id="titulos_footer">Ubicacion</h1>
 						 <div id="map_canvas" style="width:auto; height:300px; margin-right:10px"></div>
+				</div>
+			</div>	
 			</footer>
 		</div>
 	</body>	

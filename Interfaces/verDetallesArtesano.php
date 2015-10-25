@@ -47,7 +47,7 @@
 			<html>
 				<head>
 					<link rel="stylesheet" href="../css/diseno.css">
-<link rel="apple-touch-icon" sizes="57x57" href="../imgs/icono/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="57x57" href="../imgs/icono/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="../imgs/icono/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="../imgs/icono/apple-icon-72x72.png">
 		<link rel="apple-touch-icon" sizes="76x76" href="../imgs/icono/apple-icon-76x76.png">
@@ -74,7 +74,7 @@
 						echo("<table>");
 						if($artesano->getFormatofoto()==1)
 						{
-							echo("<tr><td><h1 id='strings_editar_rojo'>Foto Artesano:</h1></td><td><img style='heigth: 250px; width:280px;' src='".$filelocation."/foto".$artesano->getIdartesano().".jpg'></tr>");
+							echo("<tr><td><h1 id='strings_editar_rojo'>Foto Artesano:</h1></td><td><img style='heigth: 250px; width:280px;' src='".$filelocation."/foto_".$artesano->getNroDoc().".jpg'></tr>");
 						}
 						else
 						{

@@ -66,24 +66,22 @@
 					</center>
 				</nav>
 			<section id="sec2">
-<center>
-<div style="float: left; width: 32%; margin-top: 30px; margin-left: 8px; padding: 5px" id="" onclick="ir_expositores()">
-<img id="img_evento" src="../imgs/Imagen1.png">
-<h1 id="strings_editar" >Muestra Artesanal realizada en la plazoleta de San Francisco en el mes de Agosto, evento organizado por el Centro de Desarrollo Artesanal Manos de Oro.</p>		
-	
-</div>
-				
-<div style="float: left; width: 32%; margin-top: 30px; padding: 5px" id="" onclick="ir_expositores()">
-<img id="img_evento" src="../imgs/Imagen2.png">
-<h1 id="strings_editar" >Muestra Artesanal realizada en el claustro de Santo Domingo en el marco de la Semana Santa, evento organizado por el Centro de Desarrollo Artesanal Manos de Oro.</p>				
-</div>
 
-<div style="float: left; width: 32%; margin-top: 30px; padding: 5px" id="" onclick="ir_expositores()">
-<img id="img_evento" src="../imgs/Imagen3.png">
-<h1 id="strings_editar" >Muestra Artesanal realizada en las instalaciones de la Junta Pro Semana Santa en el mes de Diciembre, evento organizado por el Centro de Desarrollo Artesanal Manos de Oro.</p>
-</div>
-</center>
+		<div style="float: left; width: 31%; margin-top: 30px; margin-left: 30px; padding: 5px" id="cont_evento" onclick="ir_expositores()">
+		<img id="img_evento" src="../imgs/Imagen1.png">
+		<p>Muestra Artesanal realizada en la plazoleta de San Francisco en el mes de Agosto, evento organizado por el Centro de Desarrollo Artesanal Manos de Oro.</p>		
+			
+		</div>
+						
+		<div style="float: left; width: 31%; margin-top: 30px; padding: 5px" id="cont_evento" onclick="ir_expositores()">
+		<img id="img_evento" src="../imgs/Imagen2.png">
+		<p>Muestra Artesanal realizada en el claustro de Santo Domingo en el marco de la Semana Santa, evento organizado por el Centro de Desarrollo Artesanal Manos de Oro.</p>				
+		</div>
 
+		<div style="float: left; width: 31%; margin-top: 30px; padding: 5px" id="cont_evento" onclick="ir_expositores()">
+		<img id="img_evento" src="../imgs/Imagen3.png">
+		<p>Muestra Artesanal realizada en las instalaciones de la Junta Pro Semana Santa en el mes de Diciembre, evento organizado por el Centro de Desarrollo Artesanal Manos de Oro.</p>
+		</div>
 			</section>
 			<footer>		
 				<div style="float: left; width: 33%;">
@@ -93,7 +91,8 @@
 						<h1 id="strings_footer">Calle 5 # 4 – 51 Centro</h1>
 						<h1 id="strings_footer">Teléfonos: 8220040 – 3154648923</h1>
 						<h1 id="strings_footer">Correo: cdamanosdeoro@gmail.com</h1>
-						<h1 id="strings_footer">Popayán – Cauca</h1>
+						<h1 id="strings_footer">Popayán – Cauca</h1><br><br><br><img src="../imgs/unidos.png" id="logo_institu2">
+						
 				</div>
 				<div style="float: left; width: 23%;">
 						<h1 id="titulos_footer">Redes Sociales</h1>

@@ -216,7 +216,7 @@
 						<h1 id="strings_footer">Calle 5 # 4 – 51 Centro</h1>
 						<h1 id="strings_footer">Teléfonos: 8220040 – 3154648923</h1>
 						<h1 id="strings_footer">Correo: cdamanosdeoro@gmail.com</h1>
-						<h1 id="strings_footer">Popayán – Cauca</h1>
+						<h1 id="strings_footer">Popayán – Cauca</h1><br><br><br><img src="../imgs/unidos.png" id="logo_institu2">
 				</div>
 				<div style="float: left; width: 23%;">
 						<h1 id="titulos_footer">Redes Sociales</h1>
