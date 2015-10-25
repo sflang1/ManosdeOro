@@ -6,7 +6,7 @@
 	include_once("../Librerias/Variables.php");
 	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
 	$adao=new ArtesanoDao();
-	$username=$_POST["username"];
+	$username=addslashes($_POST["username"]);
 	$password=$_POST["password"];
 	$abusqueda=new Artesano();
 	$abusqueda->setUsername($username);

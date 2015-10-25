@@ -112,8 +112,15 @@
 
 
 <center>		
-	Para listar todos los artesanos, haga una búsqueda con el campo de texto en blanco.
-	<table>
+	<h1 id="titulos_desconectarse">Para listar todos los artesanos, haga una búsqueda con el campo de texto en blanco.</h1>
+	
+<center>
+				<input id="boton_buscar" type='button' onClick='buscar()' value='Listar Todos'>
+				<br><br><br>
+				<h1 id="strings_editar_rojo"> Buscar por criterios.</h1>
+				<br>
+</center>
+		<table>
 		<tr>
 			<td>
 				<select id='selectBuscar' onChange='limpiarBusqueda()'>
@@ -124,11 +131,8 @@
 			</td>
 			<td>
 				<div id='campoEntrada'>
-				 <input type='text' id='busqueda' onkeyup='buscar()'>
+				 <input type='text' id='busqueda' onkeyup='buscar()' placeholder="Introduzca la Cedula">
 				</div>
-			</td>
-			<td>
-				<input type='button' onClick='buscar()' value='Buscar'>
 			</td>
 		</tr>
 	</table>

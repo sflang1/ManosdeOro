@@ -83,10 +83,10 @@ function limpiarBusqueda()
 					cadena="";
 					cadena=cadena+"<table>";
 					cadena=cadena+"<th colspan='7'>Lista de artesanos</th>";
-					cadena=cadena+"<tr><td>Nombre</td><td>Número de documento</td><td>Dirección</td><td>Teléfono</td><td>Celular</td><td>Email</td><td>Ciudad</td><td>Departamento</td></tr>";
+					cadena=cadena+"<tr><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Nombre</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Número de documento</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Dirección</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Teléfono</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Celular</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Email</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Ciudad</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Departamento</td></tr>";
 					var valores=result.valores;
 					for (var i = valores.length - 1; i >= 0; i--) {
-						cadena=cadena+"<tr><td>"+valores[i].nombre+"</td><td>"+valores[i].nroDoc+"</td><td>"+valores[i].direccion+"</td><td>"+valores[i].telefono+"</td><td>"+valores[i].celular+"</td><td>"+valores[i].email+"</td><td>"+valores[i].ciudad+"</td><td>"+valores[i].departamento+"</td></tr>"
+						cadena=cadena+"<tr><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].nombre+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].nroDoc+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].direccion+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].telefono+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].celular+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].email+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].ciudad+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].departamento+"</td></tr>"
 					};
 					cadena=cadena+"</table>";
 					$("#lista").html(cadena);
@@ -100,7 +100,7 @@ function limpiarBusqueda()
 	}
 	else
 	{
-		campoEntrada.innerHTML="<input type='text' id='busqueda' onkeyup='buscar()'>";
+		campoEntrada.innerHTML="<input type='text' id='busqueda' onkeyup='buscar()' placeholder='Introduzca la Busqueda'>";
 		var busqueda=document.getElementById("busqueda");
 		busqueda.value="";
 	}
@@ -112,10 +112,10 @@ function limpiarBusqueda()
 			cadena="";
 			cadena=cadena+"<table>";
 			cadena=cadena+"<th colspan='6'>Lista de artesanos</th>";
-			cadena=cadena+"<tr><td>Nombre</td><td>Número de documento</td><td>Dirección</td><td>Teléfono</td><td>Celular</td><td>Email</td><td>Ciudad</td><td>Departamento</td></tr>";
+			cadena=cadena+"<tr><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Nombre</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Número de documento</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Dirección</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Teléfono</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Celular</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Email</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Ciudad</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Departamento</td></tr>";
 			var valores=result.valores;
 			for (var i = valores.length - 1; i >= 0; i--) {
-				cadena=cadena+"<tr><td>"+valores[i].nombre+"</td><td>"+valores[i].nroDoc+"</td><td>"+valores[i].direccion+"</td><td>"+valores[i].telefono+"</td><td>"+valores[i].celular+"</td><td>"+valores[i].email+"</td><td>"+valores[i].ciudad+"</td><td>"+valores[i].departamento+"</td></tr>"
+				cadena=cadena+"<tr><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].nombre+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].nroDoc+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].direccion+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].telefono+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].celular+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].email+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].ciudad+"</td><td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].departamento+"</td></tr>"
 			};
 			cadena=cadena+"</table>";
 			$("#lista").html(cadena);

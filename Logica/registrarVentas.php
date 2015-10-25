@@ -51,7 +51,7 @@
 				<script type="text/javascript">
 					alert("La venta ha sido registrada");
 				</script>
-				<meta http-equiv="REFRESH" content="0,url=../Interfaces/admonTienda.php">
+				<meta http-equiv="REFRESH" content="0,url=../Interfaces/registrarVentas.php">
 			<?php
 		}
 	}

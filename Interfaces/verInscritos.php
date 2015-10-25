@@ -119,7 +119,7 @@
 <?php 
 mysql_connect("localhost","root","") or 
 die("No se puede conectar");
-mysql_select_db("manosdeoro") or
+mysql_select_db("manosdeoro2") or
 die ("No se ha podido seleccionar la Base de Datos");
 $curso=htmlentities($_REQUEST['buscar']);
 $query="select * from cursos"; 

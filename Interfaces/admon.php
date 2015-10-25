@@ -127,10 +127,10 @@
 				</div>
 			</header>
 			<nav id="nav_admon">
-				<div style="float: center; width: 33%;">
+				<div style="float: center; width: 31%;">
 					<h1 id="titulos_noti">Panel de Administracion</h1><br>
 				</div>
-				<div id="desconectarse"style="float: right;">
+				<div id="desconectarse" style="float: right;">
 					<center>
 						<a id="titulos_desconectarse" href="../Logica/logout.php">Desconectarse</a>
 					</center>
@@ -145,6 +145,7 @@
 			<section id="sec6">
 				<center>
 					<img id="logo4" src="../imgs/logo2.png">
+					<h1 id="strings_editar_rojo">Aqui se encuentran listados todos los artesanos vinculados a nuestra empresa.</h1>
 					<br>
 					<button onclick="window.location.href='listaArtesanos.php'" id="boton_iniciar"><img id="logo_btn" src="../imgs/logo.png">Generar Lista Artesanos</button>
 				</center>
