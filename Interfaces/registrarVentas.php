@@ -1,4 +1,4 @@
-php
+<?php
 	@session_start();
 	include_once("../Librerias/Datasource.php");
 	include_once("../Librerias/AdministradorDao.php");
