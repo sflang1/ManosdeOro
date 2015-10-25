@@ -7,6 +7,10 @@
 	include_once("../Librerias/ProductoDao.php");
 	include_once("../Librerias/NoticiasDao.php");
 	include_once("../Librerias/Noticias.php");
+	include_once("../Librerias/Departamento.php");
+	include_once("../Librerias/DepartamentoDao.php");
+	include_once("../Librerias/Municipio.php");
+	include_once("../Librerias/MunicipioDao.php");
 	include_once("../Librerias/Variables.php");
 	function formatearNumero($valor)
 	{
@@ -69,6 +73,8 @@
 			$pdao=new ProductoDao();
 			$adao=new ArtesanoDao();
 			$ndao=new NoticiasDao();
+			$mdao=new MunicipioDao();
+			$ddao=new DepartamentoDao();
 			$busqueda1=new Producto();
 			$busqueda2=new Producto();
 			$busqueda1->setAceptado(2);
@@ -113,7 +119,7 @@
 <?php 
 mysql_connect("localhost","root","") or 
 die("No se puede conectar");
-mysql_select_db("manosdeoro2") or
+mysql_select_db("manosdeoro") or
 die ("No se ha podido seleccionar la Base de Datos");
 $curso=htmlentities($_REQUEST['buscar']);
 $query="select * from cursos"; 
@@ -169,8 +175,8 @@ $res=mysql_query(utf8_decode($query));
 					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['email']."</td>");
 					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['celular']."</td>");
 					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['direccion']."</td>");
-					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['ciudad']."</td>");
-					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$tabla['departamento']."</td>");
+					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$mdao->getObject($conn,$tabla['ciudad'])->getDescripcion()."</td>");
+					echo ("<td style='border: 1px solid black; border-collapse: collapse; padding: 5px' ' >".$ddao->getObject($conn,$tabla['departamento'])->getDescripcion()."</td>");
 				echo("</tr>");
 			}
 			?>
@@ -178,6 +184,7 @@ $res=mysql_query(utf8_decode($query));
 				<?php
             
         	}else{
+
             
         	}
 

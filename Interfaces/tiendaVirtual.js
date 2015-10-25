@@ -17,12 +17,16 @@ function buscarTiendaVirtual()
 				else
 				{
 					var arrayproductos=result.productos;
-					var cadena="<table>";
+					var cadena="<table><tr>";
 					for(var i=0;i<arrayproductos.length;i++)
 					{
-						cadena=cadena+"<tr><td><img src='"+arrayproductos[i].foto+"' width='180' height='150' onclick=\"window.location.href='verDetalles.php?id="+arrayproductos[i].idProducto+"'\"><br><a href='verDetalles.php?id="+arrayproductos[i].idProducto+"'>"+arrayproductos[i].descripcion+"</td></tr>";
+						cadena=cadena+"<td style='padding-top:3px'><img style='cursor:pointer' src='"+arrayproductos[i].foto+"' width='180' height='150' onclick=\"window.location.href='verDetalles.php?id="+arrayproductos[i].idProducto+"'\"><br><a style='text-decoration:none; color: #000;' href='verDetalles.php?id="+arrayproductos[i].idProducto+"'>"+arrayproductos[i].descripcion+"</td>";
+						if(i%4==0&&i!=0)
+						{
+							cadena+="</tr><tr>";
+						}
 					}
-					cadena=cadena+"</table>";
+					cadena=cadena+"</tr></table>";
 					$("#articulosTiendaVirtual").html(cadena);
 				}
 			}
