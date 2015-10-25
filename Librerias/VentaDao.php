@@ -51,6 +51,7 @@ class VentaDao {
       {
         $sql=$sql." && idProducto=".$idProducto;
       }
+      $sql=$sql." ORDER BY idProducto";
       return $this->listQuery($conn,$sql);
     }
     /**
