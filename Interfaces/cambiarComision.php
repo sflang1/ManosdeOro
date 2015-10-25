@@ -3,6 +3,8 @@
 	include_once("../Librerias/Datasource.php");
 	include_once("../Librerias/AdministradorDao.php");
 	include_once("../Librerias/Administrador.php");
+	include_once("../Librerias/Noticias.php");
+	include_once("../Librerias/NoticiasDao.php");
 	include_once("../Librerias/Variables.php");
 	function mostrarMenu($permisos)
 	{
@@ -67,6 +69,8 @@
 		{
 			$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
 			$adao=new AdministradorDao();
+			$ndao=new NoticiasDao();
+			$comision=$ndao->getObject($conn,-1)->getContenido();
 			$busqueda=new Administrador();
 			$admin=new Administrador();
 			$busqueda->setIdAdministrador($_SESSION["ID"]);
@@ -200,7 +204,7 @@
 					<br>
 					<br>
 				<center>
-					<h1 id="strings_editar">La Comision Actul es: XXX %</h1>
+					<h1 id="strings_editar">La Comisión Actual es: <?php echo($comision);?> %</h1>
 				</center>
 			</section>
 			<footer>		
