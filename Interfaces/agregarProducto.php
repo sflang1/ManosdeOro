@@ -157,6 +157,16 @@
 								</td>
 							</tr>
 							<tr>
+								<td id="strings_editar">
+									Descripcion del Producto(*)
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<textarea style="resize:none" rows="5" cols="65" type="text" name="nombproducto" id="nombproducto"  required></textarea>
+								</td>
+							</tr>
+							<tr>
 								<td colspan="2">
 									<input id="boton_iniciar" type="submit" value="Agregar">
 								</td>

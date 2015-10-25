@@ -12,12 +12,14 @@
 	$enlace=$_POST["enlace"];
 	$nroenvio=$_POST["nroenvio"];
 	$empresa=$_POST["empresa"];
+	$nombproducto=$_POST["nombproducto"];
 	$producto=new Producto();
 	$pdao=new ProductoDao();
 	$producto->setIdartesano($idartesano);
 	$producto->setAceptado(0);
 	$producto->setNotificado(0);
 	$producto->setDescripcion($descripcion);
+	$producto->setNombproducto($nombproducto);
 	$producto->setLink($enlace);
 	$producto->setEmpresa($empresa);
 	$producto->setNroenvio($nroenvio);
