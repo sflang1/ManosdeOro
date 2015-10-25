@@ -33,36 +33,19 @@ function buscarPorFecha()
 					var precio="";
 					var cadena="<table>";
 					cadena+="<th style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Nombre del producto</th><th style='border: 1px solid black; border-collapse: collapse; padding:5px;'>Unidades Vendidas en Total</th><th style='border: 1px solid black; border-collapse: collapse;padding:5px;'>Precio por unidad</th><th style='border: 1px solid black; border-collapse: collapse;padding:5px;'>Ventas totales</th>";
-					cadena+="<th style='border: 1px solid black; border-collapse: collapse; padding:5px;' >Comisión manos de oro</th><th style='border: 1px solid black; border-collapse: collapse;padding:5px;'>Fecha (aaaa-mm-dd)</th>";
+					cadena+="<th style='border: 1px solid black; border-collapse: collapse; padding:5px;' >Comisión manos de oro</th><th style='border: 1px solid black; border-collapse: collapse; padding:5px;' >Comisión para esta venta (%)</th><th style='border: 1px solid black; border-collapse: collapse;padding:5px;'>Fecha (aaaa-mm-dd)</th>";
 					for (var i = 0;i<valores.length;i++) 
 					{
-						if(idActual==valores[i].idProducto)
-						{
-							//Calcular ganancia total y comisión ganada
-							nomProducto=valores[i].nomProducto;
-							unidadesVendidas=unidadesVendidas+parseFloat(valores[i].unidadesVendidas);
-							gananciaTotal=gananciaTotal+(valores[i].unidadesVendidas*valores[i].precio);
-							Valorcomision=valores[i].comision;
-							Fecha=valores[i].fecha;
-							comisionTotal=comisionTotal+(valores[i].unidadesVendidas*valores[i].precio*valores[i].comision/100);
-							precio=valores[i].precio;
-							stock=valores[i].stock;
-						}
-						else
-						{
-							cadena+="<tr>";
-							cadena+="<td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+nomProducto+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+unidadesVendidas+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+precio+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+gananciaTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+comisionTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+Fecha+"</td>";
-							cadena+="</tr>";
-							idActual=valores[i].idProducto;
-							gananciaTotal=(valores[i].unidadesVendidas*valores[i].precio);
-							Valorcomision=valores[i].comision;
-							comisionTotal=(valores[i].unidadesVendidas*valores[i].precio*valores[i].comision/100);
-							unidadesVendidas=valores[i].unidadesVendidas;
-						}
-					};
-					cadena+="<tr >";
-					cadena+="<td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+nomProducto+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+unidadesVendidas+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+precio+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+gananciaTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+comisionTotal+"</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+Fecha+"</td>";
-					cadena+="</tr>";
+						cadena+="<tr>";
+						cadena+="<td style='border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].nomProducto+"</td>";
+						cadena+="<td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].unidadesVendidas;
+						cadena+="</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+valores[i].precio;
+						cadena+="</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+(valores[i].unidadesVendidas*valores[i].precio);
+						cadena+="</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+(valores[i].unidadesVendidas*valores[i].precio*valores[i].comision/100);
+						cadena+="</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>$ "+(valores[i].comision)+"%";
+						cadena+="</td><td style='text-align: right; border: 1px solid black; border-collapse: collapse; padding:5px;'>"+valores[i].fecha+"</td>";
+						cadena+="</tr>";
+					}
 					cadena+="</table>";
 				}
 				else
