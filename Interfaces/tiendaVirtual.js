@@ -1,6 +1,7 @@
 function buscarTiendaVirtual()
 {
 	var busqueda=document.getElementById("busquedaTiendaVirtual").value;
+	busqueda=busqueda.toUpperCase();
 	$.getJSON("../Logica/busquedaTiendaVirtual.php?busqueda="+busqueda,
 		function ( result)
 		{

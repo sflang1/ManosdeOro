@@ -65,7 +65,7 @@ class ProductoDao {
 
     function busquedaTiendaVirtual($conn,$cadena)
     {
-      $sql="SELECT * FROM producto WHERE (descripcion LIKE '%".$cadena."%') && (mostrar=1) && (aceptado=2) ORDER BY upper(producto.nombproducto)";
+      $sql="SELECT * FROM producto WHERE (upper(descripcion) LIKE '%".$cadena."%') && (mostrar=1) && (aceptado=2) ORDER BY upper(producto.nombproducto)";
       $searchResults=$this->listQuery($conn,$sql);
       return $searchResults;
       
