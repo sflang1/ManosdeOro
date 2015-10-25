@@ -10,13 +10,13 @@
 	$artesano=$adao->getObject($conn,$id);
 	$dirrut=$_FILES["rut"]["tmp_name"];
 	$formatorut=substr($_FILES["rut"]["name"], strrpos($_FILES["rut"]["name"], ".") );  //Obtener la última aparición del punto y por consiguiente, el formato
-	$destinorut=$filelocation."/rut".$id.$formatorut;
+	$destinorut=$filelocation."/rut_".$artesano->getNroDoc().$formatorut;
 	$dircamcom=$_FILES["camcom"]["tmp_name"];
 	$formatocamcom=substr($_FILES["camcom"]["name"], strrpos($_FILES["camcom"]["name"], ".") );  //Obtener la última aparición del punto y por consiguiente, el formato
-	$destinocamcom=$filelocation."/camcom".$id.$formatocamcom;
+	$destinocamcom=$filelocation."/camcom_".$artesano->getNroDoc().$formatocamcom;
 	$dirfoto=$_FILES["foto"]["tmp_name"];
 	$formatofoto=substr($_FILES["foto"]["name"], strrpos($_FILES["foto"]["name"], ".") );  //Obtener la última aparición del punto y por consiguiente, el formato
-	$destinofoto=$filelocation."/foto".$id.$formatofoto;
+	$destinofoto=$filelocation."/foto_".$artesano->getNroDoc().$formatofoto;
 	/*$dirfotoproducto=$_FILES["fotoproducto"]["tmp_name"];
 	$formatofotoproducto=substr($_FILES["fotoproducto"]["name"], strrpos($_FILES["fotoproducto"]["name"], ".") );  //Obtener la última aparición del punto y por consiguiente, el formato
 	$destinofotoproducto=$filelocation."/fotoproducto".$idproducto.$formatofotoproducto;*/
