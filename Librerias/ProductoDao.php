@@ -58,7 +58,7 @@ class ProductoDao {
     }
     function listTiendaVirtualAlphabetic($conn)
     {
-      $sql="SELECT * FROM producto WHERE (aceptado=2 && mostrar=1) ORDER BY descripcion ASC";
+      $sql="SELECT * FROM producto WHERE (aceptado=2 && mostrar=1) ORDER BY upper(descripcion) ASC";
       $searchResults=$this->listQuery($conn,$sql);
       return $searchResults;
     }
