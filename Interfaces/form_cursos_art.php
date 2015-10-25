@@ -8,10 +8,8 @@
 	$conn=new Datasource($dbhost,$dbName,$dbUser,$dbPassword);	
 	$ddao=new DepartamentoDao();
 	$mdao=new MunicipioDao();
-	$listaDeptos=$ddao->loadAll($conn);
-	$busqueda=new Municipio();
-	$busqueda->setId_departamento(1);
-	$listaMpios=$mdao->searchMatching($conn,$busqueda);	
+	$depto=$ddao->getObject($conn,$_GET["departamento"]);
+	$mpio=$mdao->getObject($conn,$_GET["ciudad"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -69,9 +67,9 @@
 			<tr><td><h1 id="titulos_noticias">Direccion</h1><td></tr>
 			<tr><td> <input value="<?php echo($_GET["direccion"]);?>" placeholder="Direccion" id="input_txt" type='text' name='direccion' required></input></td></tr>
 			<tr><td><h1 id="titulos_noticias">Ciudad</h1><td></tr>
-			<tr><td> <input value="<?php echo($_GET["ciudad"]);?>" placeholder="Ciudad" id="input_txt" type='text' name='ciudad' required></input></td></tr>
+			<tr><td> <input value="<?php echo($mpio->getDescripcion());?>" placeholder="Ciudad" id="input_txt" type='text' name='ciudad' required></input></td></tr>
 			<tr><td><h1 id="titulos_noticias">Departamento</h1><td></tr>
-			<tr><td> <input value="<?php echo $listaDeptos[$_GET['departamento']]->getDescripcion()?>" placeholder="Departamento" id="input_txt" type='text' name='departamento' required></input></td></tr>
+			<tr><td> <input value="<?php echo $depto->getDescripcion();?>" placeholder="Departamento" id="input_txt" type='text' name='departamento' required></input></td></tr>
 			<tr><td colspan='2'></td></tr>			
 			</table>
 			<input type='submit' id="boton_enviar" value='Enviar Registro'>
