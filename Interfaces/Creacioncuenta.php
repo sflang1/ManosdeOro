@@ -340,7 +340,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" name="nombproducto" id="nombproducto" height="6em;" style=" width:630px; height:100px" required>
+						<textarea style="resize:none" rows="5" cols="65" type="text" name="nombproducto" id="nombproducto"  required></textarea>
 					</td>
 				</tr>
 				<tr>
